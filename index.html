@@ -70,6 +70,37 @@
         .gallery img:hover {
             transform: scale(1.1);
         }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .modal .close, .modal .prev, .modal .next {
+            position: absolute;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .modal .close {
+            top: 20px;
+            right: 30px;
+        }
+        .modal .prev {
+            left: 20px;
+        }
+        .modal .next {
+            right: 20px;
+        }
         .trailer iframe {
             width: 100%;
             max-width: 800px;
@@ -80,7 +111,7 @@
             display: block;
             margin: 20px auto;
             padding: 15px 30px;
-            background: #ff4500;
+            background: #ff6600;
             color: white;
             font-size: 20px;
             border-radius: 5px;
@@ -88,7 +119,7 @@
             transition: background 0.3s;
         }
         .buy-button:hover {
-            background: #e63e00;
+            background: #ff3300;
         }
         .footer {
             background: #000000;
@@ -121,59 +152,35 @@
         </div>
     </div>
     
-    <div class="hero">
-        <h1 data-lang="hero-text">Survive. Explore. Fight.</h1>
-    </div>
-    
-    <div class="content">
-        <h2 data-lang="about-title">About Silent Life</h2>
-        <p data-lang="about-text">Silent Life is a hardcore survival simulator in a post-apocalyptic world full of dangers and mysteries.</p>
-        <a href="#" class="buy-button" data-lang="buy-button">Buy Game</a>
-    </div>
-    
     <div class="gallery">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen1.webp" alt="Screenshot 1">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen2.webp" alt="Screenshot 2">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen3.webp" alt="Screenshot 3">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen4.webp" alt="Screenshot 4">
+        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen1.webp" onclick="openModal(0)" alt="Screenshot 1">
+        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen2.webp" onclick="openModal(1)" alt="Screenshot 2">
     </div>
     
-    <div class="trailer">
-        <iframe src="https://www.youtube.com/embed/J4Vy6eYrA1U" frameborder="0" allowfullscreen></iframe>
+    <div class="modal" id="imageModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+        <img id="modalImage">
+        <span class="next" onclick="changeImage(1)">&#10095;</span>
     </div>
-
+    
     <div class="footer">
-        <p data-lang="contact-text">Contacts and additional information</p>
+        <p>Contacts</p>
+        <a href="https://www.youtube.com/@BPGames">YouTube</a>
+        <a href="https://www.patreon.com/c/BPGame">Patreon</a>
+        <a href="mailto:Steblakaleksandr@gmail.com">Email</a>
+        <br>
+        <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a>
     </div>
-
+    
     <script>
-        const translations = {
-            en: {
-                "hero-text": "Survive. Explore. Fight.",
-                "about-title": "About Silent Life",
-                "about-text": "Silent Life is a hardcore survival simulator in a post-apocalyptic world full of dangers and mysteries.",
-                "buy-button": "Buy Game",
-                "contact-text": "Contacts and additional information"
-            },
-            ru: {
-                "hero-text": "Выживайте. Исследуйте. Боритесь.",
-                "about-title": "О Silent Life",
-                "about-text": "Silent Life – это хардкорный симулятор выживания в постапокалиптическом мире, полном опасностей и загадок.",
-                "buy-button": "Купить игру",
-                "contact-text": "Контакты и дополнительная информация"
-            },
-            ua: {
-                "hero-text": "Виживайте. Досліджуйте. Боріться.",
-                "about-title": "Про Silent Life",
-                "about-text": "Silent Life – це хардкорний симулятор виживання у постапокаліптичному світі, сповненому небезпек та загадок.",
-                "buy-button": "Купити гру",
-                "contact-text": "Контакти та додаткова інформація"
-            }
-        };
-        function changeLanguage(lang) {
-            document.querySelectorAll("[data-lang]").forEach(el => {
-                el.textContent = translations[lang][el.dataset.lang];
-            });
+        function openModal(index) {
+            let images = document.querySelectorAll(".gallery img");
+            document.getElementById("modalImage").src = images[index].src;
+            document.getElementById("imageModal").style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
         }
     </script>
 </body>
