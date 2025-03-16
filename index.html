@@ -11,16 +11,22 @@
             background-color: #1c1b1a;
             color: white;
             text-align: center;
+            overflow-x: hidden;
         }
         .header {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px 20px;
+            padding: 20px;
             background-color: #222;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
         .header img {
-            height: 50px;
+            height: 60px;
+            transition: transform 0.3s;
+        }
+        .header img:hover {
+            transform: scale(1.1);
         }
         .header .links {
             position: absolute;
@@ -30,7 +36,7 @@
             color: white;
             text-decoration: none;
             margin-left: 15px;
-            font-size: 16px;
+            font-size: 18px;
         }
         .header .links a:hover {
             text-decoration: underline;
@@ -40,21 +46,26 @@
             height: 10px;
         }
         .description {
-            margin: 20px auto;
-            font-size: 18px;
+            margin: 40px auto;
+            font-size: 20px;
             max-width: 800px;
+            line-height: 1.6;
         }
         .gallery {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            padding: 10px;
+            gap: 15px;
+            padding: 20px;
             background-color: #222;
         }
         .gallery img {
-            height: 200px;
-            border-radius: 5px;
+            height: 250px;
+            border-radius: 10px;
             cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
         }
         .lightbox {
             display: none;
@@ -63,7 +74,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             justify-content: center;
             align-items: center;
         }
@@ -75,9 +86,43 @@
             position: absolute;
             top: 20px;
             right: 30px;
-            font-size: 30px;
+            font-size: 40px;
             color: white;
             cursor: pointer;
+        }
+        .features {
+            margin: 40px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .features h3 {
+            border-bottom: 2px solid white;
+            padding-bottom: 5px;
+        }
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        .features li {
+            margin: 10px 0;
+        }
+        .trailer {
+            margin: 40px auto;
+            max-width: 800px;
+        }
+        .buy-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff4500;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .buy-button:hover {
+            background: #e63e00;
         }
     </style>
 </head>
@@ -95,6 +140,17 @@
     <div class="description">
         <h2>SILENT LIFE</h2>
         <p>Игра в жанре выживания, где вам предстоит исследовать мрачный мир, искать ресурсы и бороться за свою жизнь.</p>
+        <a href="#" class="buy-button">Купить игру</a>
+    </div>
+    
+    <div class="features">
+        <h3>Особенности игры</h3>
+        <ul>
+            <li>🌍 Открытый мир с динамической сменой дня и ночи</li>
+            <li>🔪 Напряжённые стелс-механики</li>
+            <li>🎭 Глубокий сюжет с мрачной атмосферой</li>
+            <li>⚔️ Выживание с элементами крафта и исследования</li>
+        </ul>
     </div>
     
     <div class="gallery">
