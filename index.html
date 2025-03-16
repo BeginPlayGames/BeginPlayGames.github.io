@@ -66,49 +66,20 @@
             margin: auto;
             text-align: center;
         }
-        .gallery {
-            display: flex;
-            gap: 15px;
+        .footer {
             padding: 20px;
-            overflow-x: auto;
-            background-color: #222;
-            scroll-snap-type: x mandatory;
-            justify-content: center;
-        }
-        .gallery img {
-            height: 250px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.3s;
-            scroll-snap-align: center;
-        }
-        .gallery img:hover {
-            transform: scale(1.1);
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            align-items: center;
-            justify-content: center;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 30px;
+            background: #111;
             color: white;
-            cursor: pointer;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .footer a {
+            color: #ff4500;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -128,7 +99,7 @@
     
     <div class="content" id="content">
         <h2 id="title">ABOUT SILENT LIFE</h2>
-        <p id="description">Silent Life is a hardcore survival simulation set in a post-apocalyptic world filled with danger, mystery, and limited resources.</p>
+        <p id="description">Silent Life is a hardcore survival simulation set in a post-apocalyptic world filled with danger, mystery, and limited resources. Every decision you make could mean life or death.</p>
     </div>
     
     <div class="gallery">
@@ -143,6 +114,12 @@
         <img id="modalImg">
     </div>
     
+    <div class="footer">
+        <p>YouTube: <a href="https://www.youtube.com/@BPGames" target="_blank">@BPGames</a></p>
+        <p>Email: <a href="mailto:Steblakaleksandr@gmail.com">Steblakaleksandr@gmail.com</a></p>
+        <p>Patreon: <a href="https://www.patreon.com/BPGame" target="_blank">BPGame</a></p>
+    </div>
+
     <script>
         function openModal(src) {
             document.getElementById("modalImg").src = src;
@@ -150,6 +127,30 @@
         }
         function closeModal() {
             document.getElementById("imageModal").style.display = "none";
+        }
+        
+        const translations = {
+            en: {
+                title: "ABOUT SILENT LIFE",
+                description: "Silent Life is a hardcore survival simulation set in a post-apocalyptic world filled with danger, mystery, and limited resources. Every decision you make could mean life or death.",
+                buy: "BUY NOW"
+            },
+            ru: {
+                title: "О SILENT LIFE",
+                description: "Silent Life — это хардкорный симулятор выживания в постапокалиптическом мире, полном опасностей, тайн и ограниченных ресурсов. Каждое ваше решение может стать судьбоносным.",
+                buy: "КУПИТЬ СЕЙЧАС"
+            },
+            ua: {
+                title: "ПРО SILENT LIFE",
+                description: "Silent Life — це хардкорний симулятор виживання в постапокаліптичному світі, наповненому небезпеками, таємницями і обмеженими ресурсами. Кожне ваше рішення може бути доленосним.",
+                buy: "КУПИТИ ЗАРАЗ"
+            }
+        };
+        
+        function setLanguage(lang) {
+            document.getElementById("title").innerText = translations[lang].title;
+            document.getElementById("description").innerText = translations[lang].description;
+            document.getElementById("buy-button").innerText = translations[lang].buy;
         }
     </script>
 </body>
