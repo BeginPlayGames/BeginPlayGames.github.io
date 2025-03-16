@@ -173,9 +173,13 @@
             document.getElementById("modalImg").src = src;
             document.getElementById("imageModal").style.display = "flex";
         }
+    
         function closeModal() {
             document.getElementById("imageModal").style.display = "none";
         }
+    
+        // Закрытие при клике на саму картинку в модальном окне
+        document.getElementById("modalImg").addEventListener("click", closeModal);   
         
         const translations = {
             en: {
