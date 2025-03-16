@@ -14,28 +14,31 @@
             overflow-x: hidden;
         }
         .header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            background: linear-gradient(90deg, #0f0f0f, #222);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
-        .header img {
-            height: 60px;
-        }
-        .language-switch {
-            margin-top: 10px;
-        }
-        .language-switch a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-        .language-switch a:hover {
-            text-decoration: underline;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(90deg, #0f0f0f, #222);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.language-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.language-switch a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.language-switch a:hover {
+    text-decoration: underline;
+}
         .hero {
             background: url('https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Background.webp') no-repeat center/cover;
             height: 500px;
@@ -129,15 +132,14 @@
         }
     </style>
 </head>
-<body>
-    <div class="header">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Logo.png" alt="SilentLife">
-        <div class="language-switch">
-            <a href="#" onclick="setLanguage('en')">ENG</a> | 
-            <a href="#" onclick="setLanguage('ru')">RU</a> | 
-            <a href="#" onclick="setLanguage('ua')">UA</a>
-        </div>
+<div class="header">
+    <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Logo.png" alt="SilentLife">
+    <div class="language-switch">
+        <a href="#" onclick="setLanguage('en')">ENG</a> | 
+        <a href="#" onclick="setLanguage('ru')">RU</a> | 
+        <a href="#" onclick="setLanguage('ua')">UA</a>
     </div>
+</div>
     
     <div class="hero">
         <h1 id="title">Survive. Explore. Fight.</h1>
