@@ -142,7 +142,7 @@
     <div class="header">
         <div class="language-selector">
             <select onchange="changeLanguage(this.value)">
-                <option value="en">English</option>
+                <option value="en" selected>English</option>
                 <option value="ru">Русский</option>
                 <option value="ua">Українська</option>
             </select>
@@ -151,37 +151,35 @@
             <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Logo.png" alt="SilentLife">
         </div>
     </div>
-    
+
+    <div class="trailer">
+        <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_ID" allowfullscreen></iframe>
+    </div>
+
+    <div class="content">
+        <p>SilentLife is an immersive survival experience...</p>
+        <a href="#" class="buy-button">Buy Now</a>
+    </div>
+
     <div class="gallery">
         <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen1.webp" onclick="openModal(0)" alt="Screenshot 1">
         <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen2.webp" onclick="openModal(1)" alt="Screenshot 2">
+        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen3.webp" onclick="openModal(2)" alt="Screenshot 3">
+        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen4.webp" onclick="openModal(3)" alt="Screenshot 4">
     </div>
-    
+
     <div class="modal" id="imageModal">
         <span class="close" onclick="closeModal()">&times;</span>
         <span class="prev" onclick="changeImage(-1)">&#10094;</span>
         <img id="modalImage">
         <span class="next" onclick="changeImage(1)">&#10095;</span>
     </div>
-    
+
     <div class="footer">
         <p>Contacts</p>
         <a href="https://www.youtube.com/@BPGames">YouTube</a>
         <a href="https://www.patreon.com/c/BPGame">Patreon</a>
         <a href="mailto:Steblakaleksandr@gmail.com">Email</a>
-        <br>
-        <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a>
     </div>
-    
-    <script>
-        function openModal(index) {
-            let images = document.querySelectorAll(".gallery img");
-            document.getElementById("modalImage").src = images[index].src;
-            document.getElementById("imageModal").style.display = "flex";
-        }
-        function closeModal() {
-            document.getElementById("imageModal").style.display = "none";
-        }
-    </script>
 </body>
 </html>
