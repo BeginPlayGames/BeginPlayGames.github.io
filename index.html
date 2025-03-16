@@ -32,13 +32,14 @@
             text-decoration: none;
             margin: 0 10px;
             font-weight: bold;
+            cursor: pointer;
         }
         .language-switch a:hover {
             text-decoration: underline;
         }
         .hero {
             background: url('https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Background.webp') no-repeat center/cover;
-            height: 500px;
+            min-height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -85,17 +86,17 @@
             transform: scale(1.1);
         }
         .modal {
-    display: none; /* Изначально скрываем окно */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-}
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
         .modal img {
             max-width: 90%;
             max-height: 90%;
@@ -109,78 +110,39 @@
             color: white;
             cursor: pointer;
         }
-        .trailer iframe {
-            width: 100%;
-            max-width: 800px;
-            height: 400px;
-            border-radius: 10px;
-        }
-        .footer {
-            padding: 20px;
-            background: #111;
-            color: white;
-            text-align: center;
-            margin-top: 40px;
-        }
-        .footer a {
-            color: #ff4500;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
-
     <div class="header">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Logo.png" alt="SilentLife">
+        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Logo.png" alt="Silent Life Logo">
         <div class="language-switch">
-            <a href="#" onclick="setLanguage('en')">ENG</a> | 
-            <a href="#" onclick="setLanguage('ru')">RU</a> | 
-            <a href="#" onclick="setLanguage('ua')">UA</a>
+            <a onclick="setLanguage('en')">ENG</a> | 
+            <a onclick="setLanguage('ru')">RU</a> | 
+            <a onclick="setLanguage('ua')">UA</a>
         </div>
     </div>
     
     <div class="hero">
-        <a href="https://www.patreon.com/c/BPGame" target="_blank" class="buy-button">BUY NOW</a>
+        <a href="https://www.patreon.com/c/BPGame" target="_blank" rel="noopener noreferrer" class="buy-button" id="buy-button">BUY NOW</a>
     </div>
     
-    <div class="content">
-        <h2>ABOUT SILENT LIFE</h2>
-        <p>
-            Silent Life is a hardcore survival simulation set in a post-apocalyptic world filled with danger, mystery, and limited resources. 
-            Every decision you make could be the difference between life and death. Scavenge for supplies, craft tools, and forge alliances—or face the world alone.
-        </p>
-        <p>
-            You are trapped in an occupied territory, where ruthless factions fight for power, and survival is never guaranteed. 
-            Explore abandoned towns, hunt for food, and stay ahead of those who would rather see you dead. Manage your hunger, thirst, and stamina while navigating an unforgiving landscape.
-        </p>
-        <p>
-            Will you adapt and overcome, or will the world break you first?  
-            Experience <strong>true survival</strong> where every bullet counts, every choice matters, and every encounter could be your last.
-        </p>
+    <div class="content" id="content">
+        <h2 id="title">ABOUT SILENT LIFE</h2>
+        <p id="description">Silent Life is a hardcore survival simulation set in a post-apocalyptic world filled with danger, mystery, and limited resources.</p>
     </div>
-
+    
     <div class="gallery">
         <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen1.jpg" alt="Screenshot 1" onclick="openModal(this.src)">
         <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen2.jpg" alt="Screenshot 2" onclick="openModal(this.src)">
         <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen3.jpg" alt="Screenshot 3" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen4.jpg" alt="Screenshot 4" onclick="openModal(this.src)">
+        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen4.jpg" alt="Screenshot 3" onclick="openModal(this.src)">
     </div>
 
     <div class="modal" id="imageModal">
         <span class="modal-close" onclick="closeModal()">&times;</span>
         <img id="modalImg">
     </div>
-
-    <div class="footer">
-        <p>YouTube: <a href="https://www.youtube.com/@BPGames" target="_blank">@BPGames</a></p>
-        <p>Email: <a href="mailto:Steblakaleksandr@gmail.com">Steblakaleksandr@gmail.com</a></p>
-        <p>Patreon: <a href="https://www.patreon.com/BPGame">BPGame</a></p>
-    </div>
-
+    
     <script>
         function openModal(src) {
             document.getElementById("modalImg").src = src;
@@ -190,6 +152,5 @@
             document.getElementById("imageModal").style.display = "none";
         }
     </script>
-
 </body>
 </html>
