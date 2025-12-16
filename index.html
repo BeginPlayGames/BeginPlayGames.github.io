@@ -3,207 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silent Life</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #1c1b1a;
-            color: white;
-            text-align: center;
-            overflow-x: hidden;
-        }
-        .header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            padding: 20px;
-            background: linear-gradient(90deg, #0f0f0f, #222);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
-        .language-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        .language-switch a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .language-switch a:hover {
-            text-decoration: underline;
-        }
-        .hero {
-            background: url('https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Background.webp') no-repeat center/cover;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .buy-button {
-            display: inline-block;
-            padding: 20px 40px;
-            background: #ff4500;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            border-radius: 10px;
-            text-decoration: none;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        .buy-button:hover {
-            background: #e63e00;
-            transform: scale(1.05);
-        }
-        .content {
-            padding: 40px;
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
-        }
-        .gallery {
-            display: flex;
-            gap: 15px;
-            padding: 20px;
-            overflow-x: auto;
-            background-color: #222;
-            scroll-snap-type: x mandatory;
-            justify-content: center;
-        }
-        .gallery img {
-            height: 250px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.3s;
-            scroll-snap-align: center;
-        }
-        .gallery img:hover {
-            transform: scale(1.1);
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            align-items: center;
-            justify-content: center;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-        }
-        .footer {
-            padding: 20px;
-            background: #111;
-            color: white;
-            text-align: center;
-            margin-top: 40px;
-        }
-        .footer a {
-            color: #ff4500;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <title>SILENT LIFE - Survive the Occupation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="header">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Logo.png" alt="Silent Life Logo">
-        <div class="language-switch">
-            <a href="#" onclick="setLanguage('en')">ENG</a> | 
-            <a href="#" onclick="setLanguage('ru')">RU</a> | 
-            <a href="#" onclick="setLanguage('ua')">UA</a>
-        </div>
-    </div>
-    
-    <div class="hero">
-        <a href="https://www.patreon.com/c/BPGame" target="_blank" rel="noopener noreferrer" class="buy-button" id="buy-button">BUY NOW</a>
-    </div>
-    
-    <div class="content" id="content">
-        <h2 id="title">ABOUT SILENT LIFE</h2>
-        <p id="description">Silent Life is a hardcore survival simulation set in a post-apocalyptic world filled with danger, mystery, and limited resources. Every decision you make could mean life or death.</p>
-    </div>
-    
-    <div class="gallery">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen1.jpg" alt="Screenshot 1" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen2.jpg" alt="Screenshot 2" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen3.jpg" alt="Screenshot 3" onclick="openModal(this.src)">
-        <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen4.jpg" alt="Screenshot 4" onclick="openModal(this.src)">
-    </div>
-    
-    <div class="modal" id="imageModal">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <img id="modalImg">
-    </div>
-    
-    <div class="trailer">
-        <iframe width="800" height="450" src="https://www.youtube.com/embed/J4Vy6eYrA1U?start=8" frameborder="0" allowfullscreen></iframe>
-    </div>
-    
-    <div class="footer">
-        <h2>CONTACT</h2>
-         <p>YouTube: <a href="https://www.youtube.com/@BPGames" target="_blank">@BPGames</a></p>
-         <p>Email: <a href="mailto:Steblakaleksandr@gmail.com">Steblakaleksandr@gmail.com</a></p>
-         <p>Patreon: <a href="https://www.patreon.com/BPGame" target="_blank">BPGame</a></p>
-     </div>
-    <script>
-        function openModal(src) {
-            document.getElementById("modalImg").src = src;
-            document.getElementById("imageModal").style.display = "flex";
-        }
-    
-        function closeModal() {
-            document.getElementById("imageModal").style.display = "none";
-        }
-    
-        // Закрытие при клике на саму картинку в модальном окне
-        document.getElementById("modalImg").addEventListener("click", closeModal);   
-        
-        const translations = {
-            en: {
-                title: "ABOUT SILENT LIFE",
-                description: "Silent Life is a hardcore survival simulation set in a post-apocalyptic world filled with danger, mystery, and limited resources. Every decision you make could mean life or death.",
-                buy: "BUY NOW"
-            },
-            ru: {
-                title: "О SILENT LIFE",
-                description: "Silent Life — это хардкорный симулятор выживания в постапокалиптическом мире, полном опасностей, загадок и ограниченных ресурсов. Каждое ваше решение может стать вопросом жизни и смерти.",
-                buy: "КУПИТЬ СЕЙЧАС"
-            },
-            ua: {
-                title: "ПРО SILENT LIFE",
-                description: "Silent Life — це хардкорний симулятор виживання в постапокаліптичному світі, сповненому небезпек, таємниць і обмежених ресурсів. Кожне ваше рішення може стати питанням життя і смерті.",
-                buy: "КУПИТИ ЗАРАЗ"
-            }
-        };
+    <!-- Grain Texture Overlay -->
+    <div class="grain-overlay"></div>
 
-        function setLanguage(lang) {
-            document.getElementById("title").innerText = translations[lang].title;
-            document.getElementById("description").innerText = translations[lang].description;
-            document.getElementById("buy-button").innerText = translations[lang].buy;
-        }
-    </script>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="./assets/logo-silent-life.png" alt="Silent Life Logo" class="logo">
+            </div>
+            <nav class="language-switch">
+                <a href="#" onclick="setLanguage('en')" class="lang-btn active" data-lang="en">ENG</a>
+                <span class="separator">|</span>
+                <a href="#" onclick="setLanguage('ru')" class="lang-btn" data-lang="ru">RU</a>
+                <span class="separator">|</span>
+                <a href="#" onclick="setLanguage('ua')" class="lang-btn" data-lang="ua">UA</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" id="hero-title">SILENT LIFE</h1>
+            <p class="hero-subtitle" id="hero-subtitle">Survive the Occupation</p>
+            <a href="https://www.patreon.com/c/BPGame" target="_blank" rel="noopener noreferrer" class="cta-button" id="cta-button">
+                <span id="buy-text">BUY NOW</span>
+                <span class="button-glow"></span>
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title" id="about-title">ABOUT THE GAME</h2>
+            <div class="about-content">
+                <p class="about-text" id="about-text">
+                    Silent Life is a hardcore survival simulation set in an occupied territory. 
+                    No monsters, no radiation - just the harsh reality of living under occupation. 
+                    Every decision matters. Every resource counts. Will you survive?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title" id="features-title">KEY FEATURES</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="./assets/survival-shelter.jpg" alt="Survival">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title" id="feature1-title">HARDCORE SURVIVAL</h3>
+                        <p class="feature-text" id="feature1-text">
+                            Manage hunger, thirst, and health in a world where resources are scarce and danger lurks around every corner.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="./assets/stealth-patrol.jpg" alt="Stealth">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title" id="feature2-title">STEALTH & TACTICS</h3>
+                        <p class="feature-text" id="feature2-text">
+                            Avoid patrols, hide in shadows, and make strategic decisions to stay alive in occupied territory.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="./assets/scavenging-supplies.jpg" alt="Scavenging">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title" id="feature3-title">RESOURCE MANAGEMENT</h3>
+                        <p class="feature-text" id="feature3-text">
+                            Scavenge for supplies, craft tools, and make every item count in your struggle for survival.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="./assets/occupied-checkpoint.jpg" alt="Choices">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title" id="feature4-title">MORAL CHOICES</h3>
+                        <p class="feature-text" id="feature4-text">
+                            Face difficult decisions that test your humanity. Will you help others or focus on your own survival?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title" id="gallery-title">SCREENSHOTS</h2>
+            <div class="gallery">
+                <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+                    <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen1.jpg" alt="Screenshot 1">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+                    <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen2.jpg" alt="Screenshot 2">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+                    <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen3.jpg" alt="Screenshot 3">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+                    <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen4.jpg" alt="Screenshot 4">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modalImg" alt="Full size screenshot">
+    </div>
+
+    <!-- Trailer Section -->
+    <section class="trailer-section">
+        <div class="container">
+            <h2 class="section-title" id="trailer-title">GAMEPLAY TRAILER</h2>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/J4Vy6eYrA1U?start=8" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h2 class="footer-title" id="contact-title">CONTACT</h2>
+            <div class="contact-links">
+                <p>
+                    <span class="contact-label">YouTube:</span> 
+                    <a href="https://www.youtube.com/@BPGames" target="_blank" rel="noopener noreferrer">@BPGames</a>
+                </p>
+                <p>
+                    <span class="contact-label">Email:</span> 
+                    <a href="/cdn-cgi/l/email-protection#71220514131d101a101d141a02101f150331161c10181d5f121e1c"><span class="__cf_email__" data-cfemail="72210617101e1319131e171901131c160032151f131b1e5c111d1f">[email&#160;protected]</span></a>
+                </p>
+                <p>
+                    <span class="contact-label">Patreon:</span> 
+                    <a href="https://www.patreon.com/BPGame" target="_blank" rel="noopener noreferrer">BPGame</a>
+                </p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SILENT LIFE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module" src="./script.js"></script>
 </body>
 </html>
