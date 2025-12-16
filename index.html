@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/assets/ffavicon.ico">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/images/AppleTouchIcon.jpg">
     <title>PROJECT SILENT LIFE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,19 +14,19 @@
 <body>
     <!-- Grain Texture Overlay -->
     <div class="grain-overlay"></div>
-    
-    <!-- Header -->
+
+        <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo-container">
-                <img src="./assets/logo-silent-life.png" alt="Silent Life Logo" class="logo">
+                <img src="/images/SilentLife.jpg" alt="Silent Life Logo" class="logo" onclick="location.reload()">
             </div>
             <nav class="language-switch">
-                <a href="#" onclick="setLanguage('en')" class="lang-btn active" data-lang="en">ENG</a>
+                <a href="#" class="lang-btn active" data-lang="en">ENG</a>
                 <span class="separator">|</span>
-                <a href="#" onclick="setLanguage('ru')" class="lang-btn" data-lang="ru">RU</a>
+                <a href="#" class="lang-btn" data-lang="ru">RU</a>
                 <span class="separator">|</span>
-                <a href="#" onclick="setLanguage('ua')" class="lang-btn" data-lang="ua">UA</a>
+                <a href="#" class="lang-btn" data-lang="ua">UA</a>
             </nav>
         </div>
     </header>
@@ -37,10 +37,10 @@
         <div class="hero-content">
             <h1 class="hero-title" id="hero-title">SILENT LIFE</h1>
             <p class="hero-subtitle" id="hero-subtitle">Survive the Occupation</p>
-            <a href="https://www.patreon.com/c/BPGame" target="_blank" rel="noopener noreferrer" class="cta-button" id="cta-button">
-                <span id="buy-text">BUY NOW</span>
+            <button class="cta-button disabled" id="cta-button" disabled>
+                <span id="buy-text">COMING SOON</span>
                 <span class="button-glow"></span>
-            </a>
+            </button>
         </div>
         <div class="scroll-indicator">
             <div class="mouse">
@@ -70,7 +70,7 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-image">
-                        <img src="./assets/survival-shelter.jpg" alt="Survival">
+                        <img src="/images/SurvivalShelter.jpg" alt="Survival">
                     </div>
                     <div class="feature-content">
                         <h3 class="feature-title" id="feature1-title">HARDCORE SURVIVAL</h3>
@@ -82,7 +82,7 @@
 
                 <div class="feature-card">
                     <div class="feature-image">
-                        <img src="./assets/stealth-patrol.jpg" alt="Stealth">
+                        <img src="/images/Stealth.jpg" alt="Stealth">
                     </div>
                     <div class="feature-content">
                         <h3 class="feature-title" id="feature2-title">STEALTH & TACTICS</h3>
@@ -94,7 +94,7 @@
 
                 <div class="feature-card">
                     <div class="feature-image">
-                        <img src="./assets/scavenging-supplies.jpg" alt="Scavenging">
+                        <img src="/images/ResourceManagement.jpg" alt="Scavenging">
                     </div>
                     <div class="feature-content">
                         <h3 class="feature-title" id="feature3-title">RESOURCE MANAGEMENT</h3>
@@ -106,7 +106,7 @@
 
                 <div class="feature-card">
                     <div class="feature-image">
-                        <img src="./assets/occupied-checkpoint.jpg" alt="Choices">
+                        <img src="/images/MoralChoices.jpg" alt="Choices">
                     </div>
                     <div class="feature-content">
                         <h3 class="feature-title" id="feature4-title">MORAL CHOICES</h3>
@@ -125,7 +125,7 @@
             <h2 class="section-title" id="gallery-title">SCREENSHOTS</h2>
             <div class="gallery">
                 <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
-                    <img src="https://raw.githubusercontent.com/BeginPlayGames/BeginPlayGames.github.io/main/Images/Screenshots/Screen1.jpg" alt="Screenshot 1">
+                    <img src="/Images/Screenshots/Screen1.jpg" alt="Screenshot 1">
                     <div class="gallery-overlay">
                         <span class="zoom-icon">🔍</span>
                     </div>
@@ -179,24 +179,24 @@
             <h2 class="footer-title" id="contact-title">CONTACT</h2>
             <div class="contact-links">
                 <p>
-                    <span class="contact-label">YouTube:</span> 
+                    <span class="contact-label" id="contact-youtube">YouTube:</span> 
                     <a href="https://www.youtube.com/@BPGames" target="_blank" rel="noopener noreferrer">@BPGames</a>
                 </p>
                 <p>
-                    <span class="contact-label">Email:</span> 
-                    <a href="/cdn-cgi/l/email-protection#71220514131d101a101d141a02101f150331161c10181d5f121e1c"><span class="__cf_email__" data-cfemail="72210617101e1319131e171901131c160032151f131b1e5c111d1f">[email&#160;protected]</span></a>
+                    <span class="contact-label" id="contact-email">Email:</span> 
+                    <a href="/cdn-cgi/l/email-protection#98fafdfff1f6e8f4f9e1fff9f5fdebd8fff5f9f1f4b6fbf7f5"><span class="__cf_email__" data-cfemail="81e3e4e6e8eff1ede0f8e6e0ece4f2c1e6ece0e8edafe2eeec">[email&#160;protected]</span></a>
                 </p>
                 <p>
-                    <span class="contact-label">Patreon:</span> 
+                    <span class="contact-label" id="contact-patreon">Patreon:</span> 
                     <a href="https://www.patreon.com/BPGame" target="_blank" rel="noopener noreferrer">BPGame</a>
                 </p>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 SILENT LIFE. All rights reserved.</p>
+                <p id="footer-copyright">&copy; 2024 SILENT LIFE. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module" src="./script.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="./script.js"></script>
 </body>
 </html>

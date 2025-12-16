@@ -3,7 +3,7 @@ const translations = {
     en: {
         heroTitle: "SILENT LIFE",
         heroSubtitle: "Survive the Occupation",
-        buyText: "BUY NOW",
+        buyText: "COMING SOON",
         aboutTitle: "ABOUT THE GAME",
         aboutText: "Silent Life is a hardcore survival simulation set in an occupied territory. No monsters, no radiation - just the harsh reality of living under occupation. Every decision matters. Every resource counts. Will you survive?",
         featuresTitle: "KEY FEATURES",
@@ -17,12 +17,16 @@ const translations = {
         feature4Text: "Face difficult decisions that test your humanity. Will you help others or focus on your own survival?",
         galleryTitle: "SCREENSHOTS",
         trailerTitle: "GAMEPLAY TRAILER",
-        contactTitle: "CONTACT"
+        contactTitle: "CONTACT",
+        contactYoutube: "YouTube:",
+        contactEmail: "Email:",
+        contactPatreon: "Patreon:",
+        footerCopyright: "© 2024 SILENT LIFE. All rights reserved."
     },
     ru: {
         heroTitle: "SILENT LIFE",
         heroSubtitle: "Выживи в Оккупации",
-        buyText: "КУПИТЬ СЕЙЧАС",
+        buyText: "СКОРО В ПРОДАЖЕ",
         aboutTitle: "ОБ ИГРЕ",
         aboutText: "Silent Life — это хардкорный симулятор выживания на оккупированной территории. Никаких монстров, никакой радиации — только суровая реальность жизни под оккупацией. Каждое решение имеет значение. Каждый ресурс на счету. Сможешь ли ты выжить?",
         featuresTitle: "КЛЮЧЕВЫЕ ОСОБЕННОСТИ",
@@ -36,14 +40,18 @@ const translations = {
         feature4Text: "Столкнись с трудными решениями, которые проверят твою человечность. Поможешь другим или сосредоточишься на собственном выживании?",
         galleryTitle: "СКРИНШОТЫ",
         trailerTitle: "ИГРОВОЙ ТРЕЙЛЕР",
-        contactTitle: "КОНТАКТЫ"
+        contactTitle: "КОНТАКТЫ",
+        contactYoutube: "YouTube:",
+        contactEmail: "Email:",
+        contactPatreon: "Patreon:",
+        footerCopyright: "© 2024 SILENT LIFE. Все права защищены."
     },
     ua: {
         heroTitle: "SILENT LIFE",
         heroSubtitle: "Вижити в Окупації",
-        buyText: "КУПИТИ ЗАРАЗ",
+        buyText: "СКОРО У ПРОДАЖУ",
         aboutTitle: "ПРО ГРУ",
-        aboutText: "Silent Life — це хардкорний симулятор виживання на окупованій territory. Ніяких монстрів, ніякої радіації — лише сувора реальність життя під окупацією. Кожне рішення має значення. Кожен ресурс на рахунку. Чи зможеш ти вижити?",
+        aboutText: "Silent Life — це хардкорний симулятор виживання на окупованій території. Ніяких монстрів, ніякої радіації — лише сувора реальність життя під окупацією. Кожне рішення має значення. Кожен ресурс на рахунку. Чи зможеш ти вижити?",
         featuresTitle: "КЛЮЧОВІ ОСОБЛИВОСТІ",
         feature1Title: "ХАРДКОРНЕ ВИЖИВАННЯ",
         feature1Text: "Керуй голодом, спрагою та здоров'ям у світі, де ресурси обмежені, а небезпека чатує за кожним рогом.",
@@ -55,7 +63,11 @@ const translations = {
         feature4Text: "Зіткнися зі складними рішеннями, які перевірять твою людяність. Допоможеш іншим чи зосередишся на власному виживанні?",
         galleryTitle: "СКРІНШОТИ",
         trailerTitle: "ІГРОВИЙ ТРЕЙЛЕР",
-        contactTitle: "КОНТАКТИ"
+        contactTitle: "КОНТАКТИ",
+        contactYoutube: "YouTube:",
+        contactEmail: "Email:",
+        contactPatreon: "Patreon:",
+        footerCopyright: "© 2024 SILENT LIFE. Всі права захищені."
     }
 };
 
@@ -81,6 +93,10 @@ function setLanguage(lang) {
     document.getElementById('gallery-title').textContent = t.galleryTitle;
     document.getElementById('trailer-title').textContent = t.trailerTitle;
     document.getElementById('contact-title').textContent = t.contactTitle;
+    document.getElementById('contact-youtube').textContent = t.contactYoutube;
+    document.getElementById('contact-email').textContent = t.contactEmail;
+    document.getElementById('contact-patreon').textContent = t.contactPatreon;
+    document.getElementById('footer-copyright').textContent = t.footerCopyright;
     
     // Update active language button
     document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -93,6 +109,9 @@ function setLanguage(lang) {
     // Save language preference
     localStorage.setItem('selectedLanguage', lang);
 }
+
+// Make setLanguage available globally
+window.setLanguage = setLanguage;
 
 // Modal Functions
 function openModal(src) {
@@ -108,6 +127,10 @@ function closeModal() {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
+// Make modal functions available globally
+window.openModal = openModal;
+window.closeModal = closeModal;
 
 // Close modal on Escape key
 document.addEventListener('keydown', (e) => {
@@ -145,6 +168,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load saved language or default to English
     const savedLang = localStorage.getItem('selectedLanguage') || 'en';
     setLanguage(savedLang);
+    
+    // Setup language button click handlers
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const lang = btn.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
     
     // Animate feature cards
     const featureCards = document.querySelectorAll('.feature-card');
