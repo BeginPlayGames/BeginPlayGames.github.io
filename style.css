@@ -433,8 +433,24 @@ body {
 }
 
 .zoom-icon {
-    font-size: 48px;
+    display: flex;
+    /* Centering */
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
     color: var(--color-accent);
+    filter: drop-shadow(0 0 10px rgba(196, 163, 90, 0.5));
+}
+
+.zoom-icon svg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .zoom-icon svg {
+    transform: scale(1.2);
 }
 
 /* Modal */
