@@ -669,4 +669,68 @@ window.addEventListener('load', () => {
     }, 100);
 });
 
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburger = document.querySelector('.hamburger');
+
+    mobileMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+
+    // Play sound if SoundManager exists
+    if (typeof SoundManager !== 'undefined') {
+        SoundManager.playClick();
+    }
+}
+
+// Sound Manager
+const SoundManager = {
+    hoverSound: new Audio('./assets/audio/hover.mp3'),
+    clickSound: new Audio('./assets/audio/click.mp3'),
+
+    init: function () {
+        this.hoverSound.volume = 0.2;
+        this.clickSound.volume = 0.3;
+
+        // Preload attempts (may be blocked by browser policy until interaction)
+        this.hoverSound.load();
+        this.clickSound.load();
+    },
+
+    playHover: function () {
+        // Clone to allow rapid re-triggering
+        const sound = this.hoverSound.cloneNode();
+        sound.volume = 0.2;
+        sound.play().catch(e => console.log("Audio play failed (user interaction needed):", e));
+    },
+
+    playClick: function () {
+        const sound = this.clickSound.cloneNode();
+        sound.volume = 0.3;
+        sound.play().catch(e => console.log("Audio play failed:", e));
+    }
+};
+
+SoundManager.init();
+
+// Attach Sounds to Interactive Elements
+document.addEventListener('DOMContentLoaded', () => {
+    // Add hover sounds
+    const interactiveSelector = 'a, button, .feature-card, .news-link, .lang-btn, .modal-close';
+
+    document.querySelectorAll(interactiveSelector).forEach(el => {
+        el.addEventListener('mouseenter', () => SoundManager.playHover());
+        el.addEventListener('click', () => SoundManager.playClick());
+    });
+
+    // Observe future added elements (if any) or just rely on delegation for clicks
+    document.body.addEventListener('click', (e) => {
+        if (e.target.closest(interactiveSelector)) {
+            // Click sound is already handled by individual listeners, 
+            // but delegation is good for dynamic elements. 
+            // Keeping it simple for now to avoid double plays.
+        }
+    });
+});
+
 console.log('SILENT LIFE - Survive the Occupation');
