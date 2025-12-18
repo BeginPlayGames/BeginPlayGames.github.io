@@ -81,41 +81,25 @@
             <h2 class="section-title" id="news-title">LATEST NEWS</h2>
             <div class="news-grid">
                 <div class="news-card">
-                    <span class="news-date">DEC 18, 2025</span>
-                    <h3 class="news-title">ALPHA TESTING BEGINS</h3>
-                    <p class="news-text">The first wave of survivors has entered the zone. Reports are coming in.</p>
+                    <span class="news-date" id="news1-date">DEC 18, 2025</span>
+                    <h3 class="news-title" id="news1-title">ALPHA TESTING BEGINS</h3>
+                    <p class="news-text" id="news1-text">The first wave of survivors has entered the zone. Reports are
+                        coming in.</p>
                     <a href="#" class="news-link">READ MORE ></a>
                 </div>
                 <div class="news-card">
-                    <span class="news-date">DEC 10, 2025</span>
-                    <h3 class="news-title">NEW TOOLS REVEALED</h3>
-                    <p class="news-text">Check out the new crafting system and survival tools added in the latest patch.
-                    </p>
+                    <span class="news-date" id="news2-date">DEC 10, 2025</span>
+                    <h3 class="news-title" id="news2-title">NEW TOOLS REVEALED</h3>
+                    <p class="news-text" id="news2-text">Check out the new crafting system and survival tools added in
+                        the latest patch.</p>
                     <a href="#" class="news-link">READ MORE ></a>
                 </div>
                 <div class="news-card">
-                    <span class="news-date">NOV 25, 2025</span>
-                    <h3 class="news-title">DEVELOPER DIARY #4</h3>
-                    <p class="news-text">Behind the scenes look at the AI behavior and stealth mechanics.</p>
+                    <span class="news-date" id="news3-date">NOV 25, 2025</span>
+                    <h3 class="news-title" id="news3-title">DEVELOPER DIARY #4</h3>
+                    <p class="news-text" id="news3-text">Behind the scenes look at the AI behavior and stealth
+                        mechanics.</p>
                     <a href="#" class="news-link">READ MORE ></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Media Section (Videos) -->
-    <section class="media-section">
-        <div class="container">
-            <h2 class="section-title" id="media-title">VIDEOS</h2>
-            <div class="video-grid">
-                <div class="video-item">
-                    <iframe src="https://www.youtube.com/embed/J4Vy6eYrA1U" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="video-item">
-                    <iframe src="https://www.youtube.com/embed/J4Vy6eYrA1U" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="video-item">
-                    <iframe src="https://www.youtube.com/embed/J4Vy6eYrA1U" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -176,6 +160,30 @@
                         </p>
                     </div>
                 </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="./assets/base-building.jpg" alt="Base">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title" id="feature5-title">BASE BUILDING</h3>
+                        <p class="feature-text" id="feature5-text">
+                            Fortify your shelter, set traps, and create a safe haven to rest and craft in safety.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="./assets/dynamic-weather.jpg" alt="Weather">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title" id="feature6-title">DYNAMIC WEATHER</h3>
+                        <p class="feature-text" id="feature6-text">
+                            Survive through rain, snow, and fog. Weather affects visibility and survival stats.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -209,6 +217,18 @@
                         <span class="zoom-icon">🔍</span>
                     </div>
                 </div>
+                <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+                    <img src="./Images/Screenshots/Screen5.jpg" alt="Screenshot 5">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+                    <img src="./Images/Screenshots/Screen6.jpg" alt="Screenshot 6">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -217,90 +237,77 @@
     <div class="modal" id="imageModal" onclick="closeModal()">
         <span class="modal-close">&times;</span>
         <img id="modalImg" alt="Full size screenshot">
+    </div>
 
-        <!-- Auth Modal -->
-        <div class="modal auth-modal" id="authModal">
-            <div class="auth-container">
-                <span class="modal-close" onclick="closeAuthModal()">&times;</span>
+    <!-- Auth Modal -->
+    <div class="modal auth-modal" id="authModal">
+        <div class="auth-container">
+            <span class="modal-close" onclick="closeAuthModal()">&times;</span>
 
-                <div class="auth-tabs">
-                    <button class="auth-tab active" onclick="switchAuthTab('login')" id="tab-login">LOGIN</button>
-                    <button class="auth-tab" onclick="switchAuthTab('signup')" id="tab-signup">SIGN UP</button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('login')" id="tab-login">LOGIN</button>
+                <button class="auth-tab" onclick="switchAuthTab('signup')" id="tab-signup">SIGN UP</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active" onsubmit="handleLogin(event)">
+                <h3 class="auth-title">ACCESS TERMINAL</h3>
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required class="auth-input">
                 </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required class="auth-input">
+                </div>
+                <button type="submit" class="cta-button auth-submit">
+                    <span>ENTER ZONE</span>
+                </button>
+            </form>
 
-                <!-- Login Form -->
-                <form id="loginForm" class="auth-form active" onsubmit="handleLogin(event)">
-                    <h3 class="auth-title">ACCESS TERMINAL</h3>
-                    <div class="input-group">
-                        <input type="email" placeholder="Email" required class="auth-input">
-                    </div>
-                    <div class="input-group">
-                        <input type="password" placeholder="Password" required class="auth-input">
-                    </div>
-                    <button type="submit" class="cta-button auth-submit">
-                        <span>ENTER ZONE</span>
-                    </button>
-                </form>
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form" onsubmit="handleSignup(event)">
+                <h3 class="auth-title">NEW SURVIVOR</h3>
+                <div class="input-group">
+                    <input type="text" placeholder="Username" required class="auth-input">
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required class="auth-input">
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required class="auth-input">
+                </div>
+                <button type="submit" class="cta-button auth-submit">
+                    <span>JOIN US</span>
+                </button>
+            </form>
+        </div>
+    </div>
 
-                <!-- Signup Form -->
-                <form id="signupForm" class="auth-form" onsubmit="handleSignup(event)">
-                    <h3 class="auth-title">NEW SURVIVOR</h3>
-                    <div class="input-group">
-                        <input type="text" placeholder="Username" required class="auth-input">
-                    </div>
-                    <div class="input-group">
-                        <input type="email" placeholder="Email" required class="auth-input">
-                    </div>
-                    <div class="input-group">
-                        <input type="password" placeholder="Password" required class="auth-input">
-                    </div>
-                    <button type="submit" class="cta-button auth-submit">
-                        <span>JOIN US</span>
-                    </button>
-                </form>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h2 class="footer-title" id="contact-title">CONTACT</h2>
+            <div class="contact-links">
+                <p>
+                    <span class="contact-label" id="contact-youtube">YouTube:</span>
+                    <a href="https://www.youtube.com/@BPGames" target="_blank" rel="noopener noreferrer">@BPGames</a>
+                </p>
+                <p>
+                    <span class="contact-label" id="contact-email">Email:</span>
+                    <a href="mailto:SilentLife@gmail.com">SilentLife@gmail.com</a>
+                </p>
+                <p>
+                    <span class="contact-label" id="contact-patreon">Patreon:</span>
+                    <a href="https://www.patreon.com/BPGame" target="_blank" rel="noopener noreferrer">BPGame</a>
+                </p>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-copyright">&copy; 2024 SILENT LIFE. All rights reserved.</p>
             </div>
         </div>
+    </footer>
 
-        <!-- Trailer Section -->
-        <section class="trailer-section">
-            <div class="container">
-                <h2 class="section-title" id="trailer-title">GAMEPLAY TRAILER</h2>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/J4Vy6eYrA1U?start=8" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <h2 class="footer-title" id="contact-title">CONTACT</h2>
-                <div class="contact-links">
-                    <p>
-                        <span class="contact-label" id="contact-youtube">YouTube:</span>
-                        <a href="https://www.youtube.com/@BPGames" target="_blank"
-                            rel="noopener noreferrer">@BPGames</a>
-                    </p>
-                    <p>
-                        <span class="contact-label" id="contact-email">Email:</span>
-                        <a href="mailto:SilentLife@gmail.com">SilentLife@gmail.com</a>
-                    </p>
-                    <p>
-                        <span class="contact-label" id="contact-patreon">Patreon:</span>
-                        <a href="https://www.patreon.com/BPGame" target="_blank" rel="noopener noreferrer">BPGame</a>
-                    </p>
-                </div>
-                <div class="footer-bottom">
-                    <p id="footer-copyright">&copy; 2024 SILENT LIFE. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-
-        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="./script.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

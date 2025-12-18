@@ -15,9 +15,23 @@ const translations = {
         feature3Text: "Scavenge for supplies, craft tools, and make every item count in your struggle for survival.",
         feature4Title: "MORAL CHOICES",
         feature4Text: "Face difficult decisions that test your humanity. Will you help others or focus on your own survival?",
+        feature5Title: "BASE BUILDING",
+        feature5Text: "Fortify your shelter, set traps, and create a safe haven to rest and craft in safety.",
+        feature6Title: "DYNAMIC WEATHER",
+        feature6Text: "Survive through rain, snow, and fog. Weather affects visibility and survival stats.",
         galleryTitle: "SCREENSHOTS",
         mediaTitle: "VIDEOS",
         newsTitle: "LATEST NEWS",
+        news1Date: "DEC 18, 2025",
+        news1Title: "ALPHA TESTING BEGINS",
+        news1Text: "The first wave of survivors has entered the zone. Reports are coming in.",
+        news2Date: "DEC 10, 2025",
+        news2Title: "NEW TOOLS REVEALED",
+        news2Text: "Check out the new crafting system and survival tools added in the latest patch.",
+        news3Date: "NOV 25, 2025",
+        news3Title: "DEVELOPER DIARY #4",
+        news3Text: "Behind the scenes look at the AI behavior and stealth mechanics.",
+        newsReadMore: "READ MORE >",
         contactTitle: "CONTACT",
         contactYoutube: "YouTube:",
         contactEmail: "Email:",
@@ -39,9 +53,23 @@ const translations = {
         feature3Text: "Ищи припасы, создавай инструменты и цени каждый предмет в своей борьбе за выживание.",
         feature4Title: "МОРАЛЬНЫЙ ВЫБОР",
         feature4Text: "Столкнись с трудными решениями, которые проверят твою человечность. Поможешь другим или сосредоточишься на собственном выживании?",
+        feature5Title: "СТРОИТЕЛЬСТВО БАЗЫ",
+        feature5Text: "Укрепляй убежище, расставляй ловушки и создай безопасное место для отдыха и крафта.",
+        feature6Title: "ДИНАМИЧЕСКАЯ ПОГОДА",
+        feature6Text: "Выживай в дождь, снег и туман. Погода влияет на видимость и показатели выживания.",
         galleryTitle: "СКРИНШОТЫ",
         mediaTitle: "ВИДЕО",
         newsTitle: "НОВОСТИ",
+        news1Date: "18 ДЕК 2025",
+        news1Title: "СТАРТ АЛЬФА-ТЕСТА",
+        news1Text: "Первая волна выживших вошла в зону. Отчеты поступают.",
+        news2Date: "10 ДЕК 2025",
+        news2Title: "НОВЫЕ ИНСТРУМЕНТЫ",
+        news2Text: "Взгляните на новую систему крафта и инструменты выживания в последнем патче.",
+        news3Date: "25 НОЯ 2025",
+        news3Title: "ДНЕВНИК РАЗРАБОТКИ #4",
+        news3Text: "За кулисами: поведение ИИ и механика скрытности.",
+        newsReadMore: "ЧИТАТЬ ДАЛЕЕ >",
         contactTitle: "КОНТАКТЫ",
         contactYoutube: "YouTube:",
         contactEmail: "Email:",
@@ -107,9 +135,25 @@ function setLanguage(lang) {
     setText('feature3-text', t.feature3Text);
     setText('feature4-title', t.feature4Title);
     setText('feature4-text', t.feature4Text);
+    setText('feature5-title', t.feature5Title);
+    setText('feature5-text', t.feature5Text);
+    setText('feature6-title', t.feature6Title);
+    setText('feature6-text', t.feature6Text);
     setText('gallery-title', t.galleryTitle);
     setText('media-title', t.mediaTitle);
     setText('news-title', t.newsTitle);
+    setText('news1-date', t.news1Date);
+    setText('news1-title', t.news1Title);
+    setText('news1-text', t.news1Text);
+    setText('news2-date', t.news2Date);
+    setText('news2-title', t.news2Title);
+    setText('news2-text', t.news2Text);
+    setText('news3-date', t.news3Date);
+    setText('news3-title', t.news3Title);
+    setText('news3-text', t.news3Text);
+    // Update all readmore links
+    document.querySelectorAll('.news-link').forEach(link => link.textContent = t.newsReadMore);
+
     setText('contact-title', t.contactTitle);
     setText('contact-youtube', t.contactYoutube);
     setText('contact-email', t.contactEmail);
