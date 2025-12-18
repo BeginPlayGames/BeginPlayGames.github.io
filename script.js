@@ -379,16 +379,171 @@ function closeNewsModal() {
 window.openNewsModal = openNewsModal;
 window.closeNewsModal = closeNewsModal;
 
+// Feature Data Content
+const featureData = {
+    en: {
+        feature1: {
+            title: "HARDCORE SURVIVAL",
+            text: `<p>Survival in Silent Life isn't just a mechanic; it's a constant struggle. You need to manage calories, hydration, body temperature, and fatigue.</p>
+                   <p>Illness and injuries can be fatal if untreated. A simple scratch can lead to infection. Food spoils. Water must be purified. Every day you survive is a victory.</p>`,
+            image: "./assets/survival-shelter.jpg"
+        },
+        feature2: {
+            title: "STEALTH & TACTICS",
+            text: `<p>You are not a soldier; you are a survivor. Engaging in direct combat with occupation forces is a suicide mission.</p>
+                   <p>Learn to move silently. Use the environment to hide. Distract enemies with thrown objects. Sabotage their vehicles. Strike from the shadows and vanish before they know what hit them.</p>`,
+            image: "./assets/stealth-patrol.jpg"
+        },
+        feature3: {
+            title: "RESOURCE MANAGEMENT",
+            text: `<p>Resources are finite. The shops are empty. The houses are looted. You must scavenge for everything.</p>
+                   <p>Inventory space is limited, forcing you to make hard choices. Do you take the medicine or the ammunition? The food or the building materials? Every item has weight, and every decision has a consequence.</p>`,
+            image: "./assets/scavenging-supplies.jpg"
+        },
+        feature4: {
+            title: "MORAL CHOICES",
+            text: `<p>The occupation brings out the best and worst in people. You will encounter other survivors with their own stories and needs.</p>
+                   <p>Will you share your food with a starving family? Will you steal from the weak to ensure your own survival? Your karma is not a stat—it's the legacy you leave behind.</p>`,
+            image: "./assets/occupied-checkpoint.jpg"
+        },
+        feature5: {
+            title: "BASE BUILDING",
+            text: `<p>Your safehouse is your only sanctuary. Upgrade it to protect yourself from the cold and intruders.</p>
+                   <p>Barricade windows, reinforce doors, and build crafting stations. Create rainwater collectors and grow your own food. Modify your shelter to suit your playstyle and survival needs.</p>`,
+            image: "./Images/Screenshots/Screen5.jpg"
+        },
+        feature6: {
+            title: "DYNAMIC WEATHER",
+            text: `<p>The weather is as dangerous as the enemy. Dynamic storms, fog, and snowfalls change the gameplay.</p>
+                   <p>Heavy rain masks your footsteps but lowers your body temperature. Fog provides cover for stealth but reduces visibility. Prepare for the elements, or they will kill you.</p>`,
+            image: "./Images/Screenshots/Screen6.jpg"
+        }
+    },
+    ru: {
+        feature1: {
+            title: "ХАРДКОРНОЕ ВЫЖИВАНИЕ",
+            text: `<p>Выживание в Silent Life — это не просто механика, это постоянная борьба. Вам нужно следить за калориями, гидратацией, температурой тела и усталостью.</p>
+                   <p>Болезни и травмы могут стать фатальными без лечения. Простая царапина может привести к заражению. Еда портится. Воду нужно очищать. Каждый прожитый день — это победа.</p>`,
+            image: "./assets/survival-shelter.jpg"
+        },
+        feature2: {
+            title: "СКРЫТНОСТЬ И ТАКТИКА",
+            text: `<p>Вы не солдат, вы выживший. Вступать в прямой бой с оккупационными силами — самоубийство.</p>
+                   <p>Учитесь двигаться бесшумно. Используйте окружение, чтобы спрятаться. Отвлекайте врагов брошенными предметами. Саботируйте их технику. Наносите удары из тени и исчезайте.</p>`,
+            image: "./assets/stealth-patrol.jpg"
+        },
+        feature3: {
+            title: "УПРАВЛЕНИЕ РЕСУРСАМИ",
+            text: `<p>Ресурсы конечны. Магазины пусты. Дома разграблены. Вам придется искать всё.</p>
+                   <p>Место в инвентаре ограничено, что заставляет делать трудный выбор. Взять лекарства или патроны? Еду или стройматериалы? Каждый предмет имеет вес, и каждое решение имеет последствия.</p>`,
+            image: "./assets/scavenging-supplies.jpg"
+        },
+        feature4: {
+            title: "МОРАЛЬНЫЙ ВЫБОР",
+            text: `<p>Оккупация проявляет в людях лучшее и худшее. Вы встретите других выживших со своими историями и нуждами.</p>
+                   <p>Поделитесь ли вы едой с голодающей семьей? Украдете ли у слабых, чтобы выжить самому? Ваша карма — это не цифра, это наследие, которое вы оставите после себя.</p>`,
+            image: "./assets/occupied-checkpoint.jpg"
+        },
+        feature5: {
+            title: "СТРОИТЕЛЬСТВО БАЗЫ",
+            text: `<p>Ваше убежище — ваше единственное спасение. Улучшайте его, чтобы защититься от холода и непрошеных гостей.</p>
+                   <p>Баррикадируйте окна, укрепляйте двери и стройте верстаки. Создавайте коллекторы дождевой воды и выращивайте еду. Изменяйте убежище под свой стиль игры.</p>`,
+            image: "./Images/Screenshots/Screen5.jpg"
+        },
+        feature6: {
+            title: "ДИНАМИЧЕСКАЯ ПОГОДА",
+            text: `<p>Погода так же опасна, как и враг. Динамические штормы, туман и снегопады меняют геймплей.</p>
+                   <p>Сильный дождь скрывает ваши шаги, но снижает температуру тела. Туман дает укрытие для стелса, но снижает видимость. Готовьтесь к стихии, или она вас убьет.</p>`,
+            image: "./Images/Screenshots/Screen6.jpg"
+        }
+    },
+    ua: {
+        feature1: {
+            title: "ХАРДКОРНЕ ВИЖИВАННЯ",
+            text: `<p>Виживання в Silent Life — це не просто механіка, це постійна боротьба. Вам потрібно стежити за калоріями, гідратацією, температурою тіла та втомою.</p>
+                   <p>Хвороби та травми можуть стати фатальними без лікування. Проста подряпина може призвести до зараження. Їжа псується. Воду потрібно очищати. Кожен прожитий день — це перемога.</p>`,
+            image: "./assets/survival-shelter.jpg"
+        },
+        feature2: {
+            title: "СКРИТНІСТЬ І ТАКТИКА",
+            text: `<p>Ви не солдат, ви той, хто вижив. Вступати у прямий бій з окупаційними силами — самогубство.</p>
+                   <p>Вчіться рухатися безшумно. Використовуйте оточення, щоб сховатися. Відволікайте ворогів кинутими предметами. Саботуйте їхню техніку. Завдавайте ударів з тіні і зникайте.</p>`,
+            image: "./assets/stealth-patrol.jpg"
+        },
+        feature3: {
+            title: "УПРАВЛІННЯ РЕСУРСАМИ",
+            text: `<p>Ресурси вичерпні. Магазини порожні. Будинки пограбовані. Вам доведеться шукати все.</p>
+                   <p>Місце в інвентарі обмежене, що змушує робити важкий вибір. Взяти ліки чи набої? Їжу чи будматеріали? Кожен предмет має вагу, і кожне рішення має наслідки.</p>`,
+            image: "./assets/scavenging-supplies.jpg"
+        },
+        feature4: {
+            title: "МОРАЛЬНИЙ ВИБІР",
+            text: `<p>Окупація проявляє в людях найкраще і найгірше. Ви зустрінете інших виживших зі своїми історіями та потребами.</p>
+                   <p>Чи поділитеся ви їжею з голодуючою сім'єю? Чи вкрадете у слабких, щоб вижити самому? Ваша карма — це не цифра, це спадщина, яку ви залишите після себе.</p>`,
+            image: "./assets/occupied-checkpoint.jpg"
+        },
+        feature5: {
+            title: "БУДІВНИЦТВО БАЗИ",
+            text: `<p>Ваш притулок — ваш єдиний порятунок. Покращуйте його, щоб захиститися від холоду та непроханих гостей.</p>
+                   <p>Барикадуйте вікна, зміцнюйте двері та будуйте верстаки. Створюйте колектори дощової води та вирощуйте їжу. Змінюйте притулок під свій стиль гри.</p>`,
+            image: "./Images/Screenshots/Screen5.jpg"
+        },
+        feature6: {
+            title: "ДИНАМІЧНА ПОГОДА",
+            text: `<p>Погода так само небезпечна, як і ворог. Динамічні шторми, туман і снігопади змінюють ґеймплей.</p>
+                   <p>Сильний дощ приховує ваші кроки, але знижує температуру тіла. Туман дає укриття для стелсу, але знижує видимість. Готуйтеся до стихії, або вона вас уб'є.</p>`,
+            image: "./Images/Screenshots/Screen6.jpg"
+        }
+    }
+};
+
+// Feature Modal Functions
+function openFeatureModal(featureId) {
+    const modal = document.getElementById('featureModal');
+
+    // Get current language from localStorage or default to english
+    const currentLang = localStorage.getItem('selectedLanguage') || 'en';
+
+    // Fallback to english content if specific language is missing
+    const langData = featureData[currentLang] || featureData['en'];
+    const content = langData[featureId];
+
+    if (content) {
+        document.getElementById('modal-feature-title').textContent = content.title;
+        document.getElementById('modal-feature-image').src = content.image;
+        document.getElementById('modal-feature-body').innerHTML = content.text;
+
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    } else {
+        console.error('Feature content not found for ID:', featureId);
+    }
+}
+
+function closeFeatureModal() {
+    const modal = document.getElementById('featureModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Make globally available
+window.openFeatureModal = openFeatureModal;
+window.closeFeatureModal = closeFeatureModal;
+
 // Close modal on outside click (reusing existing listener logic if possible, or adding new)
 window.addEventListener('click', (e) => {
     const authModal = document.getElementById('authModal');
     const newsModal = document.getElementById('newsModal');
+    const featureModal = document.getElementById('featureModal');
 
     if (e.target === authModal) {
         closeAuthModal();
     }
     if (e.target === newsModal) {
         closeNewsModal();
+    }
+    if (e.target === featureModal) {
+        closeFeatureModal();
     }
 });
 
@@ -398,6 +553,7 @@ document.addEventListener('keydown', (e) => {
         closeModal(); // Existing image modal
         closeAuthModal(); // Auth modal
         closeNewsModal(); // News modal
+        closeFeatureModal(); // Feature modal
     }
 });
 

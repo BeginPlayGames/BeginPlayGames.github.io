@@ -110,7 +110,7 @@
         <div class="container">
             <h2 class="section-title" id="features-title">KEY FEATURES</h2>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card" onclick="openFeatureModal('feature1')">
                     <div class="feature-image">
                         <img src="./assets/survival-shelter.jpg" alt="Survival">
                     </div>
@@ -123,7 +123,7 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" onclick="openFeatureModal('feature2')">
                     <div class="feature-image">
                         <img src="./assets/stealth-patrol.jpg" alt="Stealth">
                     </div>
@@ -136,7 +136,7 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" onclick="openFeatureModal('feature3')">
                     <div class="feature-image">
                         <img src="./assets/scavenging-supplies.jpg" alt="Scavenging">
                     </div>
@@ -148,7 +148,7 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" onclick="openFeatureModal('feature4')">
                     <div class="feature-image">
                         <img src="./assets/occupied-checkpoint.jpg" alt="Choices">
                     </div>
@@ -161,9 +161,9 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" onclick="openFeatureModal('feature5')">
                     <div class="feature-image">
-                        <img src="./assets/base-building.jpg" alt="Base">
+                        <img src="./Images/Screenshots/Screen5.jpg" alt="Base">
                     </div>
                     <div class="feature-content">
                         <h3 class="feature-title" id="feature5-title">BASE BUILDING</h3>
@@ -173,9 +173,9 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" onclick="openFeatureModal('feature6')">
                     <div class="feature-image">
-                        <img src="./assets/dynamic-weather.jpg" alt="Weather">
+                        <img src="./Images/Screenshots/Screen6.jpg" alt="Weather">
                     </div>
                     <div class="feature-content">
                         <h3 class="feature-title" id="feature6-title">DYNAMIC WEATHER</h3>
@@ -280,6 +280,22 @@
                     <img id="modal-news-image" src="" alt="News Image">
                 </div>
                 <div class="news-modal-body" id="modal-news-body">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature Modal -->
+    <div class="modal feature-modal" id="featureModal">
+        <div class="news-modal-container"> <!-- Reusing the refined container style -->
+            <span class="modal-close" onclick="closeFeatureModal()">&times;</span>
+            <div class="news-modal-content">
+                <h2 class="news-modal-title" id="modal-feature-title">TITLE</h2>
+                <div class="news-modal-media">
+                    <img id="modal-feature-image" src="" alt="Feature Image">
+                </div>
+                <div class="news-modal-body" id="modal-feature-body">
                     <!-- Dynamic Content -->
                 </div>
             </div>
