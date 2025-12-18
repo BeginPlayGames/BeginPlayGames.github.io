@@ -150,10 +150,70 @@ function closeModal() {
 window.openModal = openModal;
 window.closeModal = closeModal;
 
-// Close modal on Escape key
+// Auth Modal Functions
+function openAuthModal() {
+    const modal = document.getElementById('authModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeAuthModal() {
+    const modal = document.getElementById('authModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function switchAuthTab(tabName) {
+    // Update tabs
+    document.querySelectorAll('.auth-tab').forEach(tab => tab.classList.remove('active'));
+
+    // Safety check for tab elements
+    const selectedTab = document.getElementById(`tab-${tabName}`);
+    if (selectedTab) selectedTab.classList.add('active');
+
+    // Update forms
+    document.querySelectorAll('.auth-form').forEach(form => form.classList.remove('active'));
+
+    const selectedForm = document.getElementById(`${tabName}Form`);
+    if (selectedForm) selectedForm.classList.add('active');
+}
+
+function handleLogin(e) {
+    e.preventDefault();
+    alert('ACCESS GRANTED. Welcome back, survivor.');
+    closeAuthModal();
+}
+
+function handleSignup(e) {
+    e.preventDefault();
+    alert('REGISTRATION COMPLETE. Welcome to the resistance.');
+    closeAuthModal();
+}
+
+// Make auth functions available globally
+window.openAuthModal = openAuthModal;
+window.closeAuthModal = closeAuthModal;
+window.switchAuthTab = switchAuthTab;
+window.handleLogin = handleLogin;
+window.handleSignup = handleSignup;
+
+// Close modal on outside click (reusing existing listener logic if possible, or adding new)
+window.addEventListener('click', (e) => {
+    const authModal = document.getElementById('authModal');
+    if (e.target === authModal) {
+        closeAuthModal();
+    }
+});
+
+// Close modal on Escape key (Enhanced existing listener)
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        closeModal();
+        closeModal(); // Existing image modal
+        closeAuthModal(); // New auth modal
     }
 });
 

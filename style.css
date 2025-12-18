@@ -135,6 +135,28 @@ body {
     opacity: 0.3;
 }
 
+.user-menu {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.icon-btn:hover {
+    color: var(--color-accent);
+    background: rgba(196, 163, 90, 0.1);
+    transform: scale(1.1);
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -449,6 +471,95 @@ body {
 
 .modal-close:hover {
     transform: scale(1.2);
+}
+
+/* Auth Modal Specifics */
+.auth-container {
+    background: var(--color-secondary);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--color-accent);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    animation: fadeInUp 0.4s ease;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(196, 163, 90, 0.2);
+}
+
+.auth-tab {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+}
+
+.auth-tab:hover {
+    color: var(--color-text);
+}
+
+.auth-tab.active {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    margin-bottom: -2px;
+}
+
+.auth-form {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-form.active {
+    display: flex;
+    animation: fadeIn 0.4s ease;
+}
+
+.auth-title {
+    color: var(--color-text);
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.auth-input {
+    width: 100%;
+    background: rgba(10, 10, 10, 0.5);
+    border: 1px solid rgba(196, 163, 90, 0.3);
+    padding: 15px;
+    color: var(--color-text);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.auth-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 10px rgba(196, 163, 90, 0.2);
+}
+
+.auth-submit {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 15px;
 }
 
 /* Trailer Section */
