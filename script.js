@@ -16,7 +16,8 @@ const translations = {
         feature4Title: "MORAL CHOICES",
         feature4Text: "Face difficult decisions that test your humanity. Will you help others or focus on your own survival?",
         galleryTitle: "SCREENSHOTS",
-        trailerTitle: "GAMEPLAY TRAILER",
+        mediaTitle: "VIDEOS",
+        newsTitle: "LATEST NEWS",
         contactTitle: "CONTACT",
         contactYoutube: "YouTube:",
         contactEmail: "Email:",
@@ -39,7 +40,8 @@ const translations = {
         feature4Title: "МОРАЛЬНЫЙ ВЫБОР",
         feature4Text: "Столкнись с трудными решениями, которые проверят твою человечность. Поможешь другим или сосредоточишься на собственном выживании?",
         galleryTitle: "СКРИНШОТЫ",
-        trailerTitle: "ИГРОВОЙ ТРЕЙЛЕР",
+        mediaTitle: "ВИДЕО",
+        newsTitle: "НОВОСТИ",
         contactTitle: "КОНТАКТЫ",
         contactYoutube: "YouTube:",
         contactEmail: "Email:",
@@ -62,7 +64,8 @@ const translations = {
         feature4Title: "МОРАЛЬНИЙ ВИБІР",
         feature4Text: "Зіткнися зі складними рішеннями, які перевірять твою людяність. Допоможеш іншим чи зосередишся на власному виживанні?",
         galleryTitle: "СКРІНШОТИ",
-        trailerTitle: "ІГРОВИЙ ТРЕЙЛЕР",
+        mediaTitle: "ВІДЕО",
+        newsTitle: "НОВИНИ",
         contactTitle: "КОНТАКТИ",
         contactYoutube: "YouTube:",
         contactEmail: "Email:",
@@ -105,7 +108,8 @@ function setLanguage(lang) {
     setText('feature4-title', t.feature4Title);
     setText('feature4-text', t.feature4Text);
     setText('gallery-title', t.galleryTitle);
-    setText('trailer-title', t.trailerTitle);
+    setText('media-title', t.mediaTitle);
+    setText('news-title', t.newsTitle);
     setText('contact-title', t.contactTitle);
     setText('contact-youtube', t.contactYoutube);
     setText('contact-email', t.contactEmail);
