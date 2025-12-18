@@ -1,4 +1,4 @@
-// Mini Game - Runner Game with animated character (legs movement)
+// Mini Game - Runner Game with larger, more detailed animated character
 class MiniGame {
     constructor() {
         this.canvas = document.getElementById('gameCanvas');
@@ -17,8 +17,8 @@ class MiniGame {
         this.player = {
             x: 50,
             y: 150,
-            width: 24,
-            height: 32,
+            width: 48,
+            height: 64,
             velocityY: 0,
             jumping: false
         };
@@ -195,7 +195,7 @@ class MiniGame {
         const ctx = this.ctx;
         const drawPixel = (px, py, color) => {
             ctx.fillStyle = color;
-            ctx.fillRect(x + px * 2, y + py * 2, 2, 2);
+            ctx.fillRect(x + px * 4, y + py * 4, 4, 4);
         };
 
         const skin = '#F1C27D';
@@ -205,21 +205,25 @@ class MiniGame {
         const boots = '#1A1A1A';
 
         // Head
-        drawPixel(4, 2, skin); drawPixel(5, 2, skin);
-        drawPixel(4, 3, skin); drawPixel(5, 3, skin);
-        drawPixel(4, 1, hair); drawPixel(5, 1, hair);
+        for (let px = 2; px <= 5; px++) drawPixel(px, 1, hair);
+        for (let px = 2; px <= 5; px++) drawPixel(px, 2, skin);
+        for (let px = 2; px <= 5; px++) drawPixel(px, 3, skin);
 
         // Body
-        drawPixel(4, 4, jacket); drawPixel(5, 4, jacket);
-        drawPixel(4, 5, jacket); drawPixel(5, 5, jacket);
+        for (let px = 2; px <= 5; px++) drawPixel(px, 4, jacket);
+        for (let px = 2; px <= 5; px++) drawPixel(px, 5, jacket);
 
         // Legs with animation
         if (step < 10) {
-            drawPixel(4, 6, pants); drawPixel(5, 6, pants);
-            drawPixel(4, 7, boots); drawPixel(5, 7, boots);
+            drawPixel(2, 6, pants);
+            drawPixel(5, 6, pants);
+            drawPixel(2, 7, boots);
+            drawPixel(5, 7, boots);
         } else {
-            drawPixel(3, 6, pants); drawPixel(6, 6, pants);
-            drawPixel(3, 7, boots); drawPixel(6, 7, boots);
+            drawPixel(1, 6, pants);
+            drawPixel(6, 6, pants);
+            drawPixel(1, 7, boots);
+            drawPixel(6, 7, boots);
         }
     }
 
