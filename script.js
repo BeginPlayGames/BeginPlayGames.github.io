@@ -16,6 +16,8 @@ const translations = {
         feature4Title: "MORAL CHOICES",
         feature4Text: "Face difficult decisions that test your humanity. Will you help others or focus on your own survival?",
         galleryTitle: "SCREENSHOTS",
+        minigameTitle: "SURVIVAL RUNNER",
+        minigameInstructions: "Click or press SPACE to jump. Avoid obstacles and survive as long as you can!",
         trailerTitle: "GAMEPLAY TRAILER",
         contactTitle: "CONTACT",
         contactYoutube: "YouTube:",
@@ -39,6 +41,8 @@ const translations = {
         feature4Title: "МОРАЛЬНЫЙ ВЫБОР",
         feature4Text: "Столкнись с трудными решениями, которые проверят твою человечность. Поможешь другим или сосредоточишься на собственном выживании?",
         galleryTitle: "СКРИНШОТЫ",
+        minigameTitle: "РАННЕР ВЫЖИВАНИЯ",
+        minigameInstructions: "Кликай или нажимай ПРОБЕЛ для прыжка. Избегай препятствий и выживай как можно дольше!",
         trailerTitle: "ИГРОВОЙ ТРЕЙЛЕР",
         contactTitle: "КОНТАКТЫ",
         contactYoutube: "YouTube:",
@@ -62,6 +66,8 @@ const translations = {
         feature4Title: "МОРАЛЬНИЙ ВИБІР",
         feature4Text: "Зіткнися зі складними рішеннями, які перевірять твою людяність. Допоможеш іншим чи зосередишся на власному виживанні?",
         galleryTitle: "СКРІНШОТИ",
+        minigameTitle: "РАННЕР ВИЖИВАННЯ",
+        minigameInstructions: "Клікай або натискай ПРОБІЛ для стрибка. Уникай перешкод і виживай якомога довше!",
         trailerTitle: "ІГРОВИЙ ТРЕЙЛЕР",
         contactTitle: "КОНТАКТИ",
         contactYoutube: "YouTube:",
@@ -91,6 +97,8 @@ function setLanguage(lang) {
     document.getElementById('feature4-title').textContent = t.feature4Title;
     document.getElementById('feature4-text').textContent = t.feature4Text;
     document.getElementById('gallery-title').textContent = t.galleryTitle;
+    document.getElementById('minigame-title').textContent = t.minigameTitle;
+    document.getElementById('minigame-instructions').textContent = t.minigameInstructions;
     document.getElementById('trailer-title').textContent = t.trailerTitle;
     document.getElementById('contact-title').textContent = t.contactTitle;
     document.getElementById('contact-youtube').textContent = t.contactYoutube;

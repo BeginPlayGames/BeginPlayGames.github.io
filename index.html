@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./minigame.css">
 </head>
 <body>
     <!-- Grain Texture Overlay -->
@@ -127,25 +128,49 @@
                 <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
                     <img src="./Images/Screenshots/Screen1.jpg" alt="Screenshot 1">
                     <div class="gallery-overlay">
-                        <span class="zoom-icon">🔍</span>
+                        <div class="zoom-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="10" r="7" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 15L21 21" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 7V13M7 10H13" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
                     <img src="./Images/Screenshots/Screen2.jpg" alt="Screenshot 2">
                     <div class="gallery-overlay">
-                        <span class="zoom-icon">🔍</span>
+                        <div class="zoom-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="10" r="7" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 15L21 21" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 7V13M7 10H13" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
                     <img src="./Images/Screenshots/Screen3.jpg" alt="Screenshot 3">
                     <div class="gallery-overlay">
-                        <span class="zoom-icon">🔍</span>
+                        <div class="zoom-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="10" r="7" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 15L21 21" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 7V13M7 10H13" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
                     <img src="./Images/Screenshots/Screen4.jpg" alt="Screenshot 4">
                     <div class="gallery-overlay">
-                        <span class="zoom-icon">🔍</span>
+                        <div class="zoom-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="10" r="7" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 15L21 21" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 7V13M7 10H13" stroke="#C4A35A" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -157,6 +182,20 @@
         <span class="modal-close">&times;</span>
         <img id="modalImg" alt="Full size screenshot">
     </div>
+
+    <!-- Mini Game Section -->
+    <section class="minigame-section">
+        <div class="container">
+            <div class="minigame-container">
+                <h2 class="minigame-title" id="minigame-title">SURVIVAL RUNNER</h2>
+                <p class="minigame-instructions" id="minigame-instructions">
+                    Click or press SPACE to jump. Avoid obstacles and survive as long as you can!
+                </p>
+                <canvas id="gameCanvas"></canvas>
+                <div class="game-over-text" id="game-over-text">Click to restart</div>
+            </div>
+        </div>
+    </section>
 
     <!-- Trailer Section -->
     <section class="trailer-section">
@@ -184,7 +223,7 @@
                 </p>
                 <p>
                    <span class="contact-label" id="contact-email">Email:</span>
-                   <a href="mailto:SilentLife@gmail.com">SilentLife@gmail.com</a>
+                   <a href="/cdn-cgi/l/email-protection#f4a79d98919a80b89d9291b49399959d98da979b99"><span class="__cf_email__" data-cfemail="edbe8481888399a1848b88ad8a808c8481c38e8280">[email&#160;protected]</span></a>
                 </p>
                 <p>
                     <span class="contact-label" id="contact-patreon">Patreon:</span> 
@@ -197,6 +236,8 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="./script.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="./script.js"></script>
+    <script src="./minigame.js"></script>
 </body>
 </html>
