@@ -73,31 +73,45 @@ const translations = {
 
 // Set Language Function
 function setLanguage(lang) {
+    // Fallback if language not found
+    if (!translations[lang]) {
+        console.warn(`Language '${lang}' not found, defaulting to 'en'`);
+        lang = 'en';
+    }
+
     const t = translations[lang];
-    
-    // Update all text elements
-    document.getElementById('hero-title').textContent = t.heroTitle;
-    document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
-    document.getElementById('buy-text').textContent = t.buyText;
-    document.getElementById('about-title').textContent = t.aboutTitle;
-    document.getElementById('about-text').textContent = t.aboutText;
-    document.getElementById('features-title').textContent = t.featuresTitle;
-    document.getElementById('feature1-title').textContent = t.feature1Title;
-    document.getElementById('feature1-text').textContent = t.feature1Text;
-    document.getElementById('feature2-title').textContent = t.feature2Title;
-    document.getElementById('feature2-text').textContent = t.feature2Text;
-    document.getElementById('feature3-title').textContent = t.feature3Title;
-    document.getElementById('feature3-text').textContent = t.feature3Text;
-    document.getElementById('feature4-title').textContent = t.feature4Title;
-    document.getElementById('feature4-text').textContent = t.feature4Text;
-    document.getElementById('gallery-title').textContent = t.galleryTitle;
-    document.getElementById('trailer-title').textContent = t.trailerTitle;
-    document.getElementById('contact-title').textContent = t.contactTitle;
-    document.getElementById('contact-youtube').textContent = t.contactYoutube;
-    document.getElementById('contact-email').textContent = t.contactEmail;
-    document.getElementById('contact-patreon').textContent = t.contactPatreon;
-    document.getElementById('footer-copyright').textContent = t.footerCopyright;
-    
+
+    // Helper to safely set text content
+    const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.textContent = text;
+        }
+    };
+
+    // Update all text elements safely
+    setText('hero-title', t.heroTitle);
+    setText('hero-subtitle', t.heroSubtitle);
+    setText('buy-text', t.buyText);
+    setText('about-title', t.aboutTitle);
+    setText('about-text', t.aboutText);
+    setText('features-title', t.featuresTitle);
+    setText('feature1-title', t.feature1Title);
+    setText('feature1-text', t.feature1Text);
+    setText('feature2-title', t.feature2Title);
+    setText('feature2-text', t.feature2Text);
+    setText('feature3-title', t.feature3Title);
+    setText('feature3-text', t.feature3Text);
+    setText('feature4-title', t.feature4Title);
+    setText('feature4-text', t.feature4Text);
+    setText('gallery-title', t.galleryTitle);
+    setText('trailer-title', t.trailerTitle);
+    setText('contact-title', t.contactTitle);
+    setText('contact-youtube', t.contactYoutube);
+    setText('contact-email', t.contactEmail);
+    setText('contact-patreon', t.contactPatreon);
+    setText('footer-copyright', t.footerCopyright);
+
     // Update active language button
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
@@ -105,9 +119,13 @@ function setLanguage(lang) {
             btn.classList.add('active');
         }
     });
-    
+
     // Save language preference
-    localStorage.setItem('selectedLanguage', lang);
+    try {
+        localStorage.setItem('selectedLanguage', lang);
+    } catch (e) {
+        console.warn('Could not save language preference:', e);
+    }
 }
 
 // Make setLanguage available globally
@@ -140,11 +158,18 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Parallax Effect
+let ticking = false;
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.getElementById('hero');
-    if (hero) {
-        hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const hero = document.getElementById('hero');
+            if (hero) {
+                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
+            ticking = false;
+        });
+        ticking = true;
     }
 });
 
@@ -168,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load saved language or default to English
     const savedLang = localStorage.getItem('selectedLanguage') || 'en';
     setLanguage(savedLang);
-    
+
     // Setup language button click handlers
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -177,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setLanguage(lang);
         });
     });
-    
+
     // Animate feature cards
     const featureCards = document.querySelectorAll('.feature-card');
     featureCards.forEach(card => {
@@ -186,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
-    
+
     // Animate gallery items
     const galleryItems = document.querySelectorAll('.gallery-item');
     galleryItems.forEach((item, index) => {

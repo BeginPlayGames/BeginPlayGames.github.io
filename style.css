@@ -533,6 +533,7 @@ body {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -543,6 +544,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -550,9 +552,12 @@ body {
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
@@ -563,6 +568,7 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+
     100% {
         opacity: 0;
         transform: translateY(10px);
@@ -570,18 +576,29 @@ body {
 }
 
 @keyframes glitchText {
-    0%, 90%, 100% {
+
+    0%,
+    90%,
+    100% {
         text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
     }
+
     92% {
         text-shadow: 2px 0 0 var(--color-accent), -2px 0 0 var(--color-danger);
     }
+
     94% {
         text-shadow: -2px 0 0 var(--color-accent), 2px 0 0 var(--color-danger);
     }
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
