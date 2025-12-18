@@ -85,21 +85,21 @@
                     <h3 class="news-title" id="news1-title">ALPHA TESTING BEGINS</h3>
                     <p class="news-text" id="news1-text">The first wave of survivors has entered the zone. Reports are
                         coming in.</p>
-                    <a href="#" class="news-link">READ MORE ></a>
+                    <a href="#" class="news-link" onclick="openNewsModal('news1'); return false;">READ MORE ></a>
                 </div>
                 <div class="news-card">
                     <span class="news-date" id="news2-date">DEC 10, 2025</span>
                     <h3 class="news-title" id="news2-title">NEW TOOLS REVEALED</h3>
                     <p class="news-text" id="news2-text">Check out the new crafting system and survival tools added in
                         the latest patch.</p>
-                    <a href="#" class="news-link">READ MORE ></a>
+                    <a href="#" class="news-link" onclick="openNewsModal('news2'); return false;">READ MORE ></a>
                 </div>
                 <div class="news-card">
                     <span class="news-date" id="news3-date">NOV 25, 2025</span>
                     <h3 class="news-title" id="news3-title">DEVELOPER DIARY #4</h3>
                     <p class="news-text" id="news3-text">Behind the scenes look at the AI behavior and stealth
                         mechanics.</p>
-                    <a href="#" class="news-link">READ MORE ></a>
+                    <a href="#" class="news-link" onclick="openNewsModal('news3'); return false;">READ MORE ></a>
                 </div>
             </div>
         </div>
@@ -267,6 +267,23 @@
     <div class="modal" id="imageModal" onclick="closeModal()">
         <span class="modal-close">&times;</span>
         <img id="modalImg" alt="Full size screenshot">
+    </div>
+
+    <!-- News Modal -->
+    <div class="modal news-modal" id="newsModal">
+        <div class="news-modal-container">
+            <span class="modal-close" onclick="closeNewsModal()">&times;</span>
+            <div class="news-modal-content">
+                <span class="news-modal-date" id="modal-news-date">DATE</span>
+                <h2 class="news-modal-title" id="modal-news-title">TITLE</h2>
+                <div class="news-modal-media">
+                    <img id="modal-news-image" src="" alt="News Image">
+                </div>
+                <div class="news-modal-body" id="modal-news-body">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Auth Modal -->

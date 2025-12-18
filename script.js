@@ -249,11 +249,132 @@ window.switchAuthTab = switchAuthTab;
 window.handleLogin = handleLogin;
 window.handleSignup = handleSignup;
 
+// News Data Content
+const newsData = {
+    en: {
+        news1: {
+            date: "DEC 18, 2025",
+            title: "ALPHA TESTING BEGINS",
+            text: `<p>The long-awaited moment has arrived. The first wave of survivors has officially entered the Zone. We are seeing incredible engagement and are already gathering valuable feedback on the core mechanics.</p>
+                   <p>Remember, this is an Alpha. Expect bugs, expect harsh conditions, and expect no mercy. Your reports are vital for the future of Silent Life.</p>
+                   <p>Join our Discord to report issues and share your survival stories directly with the dev team.</p>`,
+            image: "./Images/Screenshots/Screen1.jpg"
+        },
+        news2: {
+            date: "DEC 10, 2025",
+            title: "NEW TOOLS REVEALED",
+            text: `<p>Survival isn't just about hiding; it's about adapting. In the latest patch, we introduced a suite of new improvised tools.</p>
+                   <p>From the makeshift lockpick to the reinforced crowbar, these tools allow you to access previously unreachable areas of the map. But be warned: using them creates noise, and noise attracts unwanted attention.</p>
+                   <p>Check the crafting menu for new recipes!</p>`,
+            image: "./Images/Screenshots/Screen2.jpg"
+        },
+        news3: {
+            date: "NOV 25, 2025",
+            title: "DEVELOPER DIARY #4",
+            text: `<p>In this diary, we dive deep into the AI behavior improvements. The occupation forces are no longer just patrolling on fixed paths.</p>
+                   <p>They now react to sound, light, and visual disturbances. If they find an open door that should be closed, they will investigate. If they hear a twig snap, they will flank you.</p>
+                   <p>Stealth is now more challenging—and more rewarding—than ever.</p>`,
+            image: "./Images/Screenshots/Screen3.jpg"
+        }
+    },
+    ru: {
+        news1: {
+            date: "18 ДЕК 2025",
+            title: "СТАРТ АЛЬФА-ТЕСТА",
+            text: `<p>Долгожданный момент настал. Первая волна выживших официально вошла в Зону. Мы видим невероятную активность и уже собираем ценные отзывы об основных механиках.</p>
+                   <p>Помните, это Альфа. Ожидайте баги, ожидайте суровые условия и не ждите пощады. Ваши отчеты жизненно важны для будущего Silent Life.</p>
+                   <p>Присоединяйтесь к нашему Discord, чтобы сообщать об ошибках и делиться своими историями выживания напрямую с разработчиками.</p>`,
+            image: "./Images/Screenshots/Screen1.jpg"
+        },
+        news2: {
+            date: "10 ДЕК 2025",
+            title: "НОВЫЕ ИНСТРУМЕНТЫ",
+            text: `<p>Выживание — это не просто прятки, это адаптация. В последнем патче мы представили набор новых самодельных инструментов.</p>
+                   <p>От самодельной отмычки до усиленного лома — эти инструменты позволят вам попасть в ранее недоступные участки карты. Но будьте осторожны: их использование создает шум, а шум привлекает нежелательное внимание.</p>
+                   <p>Проверьте меню крафта на наличие новых рецептов!</p>`,
+            image: "./Images/Screenshots/Screen2.jpg"
+        },
+        news3: {
+            date: "25 НОЯ 2025",
+            title: "ДНЕВНИК РАЗРАБОТКИ #4",
+            text: `<p>В этом дневнике мы углубимся в улучшения поведения ИИ. Оккупационные силы больше не просто патрулируют по заданным маршрутам.</p>
+                   <p>Теперь они реагируют на звук, свет и визуальные нарушения. Если они найдут открытую дверь, которая должна быть закрыта, они пойдут проверять. Если услышат хруст ветки — попытаются обойти вас с фланга.</p>
+                   <p>Скрытность теперь сложнее — и интереснее — чем когда-либо.</p>`,
+            image: "./Images/Screenshots/Screen3.jpg"
+        }
+    },
+    ua: {
+        news1: {
+            date: "18 ГРУ 2025",
+            title: "СТАРТ АЛЬФА-ТЕСТУ",
+            text: `<p>Довгоочікуваний момент настав. Перша хвиля тих, хто вижив, офіційно увійшла в Зону. Ми бачимо неймовірну активність і вже збираємо цінні відгуки про основні механіки.</p>
+                   <p>Пам'ятайте, це Альфа. Очікуйте баги, очікуйте сурові умови і не чекайте пощади. Ваші звіти життєво важливі для майбутнього Silent Life.</p>
+                   <p>Приєднуйтесь до нашого Discord, щоб повідомляти про помилки та ділитися своїми історіями виживання безпосередньо з розробниками.</p>`,
+            image: "./Images/Screenshots/Screen1.jpg"
+        },
+        news2: {
+            date: "10 ГРУ 2025",
+            title: "НОВІ ІНСТРУМЕНТЫ",
+            text: `<p>Виживання — це не просто хованки, це адаптація. В останньому патчі ми представили набір нових саморобних інструментів.</p>
+                   <p>Від саморобної відмички до посиленого лома — ці інструменти дозволять вам потрапити в раніше недоступні ділянки карти. Але будьте обережні: їх використання створює шум, а шум привертає небажану увагу.</p>
+                   <p>Перевірте меню крафту на наявність нових рецептів!</p>`,
+            image: "./Images/Screenshots/Screen2.jpg"
+        },
+        news3: {
+            date: "25 ЛИС 2025",
+            title: "ЩОДЕННИК РОЗРОБКИ #4",
+            text: `<p>У цьому щоденнику ми заглибимося в покращення поведінки ШІ. Окупаційні сили більше не просто патрулюють по заданих маршрутах.</p>
+                   <p>Тепер вони реагують на звук, світло і візуальні порушення. Якщо вони знайдуть відкриті двері, які повинні бути закриті, вони підуть перевіряти. Якщо почують хрускіт гілки — спробують обійти вас з флангу.</p>
+                   <p>Скритність тепер складніша — і цікавіша — ніж будь-коли.</p>`,
+            image: "./Images/Screenshots/Screen3.jpg"
+        }
+    }
+};
+
+// News Modal Functions
+function openNewsModal(newsId) {
+    const modal = document.getElementById('newsModal');
+
+    // Get current language from localStorage or default to english
+    const currentLang = localStorage.getItem('selectedLanguage') || 'en';
+
+    // Fallback to english content if specific language is missing, or safety check
+    const langData = newsData[currentLang] || newsData['en'];
+    const content = langData[newsId];
+
+    if (content) {
+        document.getElementById('modal-news-date').textContent = content.date;
+        document.getElementById('modal-news-title').textContent = content.title;
+        document.getElementById('modal-news-image').src = content.image;
+        document.getElementById('modal-news-body').innerHTML = content.text;
+
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    } else {
+        console.error('News content not found for ID:', newsId);
+    }
+}
+
+function closeNewsModal() {
+    const modal = document.getElementById('newsModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Make globally available
+window.openNewsModal = openNewsModal;
+window.closeNewsModal = closeNewsModal;
+
 // Close modal on outside click (reusing existing listener logic if possible, or adding new)
 window.addEventListener('click', (e) => {
     const authModal = document.getElementById('authModal');
+    const newsModal = document.getElementById('newsModal');
+
     if (e.target === authModal) {
         closeAuthModal();
+    }
+    if (e.target === newsModal) {
+        closeNewsModal();
     }
 });
 
@@ -261,7 +382,8 @@ window.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeModal(); // Existing image modal
-        closeAuthModal(); // New auth modal
+        closeAuthModal(); // Auth modal
+        closeNewsModal(); // News modal
     }
 });
 

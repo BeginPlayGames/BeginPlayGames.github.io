@@ -580,6 +580,82 @@ body {
 
 /* Media Section Removed */
 
+/* News Modal Specifics */
+.news-modal-container {
+    background: var(--color-secondary);
+    padding: 0;
+    border-radius: 8px;
+    border: 1px solid var(--color-accent);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    /* Allow scrolling within modal */
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+}
+
+.news-modal-content {
+    padding: 40px;
+}
+
+.news-modal-date {
+    font-size: 14px;
+    color: var(--color-accent);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.news-modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--color-text);
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(196, 163, 90, 0.2);
+    padding-bottom: 20px;
+}
+
+.news-modal-media {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.news-modal-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.news-modal-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+}
+
+.news-modal-body p {
+    margin-bottom: 20px;
+}
+
+/* Custom Scrollbar for Modal */
+.news-modal-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.news-modal-container::-webkit-scrollbar-track {
+    background: #0f0f0f;
+}
+
+.news-modal-container::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 4px;
+}
+
 /* News Section */
 .news-section {
     padding: 100px 0;
