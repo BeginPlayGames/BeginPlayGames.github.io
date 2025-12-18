@@ -98,7 +98,21 @@ const translations = {
         contactYoutube: "YouTube:",
         contactEmail: "Email:",
         contactPatreon: "Patreon:",
-        footerCopyright: "© 2024 SILENT LIFE. Всі права захищені."
+        footerCopyright: "© 2024 SILENT LIFE. Всі права захищені.",
+        feature5Title: "БУДІВНИЦТВО БАЗИ",
+        feature5Text: "Укріплюй сховище, розставляй пастки та створи безпечне місце для відпочинку та крафту.",
+        feature6Title: "ДИНАМІЧНА ПОГОДА",
+        feature6Text: "Виживай у дощ, сніг та туман. Погода впливає на видимість і показники виживання.",
+        news1Date: "18 ГРУ 2025",
+        news1Title: "СТАРТ АЛЬФА-ТЕСТУ",
+        news1Text: "Перша хвиля тих, хто вижив, увійшла в зону. Звіти надходять.",
+        news2Date: "10 ГРУ 2025",
+        news2Title: "НОВІ ІНСТРУМЕНТЫ",
+        news2Text: "Погляньте на нову систему крафту та інструменти виживання в останньому патчі.",
+        news3Date: "25 ЛИС 2025",
+        news3Title: "ЩОДЕННИК РОЗРОБКИ #4",
+        news3Text: "За лаштунками: поведінка ШІ та механіка скритності.",
+        newsReadMore: "ЧИТАТИ ДАЛІ >"
     }
 };
 
