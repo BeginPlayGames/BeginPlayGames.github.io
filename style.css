@@ -581,24 +581,27 @@ body {
 /* Media Section Removed */
 
 /* News Modal Specifics */
+/* News Modal Specifics */
 .news-modal-container {
     background: var(--color-secondary);
     padding: 0;
     border-radius: 8px;
-    border: 1px solid var(--color-accent);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle border instead of gold */
     width: 90%;
     max-width: 800px;
-    max-height: 90vh;
-    /* Allow scrolling within modal */
+    max-height: 85vh;
+    /* Reduced height for more air */
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
 }
 
 .news-modal-content {
-    padding: 40px;
+    padding: 60px;
+    /* Increased padding */
 }
 
 .news-modal-date {
@@ -606,15 +609,16 @@ body {
     color: var(--color-accent);
     letter-spacing: 2px;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    opacity: 0.8;
 }
 
 .news-modal-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
+    font-size: 42px;
     color: var(--color-text);
-    margin-bottom: 30px;
-    border-bottom: 2px solid rgba(196, 163, 90, 0.2);
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(196, 163, 90, 0.1);
     padding-bottom: 20px;
 }
 
@@ -639,21 +643,29 @@ body {
 }
 
 .news-modal-body p {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 /* Custom Scrollbar for Modal */
 .news-modal-container::-webkit-scrollbar {
-    width: 8px;
+    width: 12px;
+    background-color: var(--color-secondary);
 }
 
 .news-modal-container::-webkit-scrollbar-track {
-    background: #0f0f0f;
+    background: rgba(0, 0, 0, 0.3);
+    margin: 4px;
+    border-radius: 6px;
 }
 
 .news-modal-container::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 6px;
+    border: 3px solid var(--color-secondary);
+}
+
+.news-modal-container::-webkit-scrollbar-thumb:hover {
     background: var(--color-accent);
-    border-radius: 4px;
 }
 
 /* News Section */
