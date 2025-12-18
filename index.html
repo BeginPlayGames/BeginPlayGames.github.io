@@ -273,14 +273,16 @@
     <div class="modal news-modal" id="newsModal">
         <div class="news-modal-container">
             <span class="modal-close" onclick="closeNewsModal()">&times;</span>
-            <div class="news-modal-content">
-                <span class="news-modal-date" id="modal-news-date">DATE</span>
-                <h2 class="news-modal-title" id="modal-news-title">TITLE</h2>
-                <div class="news-modal-media">
-                    <img id="modal-news-image" src="" alt="News Image">
-                </div>
-                <div class="news-modal-body" id="modal-news-body">
-                    <!-- Dynamic Content -->
+            <div class="news-modal-scrollable"> <!-- Added wrapper for scroll fix -->
+                <div class="news-modal-content">
+                    <span class="news-modal-date" id="modal-news-date">DATE</span>
+                    <h2 class="news-modal-title" id="modal-news-title">TITLE</h2>
+                    <div class="news-modal-media">
+                        <img id="modal-news-image" src="" alt="News Image">
+                    </div>
+                    <div class="news-modal-body" id="modal-news-body">
+                        <!-- Dynamic Content -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -290,13 +292,15 @@
     <div class="modal feature-modal" id="featureModal">
         <div class="news-modal-container"> <!-- Reusing the refined container style -->
             <span class="modal-close" onclick="closeFeatureModal()">&times;</span>
-            <div class="news-modal-content">
-                <h2 class="news-modal-title" id="modal-feature-title">TITLE</h2>
-                <div class="news-modal-media">
-                    <img id="modal-feature-image" src="" alt="Feature Image">
-                </div>
-                <div class="news-modal-body" id="modal-feature-body">
-                    <!-- Dynamic Content -->
+            <div class="news-modal-scrollable"> <!-- Added wrapper for scroll fix -->
+                <div class="news-modal-content">
+                    <h2 class="news-modal-title" id="modal-feature-title">TITLE</h2>
+                    <div class="news-modal-media">
+                        <img id="modal-feature-image" src="" alt="Feature Image">
+                    </div>
+                    <div class="news-modal-body" id="modal-feature-body">
+                        <!-- Dynamic Content -->
+                    </div>
                 </div>
             </div>
         </div>
