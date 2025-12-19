@@ -706,8 +706,10 @@ body {
 }
 
 .news-modal-content {
-    padding: 60px;
-    /* Increased padding */
+    padding: 60px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .news-modal-date {
