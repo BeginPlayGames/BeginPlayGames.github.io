@@ -245,11 +245,7 @@ body {
     }
 }
 
-.glitch-effect:hover {
-    animation: glitch-anim 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-    color: var(--color-accent);
-    /* Optional: illuminate on glitch */
-}
+
 
 .hero-content {
     position: relative;
@@ -266,7 +262,44 @@ body {
     letter-spacing: 8px;
     margin-bottom: 10px;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    animation: glitchText 5s infinite;
+    transition: all 0.3s ease;
+}
+
+.hero-title:hover {
+    animation: glitchHover 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    color: var(--color-accent);
+}
+
+@keyframes glitchHover {
+    0% {
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        transform: translate(0);
+    }
+
+    20% {
+        text-shadow: 2px 0 0 var(--color-accent), -2px 0 0 var(--color-danger);
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        text-shadow: -2px 0 0 var(--color-accent), 2px 0 0 var(--color-danger);
+        transform: translate(2px, -2px);
+    }
+
+    60% {
+        text-shadow: 2px 0 0 var(--color-accent), -2px 0 0 var(--color-danger);
+        transform: translate(-2px, 2px);
+    }
+
+    80% {
+        text-shadow: -2px 0 0 var(--color-accent), 2px 0 0 var(--color-danger);
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        transform: translate(0);
+    }
 }
 
 .hero-subtitle {
