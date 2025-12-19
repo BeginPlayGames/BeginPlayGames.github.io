@@ -692,7 +692,7 @@ body {
     background: var(--color-secondary);
     padding: 0;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.6);
     /* Subtle border instead of gold */
     width: 90%;
     max-width: 800px;
@@ -759,7 +759,7 @@ body {
     padding: 10px;
     /* Small padding wrapper around the scrollable area */
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.6);
     /* Subtle border */
     width: 90%;
     max-width: 800px;
