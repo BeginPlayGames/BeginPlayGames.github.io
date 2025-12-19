@@ -692,7 +692,7 @@ body {
     background: var(--color-secondary);
     padding: 0;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(196, 163, 90, 0.25);
     /* Subtle border instead of gold */
     width: 90%;
     max-width: 800px;
