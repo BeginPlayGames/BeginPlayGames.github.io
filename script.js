@@ -27,6 +27,8 @@ const translations = {
         reqRamLabel: "MEMORY:",
         reqGpuLabel: "GRAPHICS:",
         reqStorageLabel: "STORAGE:",
+        reqMinStorageVal: "15 GB available space",
+        reqRecStorageVal: "15 GB (SSD Recommended)",
         galleryTitle: "SCREENSHOTS",
         mediaTitle: "VIDEOS",
         newsTitle: "LATEST NEWS",
@@ -44,7 +46,44 @@ const translations = {
         contactYoutube: "YouTube:",
         contactEmail: "Email:",
         contactPatreon: "Patreon:",
-        footerCopyright: "© 2024 SILENT LIFE. All rights reserved."
+        footerCopyright: "© 2024 SILENT LIFE. All rights reserved.",
+        
+        // Widget
+        widgetTitle: "SURVIVAL SIMULATOR",
+        widgetDesc: "Adjust parameters to simulate your survival chances in occupied territory.",
+        labelTemp: "Ambient Temp",
+        labelHunger: "Hunger Level",
+        labelThirst: "Thirst Level",
+        labelStealth: "Visibility/Light",
+        pdaStatusTitle: "SURVIVOR STATUS",
+        pdaLabelTemp: "CORE TEMP:",
+        pdaLabelEnergy: "ENERGY:",
+        pdaLabelStealth: "EXPOSURE:",
+        pdaThreatTitle: "ACTIVE EFFECTS:",
+        pdaChanceLabel: "Survival Probability:",
+        pdaActionLabel: "Action Required:",
+        statusStable: "STABLE",
+        statusHypo: "HYPOTHERMIA RISK",
+        statusStarving: "CALORIC DEFICIT",
+        statusThirsty: "DEHYDRATING",
+        statusExposed: "EXPOSED TO PATROLS",
+        statusGhost: "GHOST (STEALTHY)",
+        actionStable: "Maintain current position. Scavenge cautiously.",
+        actionCold: "Find shelter and start a fire immediately. Hypothermia imminent.",
+        actionHunger: "Consume canned rations or clean food. Caloric deficit critical.",
+        actionThirst: "Find clean water source or boil melted snow. Dehydration critical.",
+        actionExposed: "Crouch in shadows or enter bushes. Enemy patrol nearby.",
+        actionMultiple: "Multiple critical threats. Focus on warmth and stealth first!",
+        
+        // ID Card
+        dossierTitle: "RESISTANCE SURVIVOR REGISTER",
+        dossierId: "SURVIVOR ID:",
+        dossierCodename: "CODENAME:",
+        dossierDate: "REGISTRY DATE:",
+        dossierStatus: "STATUS:",
+        dossierActive: "ACTIVE OPERATIVE",
+        dossierBtn: "ENTER THE ZONE",
+        dossierStamp: "APPROVED"
     },
     ru: {
         heroTitle: "SILENT LIFE",
@@ -73,6 +112,8 @@ const translations = {
         reqRamLabel: "ОПЕРАТИВНАЯ ПАМЯТЬ:",
         reqGpuLabel: "ВИДЕОКАРТА:",
         reqStorageLabel: "МЕСТО НА ДИСКЕ:",
+        reqMinStorageVal: "15 ГБ свободного места",
+        reqRecStorageVal: "15 ГБ (рекомендуется SSD)",
         galleryTitle: "СКРИНШОТЫ",
         mediaTitle: "ВИДЕО",
         newsTitle: "НОВОСТИ",
@@ -90,7 +131,44 @@ const translations = {
         contactYoutube: "YouTube:",
         contactEmail: "Email:",
         contactPatreon: "Patreon:",
-        footerCopyright: "© 2024 SILENT LIFE. Все права защищены."
+        footerCopyright: "© 2024 SILENT LIFE. Все права защищены.",
+        
+        // Widget
+        widgetTitle: "СИМУЛЯТОР ВЫЖИВАНИЯ",
+        widgetDesc: "Изменяйте параметры, чтобы оценить шансы выживания на оккупированной территории.",
+        labelTemp: "Темп. среды",
+        labelHunger: "Уровень голода",
+        labelThirst: "Уровень жажды",
+        labelStealth: "Видимость/Свет",
+        pdaStatusTitle: "СТАТУС ВЫЖИВШЕГО",
+        pdaLabelTemp: "ТЕМП. ТЕЛА:",
+        pdaLabelEnergy: "ЭНЕРГИЯ:",
+        pdaLabelStealth: "ВИДИМОСТЬ:",
+        pdaThreatTitle: "АКТИВНЫЕ ЭФФЕКТЫ:",
+        pdaChanceLabel: "Шанс выживания:",
+        pdaActionLabel: "Требуется действие:",
+        statusStable: "СТАБИЛЬНО",
+        statusHypo: "ОБМОРОЖЕНИЕ",
+        statusStarving: "ДЕФИЦИТ КАЛОРИЙ",
+        statusThirsty: "ОБЕЗВОЖИВАНИЕ",
+        statusExposed: "ЗАМЕЧЕН ПАТРУЛЕМ",
+        statusGhost: "ПРИЗРАК (СКРЫТЕН)",
+        actionStable: "Удерживайте позицию. Аккуратно ищите припасы.",
+        actionCold: "Срочно найдите укрытие и разведите костер. Риск обморожения.",
+        actionHunger: "Найдите консервы или чистую пищу. Опасное истощение.",
+        actionThirst: "Найдите источник чистой воды или растопите снег. Обезвоживание.",
+        actionExposed: "Спрячьтесь в тенях или кустах. Вражеский патруль близко.",
+        actionMultiple: "Множество критических угроз! Срочно согрейтесь и спрячьтесь!",
+        
+        // ID Card
+        dossierTitle: "РЕЕСТР СОПРОТИВЛЕНИЯ",
+        dossierId: "ID ВЫЖИВШЕГО:",
+        dossierCodename: "ПОЗЫВНОЙ:",
+        dossierDate: "ДАТА РЕГИСТРАЦИИ:",
+        dossierStatus: "СТАТУС:",
+        dossierActive: "АКТИВНЫЙ БОЕЦ",
+        dossierBtn: "ВОЙТИ В ЗОНУ",
+        dossierStamp: "ОДОБРЕНО"
     },
     ua: {
         heroTitle: "SILENT LIFE",
@@ -103,7 +181,7 @@ const translations = {
         feature1Text: "Керуй голодом, спрагою та здоров'ям у світі, де ресурси обмежені, а небезпека чатує за кожним рогом.",
         feature2Title: "СКРИТНІСТЬ І ТАКТИКА",
         feature2Text: "Уникай патрулів, ховайся в тінях і приймай стратегічні рішення, щоб залишитися живим на окупованій території.",
-        feature3Title: "УПРАВЛІННЯ РЕСУРСАМИ",
+        feature3Title: "УПРАВЛЕННЯ РЕСУРСАМИ",
         feature3Text: "Шукай припаси, створюй інструменти та цінуй кожен предмет у своїй боротьбі за виживання.",
         feature4Title: "МОРАЛЬНИЙ ВИБІР",
         feature4Text: "Зіткнися зі складними рішеннями, які перевірять твою людяність. Допоможеш іншим чи зосередишся на власному виживанні?",
@@ -127,6 +205,8 @@ const translations = {
         reqRamLabel: "ОПЕРАТИВНА ПАМ'ЯТЬ:",
         reqGpuLabel: "ВІДЕОКАРТА:",
         reqStorageLabel: "МІСЦЕ НА ДИСКУ:",
+        reqMinStorageVal: "15 ГБ вільного місця",
+        reqRecStorageVal: "15 ГБ (рекомендується SSD)",
         news1Date: "18 ГРУ 2025",
         news1Title: "СТАРТ АЛЬФА-ТЕСТУ",
         news1Text: "Перша хвиля тих, хто вижив, увійшла в зону. Звіти надходять.",
@@ -136,7 +216,44 @@ const translations = {
         news3Date: "25 ЛИС 2025",
         news3Title: "ЩОДЕННИК РОЗРОБКИ #4",
         news3Text: "За лаштунками: поведінка ШІ та механіка скритності.",
-        newsReadMore: "ЧИТАТИ ДАЛІ >"
+        newsReadMore: "ЧИТАТИ ДАЛІ >",
+        
+        // Widget
+        widgetTitle: "СИМУЛЯТОР ВИЖИВАННЯ",
+        widgetDesc: "Змінюйте параметри, щоб оцінити шанси на виживання на окупованій території.",
+        labelTemp: "Темп. середовища",
+        labelHunger: "Рівень голоду",
+        labelThirst: "Рівень спраги",
+        labelStealth: "Видимість/Світло",
+        pdaStatusTitle: "СТАТУС ТОГО, ХТО ВИЖИВ",
+        pdaLabelTemp: "ТЕМП. ТІЛА:",
+        pdaLabelEnergy: "ЕНЕРГІЯ:",
+        pdaLabelStealth: "ВИДИМІСТЬ:",
+        pdaThreatTitle: "АКТИВНІ ЕФЕКТИ:",
+        pdaChanceLabel: "Шанс виживання:",
+        pdaActionLabel: "Необхідна дія:",
+        statusStable: "СТАБИЛЬНО",
+        statusHypo: "ОБМОРОЖЕННЯ",
+        statusStarving: "ДЕФІЦИТ КАЛОРІЙ",
+        statusThirsty: "ЗНЕВОДНЕННЯ",
+        statusExposed: "ПОМІЧЕНИЙ ПАТРУЛЕМ",
+        statusGhost: "ПРИВИД (ПРИХОВАНИЙ)",
+        actionStable: "Утримуйте позицию. Обережно шукайте припаси.",
+        actionCold: "Терміново знайдіть укриття і розведіть багаття. Ризик обмороження.",
+        actionHunger: "Знайдіть консерви або чисту їжу. Небезпечне виснаження.",
+        actionThirst: "Знайдіть джерело чистої води або розтопіть сніг. Зневоднення.",
+        actionExposed: "Сховайтеся в тінях або кущах. Ворожий патруль близько.",
+        actionMultiple: "Багато критичних загроз! Терміново зігрійтеся і сховайтеся!",
+        
+        // ID Card
+        dossierTitle: "РЕЄСТР ОПОРУ",
+        dossierId: "ID ТОГО, ХТО ВИЖИВ:",
+        dossierCodename: "ПОЗИВНИЙ:",
+        dossierDate: "ДАТА РЕЄСТРАЦІЇ:",
+        dossierStatus: "СТАТУС:",
+        dossierActive: "АКТИВНИЙ БІЄЦЬ",
+        dossierBtn: "УВІЙТИ В ЗОНУ",
+        dossierStamp: "СХВАЛЕНО"
     }
 };
 
@@ -153,6 +270,123 @@ function setLanguage(lang) {
     // Helper to safely set text content
     const setText = (id, text) => {
         const el = document.getElementById(id);
+        if (el) {
+            el.textContent = text;
+        }
+    };
+
+    // Update all text elements safely
+    setText('hero-title', t.heroTitle);
+    setText('hero-subtitle', t.heroSubtitle);
+    setText('buy-text', t.buyText);
+    setText('about-title', t.aboutTitle);
+    setText('about-text', t.aboutText);
+    setText('features-title', t.featuresTitle);
+    setText('feature1-title', t.feature1Title);
+    setText('feature1-text', t.feature1Text);
+    setText('feature2-title', t.feature2Title);
+    setText('feature2-text', t.feature2Text);
+    setText('feature3-title', t.feature3Title);
+    setText('feature3-text', t.feature3Text);
+    setText('feature4-title', t.feature4Title);
+    setText('feature4-text', t.feature4Text);
+    setText('feature5-title', t.feature5Title);
+    setText('feature5-text', t.feature5Text);
+    setText('feature6-title', t.feature6Title);
+    setText('feature6-text', t.feature6Text);
+    setText('gallery-title', t.galleryTitle);
+    setText('media-title', t.mediaTitle);
+    setText('news-title', t.newsTitle);
+    setText('news1-date', t.news1Date);
+    setText('news1-title', t.news1Title);
+    setText('news1-text', t.news1Text);
+    setText('news2-date', t.news2Date);
+    setText('news2-title', t.news2Title);
+    setText('news2-text', t.news2Text);
+    setText('news3-date', t.news3Date);
+    setText('news3-title', t.news3Title);
+    setText('news3-text', t.news3Text);
+    // Update all readmore links
+    document.querySelectorAll('.news-link').forEach(link => link.textContent = t.newsReadMore);
+
+    setText('contact-title', t.contactTitle);
+    setText('contact-youtube', t.contactYoutube);
+    setText('contact-email', t.contactEmail);
+    setText('contact-patreon', t.contactPatreon);
+    setText('footer-copyright', t.footerCopyright);
+
+    // Update Requirements Section
+    setText('req-title', t.reqTitle);
+    setText('req-min-title', t.reqMinTitle);
+    setText('req-rec-title', t.reqRecTitle);
+    setText('req-min-os-label', t.reqOsLabel);
+    setText('req-rec-os-label', t.reqOsLabel);
+    setText('req-min-cpu-label', t.reqCpuLabel);
+    setText('req-rec-cpu-label', t.reqCpuLabel);
+    setText('req-min-ram-label', t.reqRamLabel);
+    setText('req-rec-ram-label', t.reqRamLabel);
+    setText('req-min-gpu-label', t.reqGpuLabel);
+    setText('req-rec-gpu-label', t.reqGpuLabel);
+    setText('req-min-storage-label', t.reqStorageLabel);
+    setText('req-rec-storage-label', t.reqStorageLabel);
+    setText('req-min-storage-val', t.reqMinStorageVal);
+    setText('req-rec-storage-val', t.reqRecStorageVal);
+
+    // Update Survival Widget Section
+    setText('widget-title', t.widgetTitle);
+    setText('widget-desc', t.widgetDesc);
+    setText('label-temp', t.labelTemp);
+    setText('label-hunger', t.labelHunger);
+    setText('label-thirst', t.labelThirst);
+    setText('label-stealth', t.labelStealth);
+    setText('pda-status-title', t.pdaStatusTitle);
+    setText('pda-label-temp', t.pdaLabelTemp);
+    setText('pda-label-energy', t.pdaLabelEnergy);
+    setText('pda-label-stealth', t.pdaLabelStealth);
+    setText('pda-threat-title', t.pdaThreatTitle);
+    setText('pda-chance-label', t.pdaChanceLabel);
+    setText('pda-action-label', t.pdaActionLabel);
+
+    // Update Dossier Section Labels
+    const dossierTitleEl = document.querySelector('.dossier-title');
+    if (dossierTitleEl) dossierTitleEl.textContent = t.dossierTitle;
+    
+    const dossierStampEl = document.querySelector('.dossier-stamp');
+    if (dossierStampEl) dossierStampEl.textContent = t.dossierStamp;
+
+    const dossierLabels = document.querySelectorAll('.dossier-label');
+    if (dossierLabels.length >= 4) {
+        dossierLabels[0].textContent = t.dossierId;
+        dossierLabels[1].textContent = t.dossierCodename;
+        dossierLabels[2].textContent = t.dossierDate;
+        dossierLabels[3].textContent = t.dossierStatus;
+    }
+    const dossierBtnEl = document.querySelector('.dossier-btn span');
+    if (dossierBtnEl) dossierBtnEl.textContent = t.dossierBtn;
+
+    // Refresh widget values & state based on the new active language
+    if (window.updateSurvivalWidget) {
+        window.updateSurvivalWidget();
+    }
+
+    // Update active language button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Save language preference
+    try {
+        localStorage.setItem('selectedLanguage', lang);
+    } catch (e) {
+        console.warn('Could not save language preference:', e);
+    }
+}
+
+// Make setLanguage available globally
+window.setLanguage = setLanguage;entById(id);
         if (el) {
             el.textContent = text;
         }
@@ -218,10 +452,29 @@ function setLanguage(lang) {
 window.setLanguage = setLanguage;
 
 // Modal Functions
+let currentImageIndex = 0;
+const galleryImages = [
+    "./Images/Screenshots/Screen1.jpg",
+    "./Images/Screenshots/Screen2.jpg",
+    "./Images/Screenshots/Screen3.jpg",
+    "./Images/Screenshots/Screen4.jpg",
+    "./Images/Screenshots/Screen5.jpg",
+    "./Images/Screenshots/Screen6.jpg"
+];
+
 function openModal(src) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImg');
-    modalImg.src = src;
+    const counterEl = document.getElementById('modalCounter');
+    
+    currentImageIndex = galleryImages.indexOf(src);
+    if (currentImageIndex === -1) currentImageIndex = 0;
+    
+    modalImg.src = galleryImages[currentImageIndex];
+    if (counterEl) {
+        counterEl.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+    }
+    
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
@@ -232,9 +485,34 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
+function navigateModal(direction) {
+    const modalImg = document.getElementById('modalImg');
+    const counterEl = document.getElementById('modalCounter');
+    
+    currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+    
+    modalImg.style.opacity = '0';
+    modalImg.style.transform = 'scale(0.95)';
+    modalImg.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+    
+    setTimeout(() => {
+        modalImg.src = galleryImages[currentImageIndex];
+        if (counterEl) {
+            counterEl.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+        modalImg.style.opacity = '1';
+        modalImg.style.transform = 'scale(1)';
+    }, 150);
+    
+    if (typeof SoundManager !== 'undefined' && typeof SoundManager.playHover === 'function') {
+        SoundManager.playHover();
+    }
+}
+
 // Make modal functions available globally
 window.openModal = openModal;
 window.closeModal = closeModal;
+window.navigateModal = navigateModal;
 
 // Auth Modal Functions
 function openAuthModal() {
@@ -250,6 +528,14 @@ function closeAuthModal() {
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
+        
+        // Reset registration form display
+        const form = document.getElementById('signupForm');
+        const dossier = document.getElementById('survivorDossier');
+        if (form && dossier) {
+            form.style.display = 'flex';
+            dossier.style.display = 'none';
+        }
     }
 }
 
@@ -266,6 +552,14 @@ function switchAuthTab(tabName) {
 
     const selectedForm = document.getElementById(`${tabName}Form`);
     if (selectedForm) selectedForm.classList.add('active');
+    
+    // Reset registration form display if switching tabs
+    const form = document.getElementById('signupForm');
+    const dossier = document.getElementById('survivorDossier');
+    if (form && dossier) {
+        form.style.display = 'flex';
+        dossier.style.display = 'none';
+    }
 }
 
 function handleLogin(e) {
@@ -276,8 +570,63 @@ function handleLogin(e) {
 
 function handleSignup(e) {
     e.preventDefault();
-    alert('REGISTRATION COMPLETE. Welcome to the resistance.');
-    closeAuthModal();
+    
+    const usernameInput = document.getElementById('signup-username');
+    const username = usernameInput ? usernameInput.value : 'STALKER';
+    
+    // Play double beep sound
+    if (typeof SoundManager !== 'undefined' && typeof SoundManager.playClick === 'function') {
+        SoundManager.playClick();
+        setTimeout(() => SoundManager.playClick(), 150);
+    }
+    
+    // Hide signupForm, show survivorDossier
+    const form = document.getElementById('signupForm');
+    const dossier = document.getElementById('survivorDossier');
+    
+    if (form && dossier) {
+        form.style.display = 'none';
+        dossier.style.display = 'block';
+        
+        // Generate random details
+        const randomId = 'SL-' + Math.floor(1000 + Math.random() * 9000) + '-' + String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        const dateStr = new Date().toISOString().split('T')[0];
+        
+        const lang = localStorage.getItem('selectedLanguage') || 'en';
+        const t = translations[lang] || translations['en'];
+        
+        document.getElementById('dossier-id').textContent = randomId;
+        document.getElementById('dossier-name').textContent = username.toUpperCase();
+        document.getElementById('dossier-date').textContent = dateStr;
+        document.getElementById('dossier-status').textContent = t.dossierActive || 'ACTIVE OPERATIVE';
+        
+        // Setup card stamp transition
+        const stamp = dossier.querySelector('.dossier-stamp');
+        if (stamp) {
+            stamp.style.opacity = '0';
+            stamp.style.transform = 'scale(2) rotate(30deg)';
+            stamp.style.transition = 'all 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28)';
+            
+            setTimeout(() => {
+                stamp.style.opacity = '0.85';
+                stamp.style.transform = 'scale(1) rotate(12deg)';
+                // Play deep stamp thud using Web Audio
+                if (audioEnabled && audioCtx) {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(100, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(10, audioCtx.currentTime + 0.3);
+                    gain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.3);
+                }
+            }, 400);
+        }
+    }
 }
 
 // Make auth functions available globally
@@ -571,13 +920,44 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Close modal on Escape key (Enhanced existing listener)
+// Close modal on Escape and navigate with Arrows
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        closeModal(); // Existing image modal
+        closeModal(); // Image modal
         closeAuthModal(); // Auth modal
         closeNewsModal(); // News modal
         closeFeatureModal(); // Feature modal
+    }
+    
+    // Lightbox Arrow keys navigation
+    const imageModal = document.getElementById('imageModal');
+    if (imageModal && imageModal.style.display === 'flex') {
+        if (e.key === 'ArrowRight') {
+            navigateModal(1);
+        } else if (e.key === 'ArrowLeft') {
+            navigateModal(-1);
+        }
+    }
+});
+
+// Close modal on outside click (Enhanced to support new imageModal target constraints)
+window.addEventListener('click', (e) => {
+    const authModal = document.getElementById('authModal');
+    const newsModal = document.getElementById('newsModal');
+    const featureModal = document.getElementById('featureModal');
+    const imageModal = document.getElementById('imageModal');
+
+    if (e.target === authModal) {
+        closeAuthModal();
+    }
+    if (e.target === newsModal) {
+        closeNewsModal();
+    }
+    if (e.target === featureModal) {
+        closeFeatureModal();
+    }
+    if (e.target === imageModal) {
+        closeModal();
     }
 });
 
@@ -644,6 +1024,11 @@ document.addEventListener('DOMContentLoaded', () => {
         item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
         observer.observe(item);
     });
+
+    // Initialize custom interactive components
+    initParticles();
+    initSurvivalWidget();
+    attachSoundListeners();
 });
 
 // Smooth scroll for anchor links
@@ -677,60 +1062,457 @@ function toggleMobileMenu() {
     mobileMenu.classList.toggle('active');
     hamburger.classList.toggle('active');
 
-    // Play sound if SoundManager exists
     if (typeof SoundManager !== 'undefined') {
         SoundManager.playClick();
     }
 }
 
-// Sound Manager
+// Browser-synthesized Web Audio Sound Manager
+let audioCtx = null;
+let ambientSource = null;
+let ambientGain = null;
+let audioEnabled = false;
+
 const SoundManager = {
-    hoverSound: new Audio('./assets/audio/hover.mp3'),
-    clickSound: new Audio('./assets/audio/click.mp3'),
-
-    init: function () {
-        this.hoverSound.volume = 0.2;
-        this.clickSound.volume = 0.3;
-
-        // Preload attempts (may be blocked by browser policy until interaction)
-        this.hoverSound.load();
-        this.clickSound.load();
-    },
-
     playHover: function () {
-        // Clone to allow rapid re-triggering
-        const sound = this.hoverSound.cloneNode();
-        sound.volume = 0.2;
-        sound.play().catch(e => console.log("Audio play failed (user interaction needed):", e));
+        if (!audioEnabled) return;
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        
+        try {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(1800, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.012, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.04);
+        } catch (e) {
+            console.warn("Hover sound failed:", e);
+        }
     },
 
     playClick: function () {
-        const sound = this.clickSound.cloneNode();
-        sound.volume = 0.3;
-        sound.play().catch(e => console.log("Audio play failed:", e));
+        if (!audioEnabled) return;
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        
+        try {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.08);
+            gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.08);
+        } catch (e) {
+            console.warn("Click sound failed:", e);
+        }
+    },
+
+    playSuccess: function () {
+        if (!audioEnabled) return;
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        
+        try {
+            const now = audioCtx.currentTime;
+            const osc1 = audioCtx.createOscillator();
+            const osc2 = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc1.connect(gain);
+            osc2.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc1.frequency.setValueAtTime(350, now);
+            osc1.frequency.setValueAtTime(520, now + 0.1);
+            osc2.frequency.setValueAtTime(700, now);
+            osc2.frequency.setValueAtTime(1040, now + 0.1);
+            
+            gain.gain.setValueAtTime(0.1, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+            
+            osc1.start();
+            osc2.start();
+            osc1.stop(now + 0.25);
+            osc2.stop(now + 0.25);
+        } catch (e) {
+            console.warn("Success sound failed:", e);
+        }
     }
 };
 
-SoundManager.init();
+function toggleAudio() {
+    const btn = document.getElementById('audioToggle');
+    const icon = document.getElementById('audioIcon');
+    
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
+    
+    audioEnabled = !audioEnabled;
+    
+    if (audioEnabled) {
+        btn.classList.add('playing');
+        btn.classList.remove('muted');
+        icon.innerHTML = `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>`;
+        startAmbientDrone();
+        SoundManager.playSuccess();
+    } else {
+        btn.classList.remove('playing');
+        btn.classList.add('muted');
+        icon.innerHTML = `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <line x1="23" y1="9" x2="17" y2="15"></line>
+                          <line x1="17" y1="9" x2="23" y2="15"></line>`;
+        stopAmbientDrone();
+    }
+}
+
+window.toggleAudio = toggleAudio;
+
+function startAmbientDrone() {
+    if (!audioCtx) return;
+    try {
+        ambientGain = audioCtx.createGain();
+        ambientGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+        ambientGain.gain.linearRampToValueAtTime(0.18, audioCtx.currentTime + 2.0); // Smooth fade in
+        ambientGain.connect(audioCtx.destination);
+        
+        // Generate brownian noise buffer for wind rumble
+        const bufferSize = 2 * audioCtx.sampleRate;
+        const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        let lastOut = 0.0;
+        for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            output[i] = (lastOut + (0.02 * white)) / 1.02;
+            lastOut = output[i];
+            output[i] *= 3.5;
+        }
+        
+        const noiseSource = audioCtx.createBufferSource();
+        noiseSource.buffer = noiseBuffer;
+        noiseSource.loop = true;
+        
+        const windFilter = audioCtx.createBiquadFilter();
+        windFilter.type = 'lowpass';
+        windFilter.frequency.setValueAtTime(180, audioCtx.currentTime);
+        
+        noiseSource.connect(windFilter);
+        windFilter.connect(ambientGain);
+        
+        // Modulate wind cutoff with LFO
+        const lfo = audioCtx.createOscillator();
+        lfo.type = 'sine';
+        lfo.frequency.setValueAtTime(0.12, audioCtx.currentTime);
+        
+        const lfoGain = audioCtx.createGain();
+        lfoGain.gain.setValueAtTime(70, audioCtx.currentTime);
+        
+        lfo.connect(lfoGain);
+        lfoGain.connect(windFilter.frequency);
+        
+        lfo.start();
+        noiseSource.start();
+        
+        // Low frequency triangle rumble osc
+        const rumbleOsc = audioCtx.createOscillator();
+        rumbleOsc.type = 'triangle';
+        rumbleOsc.frequency.setValueAtTime(55, audioCtx.currentTime);
+        
+        const rumbleGain = audioCtx.createGain();
+        rumbleGain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        rumbleOsc.connect(rumbleGain);
+        rumbleGain.connect(ambientGain);
+        rumbleOsc.start();
+        
+        ambientSource = {
+            noise: noiseSource,
+            filter: windFilter,
+            lfo: lfo,
+            rumble: rumbleOsc
+        };
+    } catch (e) {
+        print("Ambient drone start failed:", e)
+    }
+}
+
+function stopAmbientDrone() {
+    if (ambientGain && audioCtx) {
+        const currentGain = ambientGain.gain.value;
+        ambientGain.gain.setValueAtTime(currentGain, audioCtx.currentTime);
+        ambientGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+        setTimeout(() => {
+            try {
+                if (ambientSource) {
+                    ambientSource.noise.stop();
+                    ambientSource.lfo.stop();
+                    ambientSource.rumble.stop();
+                    ambientSource = null;
+                }
+            } catch (err) {}
+        }, 600);
+    }
+}
+
+// Particle Ash Effect
+function initParticles() {
+    const canvas = document.getElementById('particles-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    let width = canvas.width = canvas.offsetWidth;
+    let height = canvas.height = canvas.offsetHeight;
+    
+    window.addEventListener('resize', () => {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+    });
+    
+    const particleCount = 60;
+    const particles = [];
+    
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: Math.random() * 1.8 + 0.4,
+            d: Math.random() * particleCount,
+            speedY: Math.random() * 0.6 + 0.2,
+            speedX: Math.random() * 0.3 - 0.15,
+            opacity: Math.random() * 0.4 + 0.15
+        });
+    }
+    
+    let mouse = { x: -1000, y: -1000 };
+    document.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
+    
+    document.addEventListener('mouseleave', () => {
+        mouse.x = -1000;
+        mouse.y = -1000;
+    });
+    
+    function draw() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < particleCount; i++) {
+            const p = particles[i];
+            p.y += p.speedY;
+            p.x += p.speedX + Math.sin(p.d) * 0.08;
+            p.d += 0.003;
+            
+            const dx = p.x - mouse.x;
+            const dy = p.y - mouse.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 80) {
+                const force = (80 - dist) / 80;
+                const angle = Math.atan2(dy, dx);
+                p.x += Math.cos(angle) * force * 1.5;
+                p.y += Math.sin(angle) * force * 1.0;
+            }
+            
+            if (p.y > height) {
+                particles[i] = {
+                    x: Math.random() * width,
+                    y: -10,
+                    r: p.r,
+                    d: p.d,
+                    speedY: p.speedY,
+                    speedX: p.speedX,
+                    opacity: p.opacity
+                };
+            }
+            if (p.x > width) p.x = 0;
+            else if (p.x < 0) p.x = width;
+            
+            ctx.fillStyle = `rgba(230, 235, 240, ${p.opacity})`;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+            ctx.fill();
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
+}
+
+// Survival Simulator Widget
+function initSurvivalWidget() {
+    const sliders = {
+        temp: document.getElementById('slider-temp'),
+        hunger: document.getElementById('slider-hunger'),
+        thirst: document.getElementById('slider-thirst'),
+        stealth: document.getElementById('slider-stealth')
+    };
+    
+    const values = {
+        temp: document.getElementById('val-temp'),
+        hunger: document.getElementById('val-hunger'),
+        thirst: document.getElementById('val-thirst'),
+        stealth: document.getElementById('val-stealth')
+    };
+    
+    if (!sliders.temp) return;
+    
+    function updateSimulation() {
+        const temp = parseInt(sliders.temp.value);
+        const hunger = parseInt(sliders.hunger.value);
+        const thirst = parseInt(sliders.thirst.value);
+        const stealth = parseInt(sliders.stealth.value);
+        
+        values.temp.textContent = `${temp}°C`;
+        values.hunger.textContent = `${hunger}%`;
+        values.thirst.textContent = `${thirst}%`;
+        values.stealth.textContent = `${stealth}%`;
+        
+        const coreTempEl = document.getElementById('pda-val-temp');
+        const energyEl = document.getElementById('pda-val-energy');
+        const stealthEl = document.getElementById('pda-val-stealth');
+        const tagsContainer = document.getElementById('pda-tags');
+        const chanceEl = document.getElementById('pda-chance-value');
+        const actionEl = document.getElementById('pda-action-text');
+        const displayEl = document.querySelector('.widget-display');
+        
+        let coreTemp = 36.6;
+        if (temp < 0) {
+            coreTemp += temp * 0.08;
+        } else if (temp > 20) {
+            coreTemp += (temp - 20) * 0.03;
+        }
+        coreTempEl.textContent = `${coreTemp.toFixed(1)}°C`;
+        
+        let exposureText = "Concealed";
+        if (stealth > 70) exposureText = "Highly Exposed";
+        else if (stealth > 40) exposureText = "Partially Visible";
+        else exposureText = "Ghost (Stealthy)";
+        stealthEl.textContent = exposureText;
+        
+        let energyText = "Stable";
+        const maxNeed = Math.max(hunger, thirst);
+        if (maxNeed > 80) energyText = "Critical Exhaustion";
+        else if (maxNeed > 50) energyText = "Fatigued";
+        else if (temp < -15) energyText = "Shivering (Cold)";
+        energyEl.textContent = energyText;
+        
+        const activeTags = [];
+        let stateClass = "";
+        const lang = localStorage.getItem('selectedLanguage') || 'en';
+        const t = translations[lang] || translations['en'];
+        
+        if (coreTemp < 35.0) {
+            activeTags.push(`<span class="status-tag tag-danger">${t.statusHypo}</span>`);
+            stateClass = "danger-state";
+        } else if (coreTemp < 35.8) {
+            activeTags.push(`<span class="status-tag tag-warning">${t.statusHypo}</span>`);
+            if (!stateClass) stateClass = "warning-state";
+        }
+        
+        if (hunger > 75) {
+            activeTags.push(`<span class="status-tag tag-danger">${t.statusStarving}</span>`);
+            stateClass = "danger-state";
+        } else if (hunger > 45) {
+            activeTags.push(`<span class="status-tag tag-warning">${t.statusStarving}</span>`);
+            if (!stateClass) stateClass = "warning-state";
+        }
+        
+        if (thirst > 70) {
+            activeTags.push(`<span class="status-tag tag-danger">${t.statusThirsty}</span>`);
+            stateClass = "danger-state";
+        } else if (thirst > 40) {
+            activeTags.push(`<span class="status-tag tag-warning">${t.statusThirsty}</span>`);
+            if (!stateClass) stateClass = "warning-state";
+        }
+        
+        if (stealth > 65) {
+            activeTags.push(`<span class="status-tag tag-danger">${t.statusExposed}</span>`);
+            stateClass = "danger-state";
+        } else if (stealth < 25) {
+            activeTags.push(`<span class="status-tag tag-stable">${t.statusGhost}</span>`);
+        }
+        
+        if (activeTags.length === 0) {
+            activeTags.push(`<span class="status-tag tag-stable">${t.statusStable}</span>`);
+        }
+        tagsContainer.innerHTML = activeTags.join('');
+        
+        displayEl.className = "widget-display crt-panel";
+        if (stateClass) {
+            displayEl.classList.add(stateClass);
+        }
+        
+        let survivalChance = 100;
+        if (temp < 0) survivalChance += temp * 1.5;
+        survivalChance -= hunger * 0.4;
+        survivalChance -= thirst * 0.5;
+        survivalChance -= stealth * 0.2;
+        
+        survivalChance = Math.max(0, Math.min(100, Math.round(survivalChance)));
+        chanceEl.textContent = `${survivalChance}%`;
+        
+        let actionText = t.actionStable;
+        if (activeTags.length > 1 && stateClass === "danger-state") {
+            actionText = t.actionMultiple;
+        } else if (coreTemp < 35.8) {
+            actionText = t.actionCold;
+        } else if (thirst > 40) {
+            actionText = t.actionThirst;
+        } else if (hunger > 45) {
+            actionText = t.actionHunger;
+        } else if (stealth > 65) {
+            actionText = t.actionExposed;
+        }
+        actionEl.textContent = actionText;
+    }
+    
+    Object.values(sliders).forEach(slider => {
+        slider.addEventListener('input', () => {
+            updateSimulation();
+            if (typeof SoundManager !== 'undefined') {
+                SoundManager.playHover();
+            }
+        });
+    });
+    
+    updateSimulation();
+    window.updateSurvivalWidget = updateSimulation;
+}
 
 // Attach Sounds to Interactive Elements
-document.addEventListener('DOMContentLoaded', () => {
-    // Add hover sounds
-    const interactiveSelector = 'a, button, .feature-card, .news-link, .lang-btn, .modal-close';
-
+function attachSoundListeners() {
+    const interactiveSelector = 'a, button, .feature-card, .news-link, .lang-btn, .modal-close, .gallery-item, .widget-slider';
+    
     document.querySelectorAll(interactiveSelector).forEach(el => {
-        el.addEventListener('mouseenter', () => SoundManager.playHover());
-        el.addEventListener('click', () => SoundManager.playClick());
+        el.removeEventListener('mouseenter', playHoverSoundWrapper);
+        el.removeEventListener('click', playClickSoundWrapper);
+        el.addEventListener('mouseenter', playHoverSoundWrapper);
+        el.addEventListener('click', playClickSoundWrapper);
     });
+}
 
-    // Observe future added elements (if any) or just rely on delegation for clicks
-    document.body.addEventListener('click', (e) => {
-        if (e.target.closest(interactiveSelector)) {
-            // Click sound is already handled by individual listeners, 
-            // but delegation is good for dynamic elements. 
-            // Keeping it simple for now to avoid double plays.
-        }
-    });
-});
+function playHoverSoundWrapper() {
+    if (typeof SoundManager !== 'undefined') {
+        SoundManager.playHover();
+    }
+}
+
+function playClickSoundWrapper() {
+    if (typeof SoundManager !== 'undefined') {
+        SoundManager.playClick();
+    }
+}
 
 console.log('SILENT LIFE - Survive the Occupation');
