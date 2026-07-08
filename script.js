@@ -24,15 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
         "#ff0055", "#00ffcc", "#ffcc00", "#cc00ff", "#00ccff", "#ff3300", "#33ff00"
     ];
 
-    // Ссылки на GIF с танцующими животными 
-    // (поскольку прямых ссылок на свежие нейросети нет под рукой, 
-    // используются кринжовые/смешные танцующие животные)
+    // Ссылки на скачанные GIF с танцующими собаками
     const animalGifs = [
-        "https://media.tenor.com/2Xy-F5z6U4YAAAAd/dancing-dog.gif", // собака
-        "https://media.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif", // танцующая собака
-        "https://media.tenor.com/1Oci29Wl2vYAAAAd/cat-dance.gif", // кот
-        "https://media.tenor.com/y3x3F5Z94V8AAAAd/dancing-cat.gif", // кот 2
-        "https://media.tenor.com/8QzXkQ5D1iAAAAAC/dog-dance.gif" // собака 2
+        "assets/dog1.gif",
+        "assets/dog2.gif",
+        "assets/dog3.gif"
     ];
 
     let currentGifIndex = 0;
@@ -100,23 +96,57 @@ document.addEventListener('DOMContentLoaded', () => {
         lootboxItem.classList.add('shake-animation');
     }
 
+    // Функция салюта из верблюдов
+    function createCamelFireworks(x, y) {
+        for (let i = 0; i < 25; i++) {
+            const camel = document.createElement('img');
+            camel.src = 'assets/Verb.png';
+            camel.classList.add('camel-particle');
+            
+            // Вычисляем случайное направление
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 150 + Math.random() * 400; // от 150 до 550 пикселей
+            const tx = Math.cos(angle) * distance + 'px';
+            const ty = Math.sin(angle) * distance + 'px';
+            const rot = (Math.random() * 720 - 360) + 'deg';
+            
+            camel.style.setProperty('--tx', tx);
+            camel.style.setProperty('--ty', ty);
+            camel.style.setProperty('--rot', rot);
+            
+            camel.style.left = `${x}px`;
+            camel.style.top = `${y}px`;
+            
+            document.body.appendChild(camel);
+            
+            setTimeout(() => {
+                camel.remove();
+            }, 1500);
+        }
+    }
+
     // Обработка клика по лутбоксу
-    lootboxItem.addEventListener('click', () => {
+    lootboxItem.addEventListener('click', (e) => {
         // Случайная награда от 10 до 100
         const reward = Math.floor(Math.random() * 91) + 10;
         balance += reward;
         updateBalance();
+
+        // Запускаем салют из верблюдов
+        const rect = lootboxItem.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        createCamelFireworks(centerX, centerY);
 
         // Меняем иконку и останавливаем тряску
         lootboxItem.classList.remove('shake-animation');
         lootboxItem.innerText = "💰";
 
         // Показываем сколько получили
-        const rect = lootboxItem.getBoundingClientRect();
         const textEl = document.createElement('div');
         textEl.classList.add('floating-text');
         textEl.innerText = `+${reward} МОНЕТ! (Но зачем?)`;
-        textEl.style.left = `${rect.left + rect.width/2}px`;
+        textEl.style.left = `${centerX}px`;
         textEl.style.top = `${rect.top}px`;
         textEl.style.color = "#00ff00";
         textEl.style.setProperty('--rot', 0);
