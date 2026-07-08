@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const lootboxItem = document.getElementById('lootbox-item');
     const header = document.querySelector('header');
 
-    // Кринжовые фразочки при клике
     const cringePhrases = [
         "-1", "-1 лох", "Зачем?", "Остановись!", "Кринж...", 
         "Твоя стата падает", "Минус вайб", "Ты теряешь деньги",
@@ -20,12 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         "Ой всё", "И зачем мы тут?", "-1 IQ"
     ];
 
-    // Цвета для вылетающих текстов
     const cringeColors = [
         "#ff0055", "#00ffcc", "#ffcc00", "#cc00ff", "#00ccff", "#ff3300", "#33ff00"
     ];
 
-    // Ссылки на скачанные GIF с танцующими собаками
     const animalGifs = [
         "assets/dog1.gif",
         "assets/dog2.gif",
@@ -68,60 +65,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 10 АБСУРДНЫХ СОБЫТИЙ (КРИНЖ-МЕХАНИКИ)
+    // 20 АБСУРДНЫХ СОБЫТИЙ (С ВЕСАМИ)
     // ==========================================
     
-    // Подготовка CSS переходов
-    document.body.style.transition = "filter 0.5s, transform 1s";
-    clickArea.style.transition = "transform 0.3s, margin-left 0.2s, margin-top 0.2s";
+    document.body.style.transition = "filter 0.5s, transform 1s, opacity 0.5s";
+    clickArea.style.transition = "transform 0.3s, opacity 0.3s";
     header.style.transition = "transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55)";
 
     const absurdActions = [
-        // 1. Уворот от мышки
-        () => {
-            const rx = (Math.random() - 0.5) * 400;
-            const ry = (Math.random() - 0.5) * 400;
+        // 1. Уворот от мышки (Часто!)
+        { weight: 25, action: () => {
+            const rx = (Math.random() - 0.5) * 500;
+            const ry = (Math.random() - 0.5) * 500;
             clickArea.style.transform = `translate(${rx}px, ${ry}px)`;
             setTimeout(() => { clickArea.style.transform = "none"; }, 2000);
-        },
-        // 2. Экран крутится
-        () => {
-            document.body.style.transform = "rotate(180deg)";
-            setTimeout(() => { document.body.style.transform = "none"; }, 3000);
-        },
-        // 3. Верблюд сжимается
-        () => {
+        }},
+        // 2. Верблюд сжимается (Часто!)
+        { weight: 20, action: () => {
             clickArea.style.transform = "scale(0.1)";
             setTimeout(() => { clickArea.style.transform = "none"; }, 2500);
-        },
-        // 4. Верблюд становится огромным
-        () => {
+        }},
+        // 3. Верблюд становится огромным (Часто!)
+        { weight: 20, action: () => {
             clickArea.style.transform = "scale(3)";
             setTimeout(() => { clickArea.style.transform = "none"; }, 2000);
-        },
-        // 5. Внезапный штраф (фейковая ошибка)
-        () => {
+        }},
+        // 4. Экран крутится (Редко)
+        { weight: 5, action: () => {
+            document.body.style.transform = "rotate(180deg)";
+            setTimeout(() => { document.body.style.transform = "none"; }, 3000);
+        }},
+        // 5. Внезапный штраф (Средне)
+        { weight: 10, action: () => {
             alert("КРИТИЧЕСКАЯ ОШИБКА: Вы слишком много кликаете! Штраф: 50 монет.");
             balance -= 50;
             updateBalance();
-        },
-        // 6. Блюр экрана (Минус зрение)
-        () => {
-            document.body.style.filter = "blur(10px)";
-            setTimeout(() => { document.body.style.filter = "none"; }, 3000);
-        },
+        }},
+        // 6. Верблюд сплющивается (вместо блюра)
+        { weight: 8, action: () => {
+            clickArea.style.transform = "scaleY(0.2) scaleX(2)";
+            setTimeout(() => { clickArea.style.transform = "none"; }, 2500);
+        }},
         // 7. Инверсия цветов
-        () => {
+        { weight: 8, action: () => {
             document.body.style.filter = "invert(100%) hue-rotate(180deg)";
             setTimeout(() => { document.body.style.filter = "none"; }, 3500);
-        },
+        }},
         // 8. Падение баланса вниз
-        () => {
+        { weight: 5, action: () => {
             header.style.transform = "translateY(80vh) rotate(45deg) scale(0.5)";
             setTimeout(() => { header.style.transform = "none"; }, 4000);
-        },
-        // 9. Курсор-обманка (создает фальшивый курсор мыши, который улетает)
-        () => {
+        }},
+        // 9. Скример-курсор
+        { weight: 8, action: () => {
             const fakeCursor = document.createElement('div');
             fakeCursor.innerText = "↖";
             fakeCursor.style.position = "fixed";
@@ -133,31 +129,111 @@ document.addEventListener('DOMContentLoaded', () => {
             fakeCursor.style.pointerEvents = "none";
             fakeCursor.style.transition = "all 2s";
             document.body.appendChild(fakeCursor);
-            
-            setTimeout(() => {
-                fakeCursor.style.transform = "translate(400px, -400px) rotate(180deg)";
-            }, 100);
-            
+            setTimeout(() => { fakeCursor.style.transform = "translate(400px, -400px) rotate(180deg)"; }, 100);
             setTimeout(() => fakeCursor.remove(), 2000);
-        },
-        // 10. Клик прибавляет 10 монет вместо -1 (Галлюцинация)
-        () => {
-            balance += 11; // +10 и компенсируем -1 от основного клика
+        }},
+        // 10. Галлюцинация (+10 монет) - ОЧЕНЬ РЕДКО
+        { weight: 2, action: () => {
+            balance += 11;
             updateBalance();
-            const hallucinationText = document.createElement('div');
-            hallucinationText.innerText = "+10 ГАЛЛЮЦИНАЦИЯ!";
-            hallucinationText.classList.add('floating-text');
-            hallucinationText.style.color = "#00ff00";
-            hallucinationText.style.left = "50%";
-            hallucinationText.style.top = "50%";
-            floatingTextsContainer.appendChild(hallucinationText);
-            setTimeout(() => hallucinationText.remove(), 1500);
-        }
+            const text = document.createElement('div');
+            text.innerText = "+10 ГАЛЛЮЦИНАЦИЯ!";
+            text.classList.add('floating-text');
+            text.style.color = "#00ff00";
+            text.style.left = "50%";
+            text.style.top = "50%";
+            floatingTextsContainer.appendChild(text);
+            setTimeout(() => text.remove(), 1500);
+        }},
+        // 11. Матрица (зеленый фильтр)
+        { weight: 5, action: () => {
+            document.body.style.filter = "hue-rotate(90deg) contrast(200%) sepia(100%)";
+            setTimeout(() => { document.body.style.filter = "none"; }, 3000);
+        }},
+        // 12. Отзеркаливание сайта
+        { weight: 5, action: () => {
+            document.body.style.transform = "scaleX(-1)";
+            setTimeout(() => { document.body.style.transform = "none"; }, 3000);
+        }},
+        // 13. Блэкаут (полная тьма)
+        { weight: 5, action: () => {
+            document.body.style.opacity = "0";
+            setTimeout(() => { document.body.style.opacity = "1"; }, 1500);
+        }},
+        // 14. Фейковая реклама (текст)
+        { weight: 8, action: () => {
+            const ad = document.createElement('div');
+            ad.innerText = "ПОДПИШИСЬ НА ПРЕМИУМ-ВЕРБЛЮДА ЗА $99.99/МЕС!";
+            ad.style.position = "fixed";
+            ad.style.top = "10%";
+            ad.style.left = "0";
+            ad.style.width = "100%";
+            ad.style.backgroundColor = "yellow";
+            ad.style.color = "red";
+            ad.style.fontSize = "30px";
+            ad.style.fontWeight = "900";
+            ad.style.textAlign = "center";
+            ad.style.padding = "20px";
+            ad.style.zIndex = "9999";
+            document.body.appendChild(ad);
+            setTimeout(() => ad.remove(), 2500);
+        }},
+        // 15. Поломка баланса (странные символы)
+        { weight: 8, action: () => {
+            balanceEl.innerText = "$#@!%&";
+            setTimeout(() => updateBalance(), 2000);
+        }},
+        // 16. Comic Sans (шрифт меняется)
+        { weight: 5, action: () => {
+            const oldFont = document.body.style.fontFamily;
+            document.body.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";
+            setTimeout(() => { document.body.style.fontFamily = oldFont; }, 4000);
+        }},
+        // 17. Жесткий зум
+        { weight: 5, action: () => {
+            document.body.style.transform = "scale(2) translate(0%, 10%)";
+            setTimeout(() => { document.body.style.transform = "none"; }, 2000);
+        }},
+        // 18. Верблюд крутится как спиннер
+        { weight: 10, action: () => {
+            clickArea.style.transition = "transform 2s cubic-bezier(0.25, 1, 0.5, 1)";
+            clickArea.style.transform = "rotate(3600deg)";
+            setTimeout(() => { 
+                clickArea.style.transition = "transform 0.3s, opacity 0.3s"; 
+                clickArea.style.transform = "none"; 
+            }, 2500);
+        }},
+        // 19. Призрачный верблюд (почти невидимый)
+        { weight: 15, action: () => {
+            clickArea.style.opacity = "0.05";
+            setTimeout(() => { clickArea.style.opacity = "1"; }, 3000);
+        }},
+        // 20. Верблюд-прыгун
+        { weight: 10, action: () => {
+            let jumps = 0;
+            const interval = setInterval(() => {
+                const rx = (Math.random() - 0.5) * 600;
+                const ry = (Math.random() - 0.5) * 600;
+                clickArea.style.transform = `translate(${rx}px, ${ry}px)`;
+                jumps++;
+                if(jumps > 5) {
+                    clearInterval(interval);
+                    clickArea.style.transform = "none";
+                }
+            }, 300);
+        }}
     ];
 
     function triggerRandomAbsurdAction() {
-        const randomIndex = Math.floor(Math.random() * absurdActions.length);
-        absurdActions[randomIndex]();
+        let totalWeight = absurdActions.reduce((sum, item) => sum + item.weight, 0);
+        let r = Math.random() * totalWeight;
+        for (let item of absurdActions) {
+            r -= item.weight;
+            if (r <= 0) {
+                item.action();
+                break;
+            }
+        }
     }
 
     // ==========================================
@@ -173,8 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const y = e.clientY || window.innerHeight / 2;
         createFloatingText(x, y);
 
-        // 15% шанс на абсурдное действие при каждом клике
-        if (Math.random() < 0.15) {
+        // 25% шанс на абсурдное действие при клике (стало чаще!)
+        if (Math.random() < 0.25) {
             triggerRandomAbsurdAction();
         }
 
@@ -183,13 +259,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Иногда верблюд пугается мышки и пытается увернуться еще до клика (10% шанс при наведении)
+    // Уворот при наведении (шанс 35% - стало гораздо чаще!)
     clickArea.addEventListener('mouseenter', () => {
-        if (Math.random() < 0.10) {
-            const rx = (Math.random() - 0.5) * 500;
-            const ry = (Math.random() - 0.5) * 500;
+        if (Math.random() < 0.35) {
+            const rx = (Math.random() - 0.5) * 600;
+            const ry = (Math.random() - 0.5) * 600;
             clickArea.style.transform = `translate(${rx}px, ${ry}px)`;
-            setTimeout(() => { clickArea.style.transform = "none"; }, 1500);
+            setTimeout(() => { clickArea.style.transform = "none"; }, 1000);
         }
     });
 
