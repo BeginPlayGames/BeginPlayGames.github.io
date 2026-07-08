@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const floatingTextsContainer = document.getElementById('floating-texts');
     const lootboxModal = document.getElementById('lootbox-modal');
     const lootboxItem = document.getElementById('lootbox-item');
+    const header = document.querySelector('header');
 
     // Кринжовые фразочки при клике
     const cringePhrases = [
@@ -33,30 +34,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentGifIndex = 0;
 
-    // Функция обновления фона
     function changeBackground() {
         currentGifIndex = (currentGifIndex + 1) % animalGifs.length;
         backgroundContainer.style.backgroundImage = `url('${animalGifs[currentGifIndex]}')`;
     }
 
-    // Инициализация первого фона и смена каждые 6 секунд
     backgroundContainer.style.backgroundImage = `url('${animalGifs[0]}')`;
     setInterval(changeBackground, 6000);
 
-    // Функция обновления баланса на экране
     function updateBalance() {
         balanceEl.innerText = balance;
     }
 
-    // Функция создания вылетающего текста
     function createFloatingText(x, y) {
         const textEl = document.createElement('div');
         textEl.classList.add('floating-text');
         
-        // Случайный текст, цвет и поворот
         const phrase = cringePhrases[Math.floor(Math.random() * cringePhrases.length)];
         const color = cringeColors[Math.floor(Math.random() * cringeColors.length)];
-        const rot = Math.floor(Math.random() * 80) - 40; // от -40 до 40 градусов
+        const rot = Math.floor(Math.random() * 80) - 40;
         
         textEl.innerText = phrase;
         textEl.style.left = `${x}px`;
@@ -66,46 +62,151 @@ document.addEventListener('DOMContentLoaded', () => {
         
         floatingTextsContainer.appendChild(textEl);
 
-        // Удаление элемента после завершения анимации
         setTimeout(() => {
             textEl.remove();
         }, 1500);
     }
 
-    // Обработка клика по главной картинке
+    // ==========================================
+    // 10 АБСУРДНЫХ СОБЫТИЙ (КРИНЖ-МЕХАНИКИ)
+    // ==========================================
+    
+    // Подготовка CSS переходов
+    document.body.style.transition = "filter 0.5s, transform 1s";
+    clickArea.style.transition = "transform 0.3s, margin-left 0.2s, margin-top 0.2s";
+    header.style.transition = "transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55)";
+
+    const absurdActions = [
+        // 1. Уворот от мышки
+        () => {
+            const rx = (Math.random() - 0.5) * 400;
+            const ry = (Math.random() - 0.5) * 400;
+            clickArea.style.transform = `translate(${rx}px, ${ry}px)`;
+            setTimeout(() => { clickArea.style.transform = "none"; }, 2000);
+        },
+        // 2. Экран крутится
+        () => {
+            document.body.style.transform = "rotate(180deg)";
+            setTimeout(() => { document.body.style.transform = "none"; }, 3000);
+        },
+        // 3. Верблюд сжимается
+        () => {
+            clickArea.style.transform = "scale(0.1)";
+            setTimeout(() => { clickArea.style.transform = "none"; }, 2500);
+        },
+        // 4. Верблюд становится огромным
+        () => {
+            clickArea.style.transform = "scale(3)";
+            setTimeout(() => { clickArea.style.transform = "none"; }, 2000);
+        },
+        // 5. Внезапный штраф (фейковая ошибка)
+        () => {
+            alert("КРИТИЧЕСКАЯ ОШИБКА: Вы слишком много кликаете! Штраф: 50 монет.");
+            balance -= 50;
+            updateBalance();
+        },
+        // 6. Блюр экрана (Минус зрение)
+        () => {
+            document.body.style.filter = "blur(10px)";
+            setTimeout(() => { document.body.style.filter = "none"; }, 3000);
+        },
+        // 7. Инверсия цветов
+        () => {
+            document.body.style.filter = "invert(100%) hue-rotate(180deg)";
+            setTimeout(() => { document.body.style.filter = "none"; }, 3500);
+        },
+        // 8. Падение баланса вниз
+        () => {
+            header.style.transform = "translateY(80vh) rotate(45deg) scale(0.5)";
+            setTimeout(() => { header.style.transform = "none"; }, 4000);
+        },
+        // 9. Курсор-обманка (создает фальшивый курсор мыши, который улетает)
+        () => {
+            const fakeCursor = document.createElement('div');
+            fakeCursor.innerText = "↖";
+            fakeCursor.style.position = "fixed";
+            fakeCursor.style.left = "50%";
+            fakeCursor.style.top = "50%";
+            fakeCursor.style.fontSize = "40px";
+            fakeCursor.style.color = "white";
+            fakeCursor.style.zIndex = "9999";
+            fakeCursor.style.pointerEvents = "none";
+            fakeCursor.style.transition = "all 2s";
+            document.body.appendChild(fakeCursor);
+            
+            setTimeout(() => {
+                fakeCursor.style.transform = "translate(400px, -400px) rotate(180deg)";
+            }, 100);
+            
+            setTimeout(() => fakeCursor.remove(), 2000);
+        },
+        // 10. Клик прибавляет 10 монет вместо -1 (Галлюцинация)
+        () => {
+            balance += 11; // +10 и компенсируем -1 от основного клика
+            updateBalance();
+            const hallucinationText = document.createElement('div');
+            hallucinationText.innerText = "+10 ГАЛЛЮЦИНАЦИЯ!";
+            hallucinationText.classList.add('floating-text');
+            hallucinationText.style.color = "#00ff00";
+            hallucinationText.style.left = "50%";
+            hallucinationText.style.top = "50%";
+            floatingTextsContainer.appendChild(hallucinationText);
+            setTimeout(() => hallucinationText.remove(), 1500);
+        }
+    ];
+
+    function triggerRandomAbsurdAction() {
+        const randomIndex = Math.floor(Math.random() * absurdActions.length);
+        absurdActions[randomIndex]();
+    }
+
+    // ==========================================
+    // Основная логика
+    // ==========================================
+
     clickArea.addEventListener('click', (e) => {
         balance -= 1;
         clicks += 1;
         updateBalance();
 
-        // Позиция для вылетающего текста
         const x = e.clientX || window.innerWidth / 2;
         const y = e.clientY || window.innerHeight / 2;
         createFloatingText(x, y);
 
-        // Проверка на лутбокс
+        // 15% шанс на абсурдное действие при каждом клике
+        if (Math.random() < 0.15) {
+            triggerRandomAbsurdAction();
+        }
+
         if (clicks % clicksForLootbox === 0) {
             spawnLootbox();
         }
     });
 
-    // Функция появления лутбокса
+    // Иногда верблюд пугается мышки и пытается увернуться еще до клика (10% шанс при наведении)
+    clickArea.addEventListener('mouseenter', () => {
+        if (Math.random() < 0.10) {
+            const rx = (Math.random() - 0.5) * 500;
+            const ry = (Math.random() - 0.5) * 500;
+            clickArea.style.transform = `translate(${rx}px, ${ry}px)`;
+            setTimeout(() => { clickArea.style.transform = "none"; }, 1500);
+        }
+    });
+
     function spawnLootbox() {
         lootboxModal.classList.remove('hidden');
         lootboxItem.innerText = "📦";
         lootboxItem.classList.add('shake-animation');
     }
 
-    // Функция салюта из верблюдов
     function createCamelFireworks(x, y) {
         for (let i = 0; i < 25; i++) {
             const camel = document.createElement('img');
             camel.src = 'assets/Verb.png';
             camel.classList.add('camel-particle');
             
-            // Вычисляем случайное направление
             const angle = Math.random() * Math.PI * 2;
-            const distance = 150 + Math.random() * 400; // от 150 до 550 пикселей
+            const distance = 150 + Math.random() * 400;
             const tx = Math.cos(angle) * distance + 'px';
             const ty = Math.sin(angle) * distance + 'px';
             const rot = (Math.random() * 720 - 360) + 'deg';
@@ -125,24 +226,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Обработка клика по лутбоксу
     lootboxItem.addEventListener('click', (e) => {
-        // Случайная награда от 10 до 100
         const reward = Math.floor(Math.random() * 91) + 10;
         balance += reward;
         updateBalance();
 
-        // Запускаем салют из верблюдов
         const rect = lootboxItem.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
         createCamelFireworks(centerX, centerY);
 
-        // Меняем иконку и останавливаем тряску
         lootboxItem.classList.remove('shake-animation');
         lootboxItem.innerText = "💰";
 
-        // Показываем сколько получили
         const textEl = document.createElement('div');
         textEl.classList.add('floating-text');
         textEl.innerText = `+${reward} МОНЕТ! (Но зачем?)`;
@@ -156,7 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
             textEl.remove();
         }, 2000);
 
-        // Скрываем лутбокс через небольшую паузу
         setTimeout(() => {
             lootboxModal.classList.add('hidden');
         }, 1000);
