@@ -3,33 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Анти-Кликер: Минус Вайб</title>
+    <title>Баронство Тризнов: РПГ</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="background-container"></div>
-    
-    <header class="glass-panel">
-        <h1>Баланс: <span id="balance">1000</span> <span class="coin-icon">💰</span></h1>
-    </header>
+    <div id="game-container">
+        <!-- Левая панель: Герой и Статы -->
+        <aside id="hero-panel">
+            <h2>Герой</h2>
+            <div class="avatar-container">
+                <img src="assets/Verb.png" alt="Ваш верный скакун (или вы сами)" id="hero-avatar">
+            </div>
+            <div class="stats">
+                <div class="stat-row">
+                    <span class="stat-label">❤️ Здоровье:</span>
+                    <span id="stat-hp" class="stat-value">100/100</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">💰 Гроши:</span>
+                    <span id="stat-gold" class="stat-value">30</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">🧠 Кукуха:</span>
+                    <span id="stat-sanity" class="stat-value">100%</span>
+                </div>
+            </div>
+            <div id="status-effect" class="status-effect text-normal">Состояние: Стабильное отчаяние</div>
+        </aside>
 
-    <main>
-        <div id="click-area">
-            <img src="assets/Verb.png" alt="Кликай сюда!" id="main-clicker">
-        </div>
-    </main>
+        <!-- Центральная панель: Логи -->
+        <main id="log-panel">
+            <h2>Журнал Событий Баронства</h2>
+            <div id="log-container">
+                <p class="log-entry log-system">Добро пожаловать в Баронство Тризнов. Землю, где надежда умирает последней, сразу после здравого смысла.</p>
+            </div>
+        </main>
 
-    <!-- Lootbox Modal -->
-    <div id="lootbox-modal" class="hidden">
-        <div class="lootbox glass-panel">
-            <h2>🎁 Кринж-Бокс! 🎁</h2>
-            <p>Открой его быстрее, пока он не убежал!</p>
-            <div id="lootbox-item" class="shake-animation">📦</div>
-        </div>
+        <!-- Правая панель: Точки интереса и Действия -->
+        <aside id="action-panel">
+            <h2>Точки Интереса</h2>
+            <button class="action-btn" id="btn-rob">🗡️ Ограбить крестьянина</button>
+            <button class="action-btn" id="btn-work">⛏️ Отработать барщину</button>
+            <button class="action-btn" id="btn-duel-rat">🐀 Вызвать крысу на дуэль</button>
+            
+            <h2 style="margin-top: 15px;">Городские Услуги</h2>
+            <button class="action-btn" id="btn-feast">🍗 Пойти на Тризну (10 Грошей)</button>
+            <button class="action-btn" id="btn-tavern">🍺 Таверна "Хромой Пес" (5 Грошей)</button>
+            <button class="action-btn" id="btn-doctor">🪶 Чумной Доктор (20 Грошей)</button>
+            <button class="action-btn" id="btn-pray">☸️ Помолиться Колесу</button>
+        </aside>
     </div>
 
-    <!-- Floating texts container -->
-    <div id="floating-texts"></div>
+    <!-- Модальное окно смерти -->
+    <div id="death-modal" class="hidden">
+        <div class="modal-content">
+            <h2>Вы стали Крепостным!</h2>
+            <p id="death-reason">Ваше здоровье упало до нуля, и теперь вы собственность Барона Тризнова.</p>
+            <button id="btn-restart">Переродиться</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
