@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 addLog("Колесо требует жертв. Половина ваших Грошей провалилась сквозь текстуры земли.", "danger");
             } else if (rand < 0.6) {
                 state.sanity = Math.max(0, state.sanity - 30);
-                addLog("Вы заглянули в бездну Колеса. Бездна сказала 'Кринж'. <span style="color:#cc00ff">-30 Кукухи</span>.", "cringe");
+                addLog("Вы заглянули в бездну Колеса. Бездна сказала 'Кринж'. <span style='color:#cc00ff'>-30 Кукухи</span>.", "cringe");
             } else if (rand < 0.8) {
                 state.gold += 50;
                 addLog("С небес упал мешок с надписью 'От Барона Тризнова'. Там <b>50 Грошей</b>!", "gold");
