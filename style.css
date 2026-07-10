@@ -24,8 +24,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
     font-family: 'Cormorant Garamond', serif;
-    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%2312100e"/><path d="M0 0 L100 100 M100 0 L0 100" stroke="%231a1614" stroke-width="2"/></svg>'); /* Subtle background texture */
-    background-size: 20px 20px;
+    /* Убрал SVG фон, так как неэкранированные символы ломают CSS парсер в некоторых браузерах */
     height: 100vh;
     display: flex;
     justify-content: center;
