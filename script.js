@@ -1,313 +1,53 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Состояние героя
-    let state = {
-        hp: 100,
-        gold: 30,
-        sanity: 100,
-        isDead: false
-    };
+(() => {
+  const menuButton = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".main-nav");
 
-    // Элементы UI
-    const elHp = document.getElementById('stat-hp');
-    const elGold = document.getElementById('stat-gold');
-    const elSanity = document.getElementById('stat-sanity');
-    const elStatus = document.getElementById('status-effect');
-    const logContainer = document.getElementById('log-container');
-    const avatar = document.getElementById('hero-avatar');
+  menuButton?.addEventListener("click", () => {
+    const open = menuButton.getAttribute("aria-expanded") !== "true";
+    menuButton.setAttribute("aria-expanded", String(open));
+    menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    nav?.classList.toggle("is-open", open);
+  });
 
-    // Кнопки
-    const btnRob = document.getElementById('btn-rob');
-    const btnWork = document.getElementById('btn-work');
-    const btnDuelRat = document.getElementById('btn-duel-rat');
-    const btnFeast = document.getElementById('btn-feast');
-    const btnTavern = document.getElementById('btn-tavern');
-    const btnDoctor = document.getElementById('btn-doctor');
-    const btnPray = document.getElementById('btn-pray');
-    
-    // Смерть
-    const deathModal = document.getElementById('death-modal');
-    const btnRestart = document.getElementById('btn-restart');
-    const deathReason = document.getElementById('death-reason');
-
-    // Функция добавления лога
-    function addLog(text, type = 'normal') {
-        const p = document.createElement('p');
-        p.className = `log-entry log-${type}`;
-        p.innerHTML = text;
-        logContainer.appendChild(p);
-        logContainer.scrollTop = logContainer.scrollHeight;
-    }
-
-    // Обновление интерфейса
-    function updateUI() {
-        elHp.innerText = `${state.hp}/100`;
-        elGold.innerText = state.gold;
-        elSanity.innerText = `${state.sanity}%`;
-
-        // Визуализация кукухи
-        if (state.sanity < 30) {
-            elSanity.style.color = 'var(--text-danger)';
-            avatar.style.filter = 'sepia(1) hue-rotate(90deg) contrast(2) invert(0.8)';
-            if (Math.random() < 0.3) document.body.classList.add('cringe-shake');
-            setTimeout(() => document.body.classList.remove('cringe-shake'), 500);
-        } else if (state.sanity < 70) {
-            elSanity.style.color = '#ffaa00';
-            avatar.style.filter = 'sepia(0.8) contrast(1.5)';
-        } else {
-            elSanity.style.color = 'var(--text-main)';
-            avatar.style.filter = 'sepia(0.6) contrast(1.2)';
-        }
-
-        // Статус
-        if (state.sanity === 100) elStatus.innerText = "Состояние: Подозрительно нормальное";
-        else if (state.sanity > 70) elStatus.innerText = "Состояние: Стабильное отчаяние";
-        else if (state.sanity > 30) elStatus.innerText = "Состояние: Слышит голоса крестьян";
-        else elStatus.innerText = "Состояние: Полнейшая постирония";
-
-        // Проверка смерти
-        if (state.hp <= 0 && !state.isDead) {
-            die();
-        }
-
-        // Блокировка кнопок по деньгам
-        btnFeast.disabled = state.gold < 10;
-        btnTavern.disabled = state.gold < 5;
-        btnDoctor.disabled = state.gold < 20;
-    }
-
-    function die() {
-        state.isDead = true;
-        deathReason.innerText = `Вы потеряли все здоровье и стали крепостным в Баронстве Тризнов. Ваша кукуха была на уровне ${state.sanity}%.`;
-        deathModal.classList.remove('hidden');
-    }
-
-    btnRestart.addEventListener('click', () => {
-        state = { hp: 100, gold: 30, sanity: 100, isDead: false };
-        logContainer.innerHTML = '';
-        addLog("Вы переродились. Инквизиция Баронства дала вам второй шанс.", 'system');
-        deathModal.classList.add('hidden');
-        updateUI();
+  nav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuButton?.setAttribute("aria-expanded", "false");
+      menuButton?.setAttribute("aria-label", "Open navigation");
+      nav.classList.remove("is-open");
     });
+  });
 
-    // --- ДЕЙСТВИЯ ---
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxImage = lightbox?.querySelector("img");
+  const lightboxCaption = lightbox?.querySelector("p");
+  document.querySelectorAll(".shot-open").forEach((button) => {
+    button.addEventListener("click", () => {
+      const image = button.querySelector("img");
+      if (!image || !lightbox || !lightboxImage) return;
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt;
+      lightboxCaption.textContent = button.nextElementSibling?.textContent.trim() || image.alt;
+      lightbox.showModal();
+    });
+  });
+  lightbox?.querySelector(".lightbox-close")?.addEventListener("click", () => lightbox.close());
+  lightbox?.addEventListener("click", (event) => {
+    if (event.target === lightbox) lightbox.close();
+  });
 
-    // 1. Ограбить крестьянина
-    btnRob.addEventListener('click', () => {
-        if (state.isDead) return;
-        const goldGain = Math.floor(Math.random() * 15) + 5;
-        state.gold += goldGain;
-        state.sanity = Math.max(0, state.sanity - (Math.floor(Math.random() * 10) + 5));
-
-        let log = `Вы успешно ограбили крестьянина на <b>${goldGain} Грошей</b>. `;
-        let type = 'gold';
-
-        if (Math.random() < 0.3) {
-            const dmg = Math.floor(Math.random() * 20) + 10;
-            state.hp -= dmg;
-            log += `Однако крестьянин оказался агентом Инквизиции и ударил вас граблями! <span style="color:red">-${dmg} HP</span>.`;
-            type = 'danger';
-        } else {
-            log += "Его слезы были горькими.";
+  const revealTargets = document.querySelectorAll(".intro-grid, .story-frame, .step-card, .timeline-entry, .shot, .glass-card, .glass-footnote");
+  revealTargets.forEach((element) => element.classList.add("reveal"));
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          currentObserver.unobserve(entry.target);
         }
-
-        addLog(log, type);
-        checkCringeEvent();
-        updateUI();
-    });
-
-    // 2. Отработать барщину
-    btnWork.addEventListener('click', () => {
-        if (state.isDead) return;
-        const goldGain = Math.floor(Math.random() * 5) + 3;
-        state.gold += goldGain;
-        state.hp -= 5;
-        state.sanity = Math.max(0, state.sanity - 2);
-
-        addLog(`Вы честно отработали в поле Барона. Спина болит (-5 HP), но вы получили <b>${goldGain} Грошей</b>.`, 'normal');
-        checkCringeEvent();
-        updateUI();
-    });
-
-    // 3. Вызвать крысу на дуэль
-    btnDuelRat.addEventListener('click', () => {
-        if (state.isDead) return;
-        const rand = Math.random();
-        
-        if (rand < 0.4) { // Победа
-            const goldGain = 20;
-            state.gold += goldGain;
-            state.sanity = Math.min(100, state.sanity + 5);
-            addLog(`Вы благородно победили Огромную Чумную Крысу в честном поединке на шпагах! У нее в карманах было <b>${goldGain} Грошей</b>.`, 'gold');
-        } else if (rand < 0.8) { // Поражение
-            const dmg = 25;
-            state.hp -= dmg;
-            state.sanity = Math.max(0, state.sanity - 15);
-            addLog(`Крыса применила грязный прием и укусила вас за лодыжку! Позор! <span style="color:red">-${dmg} HP</span>, -15 Кукухи.`, 'danger');
-        } else { // Ничья
-            state.sanity = Math.max(0, state.sanity - 20);
-            addLog(`Вы с крысой посмотрели друг другу в глаза, поняли всю тщетность бытия и разошлись. -20 Кукухи от экзистенциального кризиса.`, 'cringe');
-        }
-        checkCringeEvent();
-        updateUI();
-    });
-
-    // 4. Пойти на Тризну
-    btnFeast.addEventListener('click', () => {
-        if (state.isDead || state.gold < 10) return;
-        state.gold -= 10;
-        
-        const heal = Math.floor(Math.random() * 30) + 20;
-        state.hp = Math.min(100, state.hp + heal);
-        state.sanity = Math.min(100, state.sanity + 10);
-
-        let log = `Вы отправились на Тризну. Потрачено <b>10 Грошей</b>. Съели блинов и восстановили <span style="color:#4dff88">+${heal} HP</span>.`;
-        let type = 'heal';
-
-        if (Math.random() < 0.3) {
-            log += " Вы случайно съели свечу вместо пирожка. Хрустяще.";
-        }
-        
-        addLog(log, type);
-        checkCringeEvent();
-        updateUI();
-    });
-
-    // 5. Таверна "Хромой Пес"
-    btnTavern.addEventListener('click', () => {
-        if (state.isDead || state.gold < 5) return;
-        state.gold -= 5;
-        
-        const rand = Math.random();
-        if (rand < 0.3) {
-            state.sanity = Math.min(100, state.sanity + 20);
-            addLog(`В таверне бард пел песню про глупого рыцаря. Вы посмеялись. <span style="color:#4dff88">+20 Кукухи</span>.`, 'heal');
-        } else if (rand < 0.6) {
-            state.hp -= 10;
-            addLog(`В таверне началась драка. В вас прилетел табурет. <span style="color:red">-10 HP</span>.`, 'danger');
-        } else if (rand < 0.9) {
-            state.gold += 15;
-            addLog(`Пьяный дворянин перепутал вас со своим слугой и дал вам на чай <b>15 Грошей</b>.`, 'gold');
-        } else {
-            state.sanity = Math.max(0, state.sanity - 30);
-            addLog(`Хозяин таверны оказался постироничным стендапером. Вы не выдержали его шуток. <span style="color:#cc00ff">-30 Кукухи</span>.`, 'cringe');
-        }
-        checkCringeEvent();
-        updateUI();
-    });
-
-    // 6. Чумной Доктор
-    btnDoctor.addEventListener('click', () => {
-        if (state.isDead || state.gold < 20) return;
-        state.gold -= 20;
-        
-        state.hp = 100;
-        state.sanity = Math.max(0, state.sanity - 40);
-        
-        addLog(`Чумной доктор приложил к вашему лбу пиявок, посыпал солью и ударил палкой. Ваше здоровье полностью восстановлено, но вы теперь боитесь палок. <span style="color:#cc00ff">-40 Кукухи</span>.`, 'heal');
-        checkCringeEvent();
-        updateUI();
-    });
-
-    // 7. Помолиться Колесу
-    btnPray.addEventListener('click', () => {
-        if (state.isDead) return;
-        const rand = Math.random();
-        
-        if (rand < 0.2) {
-            state.hp = 100;
-            addLog("Колесо услышало вас! Ваши раны мгновенно затянулись. Полное исцеление!", "heal");
-        } else if (rand < 0.4) {
-            state.gold = Math.floor(state.gold / 2);
-            addLog("Колесо требует жертв. Половина ваших Грошей провалилась сквозь текстуры земли.", "danger");
-        } else if (rand < 0.6) {
-            state.sanity = Math.max(0, state.sanity - 30);
-            addLog("Вы заглянули в бездну Колеса. Бездна сказала 'Кринж'. <span style="color:#cc00ff">-30 Кукухи</span>.", "cringe");
-        } else if (rand < 0.8) {
-            state.gold += 50;
-            addLog("С небес упал мешок с надписью 'От Барона Тризнова'. Там <b>50 Грошей</b>!", "gold");
-        } else {
-            addLog("Вы молились Колесу два часа. Мимо прошел стражник и покрутил пальцем у виска.", "normal");
-        }
-        
-        checkCringeEvent();
-        updateUI();
-    });
-
-    // 15 Абсурдных Случайных Событий (триггерятся при низком рассудке)
-    function checkCringeEvent() {
-        const cringeChance = (100 - state.sanity) / 250; // От 0% до 40% шанса на каждый клик
-        
-        if (Math.random() < cringeChance) {
-            const events = [
-                () => {
-                    state.gold += 1;
-                    addLog("Галлюцинация: Верблюд с иконы плюнул вам в лицо серебряной монетой. +1 Грош.", "cringe");
-                },
-                () => {
-                    state.hp -= 10;
-                    addLog("Вас посетило экзистенциальное отчаяние. Вы ударились головой о сруб. -10 HP.", "danger");
-                },
-                () => {
-                    addLog("Вы попытались вспомнить, зачем вы здесь. В голове Ошибка 404.", "system");
-                },
-                () => {
-                    const stolen = Math.floor(state.gold * 0.2);
-                    state.gold -= stolen;
-                    addLog(`Сборщик налогов Тризнова отобрал у вас налог на постиронию (${stolen} Грошей).`, "danger");
-                },
-                () => {
-                    state.sanity += 20;
-                    addLog("Вас ударила молния! На удивление, ваши мозги встали на место. +20 Кукухи.", "heal");
-                },
-                () => {
-                    addLog("Вы попытались заговорить с репой на грядке. Репа ответила вам на латыни. Вы сделали вид, что поняли.", "cringe");
-                },
-                () => {
-                    state.gold -= 5;
-                    addLog("Стража Тризнова оштрафовала вас за 'отсутствие должного уныния на лице'. Штраф 5 Грошей.", "danger");
-                },
-                () => {
-                    addLog("Вам кажется, что вы находитесь внутри HTML страницы. Вы ищете кнопку F12, но находите лишь вилы.", "cringe");
-                },
-                () => {
-                    state.hp = Math.min(100, state.hp + 5);
-                    addLog("Мимо пролетела жареная курица и ударила вас по лицу. Вы откусили кусок. +5 HP.", "heal");
-                },
-                () => {
-                    addLog("Где-то вдалеке завыли волки. Вы завыли в ответ. Волки замолчали в неловкости.", "cringe");
-                },
-                () => {
-                    state.sanity = Math.max(0, state.sanity - 10);
-                    addLog("Вы посмотрели на свои руки и осознали, что вы — всего лишь набор пикселей. -10 Кукухи.", "cringe");
-                },
-                () => {
-                    const found = Math.floor(Math.random() * 15) + 1;
-                    state.gold += found;
-                    addLog(`В луже грязи вы нашли чьи-то золотые зубы. Вы продали их алхимику за ${found} Грошей.`, "gold");
-                },
-                () => {
-                    addLog("Барон Тризнов издал новый указ: 'Всем дышать через раз в целях экономии воздуха'.", "system");
-                },
-                () => {
-                    state.hp -= 15;
-                    addLog("Вы решили, что можете летать. Вы прыгнули с забора и приземлились в навоз. -15 HP и гордости.", "danger");
-                },
-                () => {
-                    state.sanity = Math.min(100, state.sanity + 15);
-                    addLog("Вы встретили местного деревенского дурачка. На его фоне вы почувствовали себя гением. +15 Кукухи.", "heal");
-                }
-            ];
-            
-            const randomEvent = events[Math.floor(Math.random() * events.length)];
-            setTimeout(() => {
-                if (!state.isDead) {
-                    randomEvent();
-                    updateUI();
-                }
-            }, 500); 
-        }
-    }
-
-    // Инициализация
-    updateUI();
-});
+      });
+    }, { threshold: 0.12 });
+    revealTargets.forEach((element) => observer.observe(element));
+  } else {
+    revealTargets.forEach((element) => element.classList.add("is-visible"));
+  }
+})();

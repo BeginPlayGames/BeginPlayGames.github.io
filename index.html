@@ -1,68 +1,150 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Баронство Тризнов: РПГ</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d0b">
+  <meta name="description" content="A transparent development log for Last Lantern: Director’s Cut — a 2.5D puzzle platformer about a cat, a girl, and a film that can be rewritten.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Last Lantern: Director’s Cut — Development Log">
+  <meta property="og:description" content="Two worlds. One projector. A human-directed, AI-assisted game jam story.">
+  <meta property="og:image" content="https://beginplaygames.github.io/assets/devlog/cover.png">
+  <title>Last Lantern: Director’s Cut — Development Log</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container">
-        <!-- Левая панель: Герой и Статы -->
-        <aside id="hero-panel">
-            <h2>Герой</h2>
-            <div class="avatar-container">
-                <img src="assets/Verb.png" alt="Ваш верный скакун (или вы сами)" id="hero-avatar">
-            </div>
-            <div class="stats">
-                <div class="stat-row">
-                    <span class="stat-label">❤️ Здоровье:</span>
-                    <span id="stat-hp" class="stat-value">100/100</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">💰 Гроши:</span>
-                    <span id="stat-gold" class="stat-value">30</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">🧠 Кукуха:</span>
-                    <span id="stat-sanity" class="stat-value">100%</span>
-                </div>
-            </div>
-            <div id="status-effect" class="status-effect text-normal">Состояние: Стабильное отчаяние</div>
-        </aside>
+  <a class="skip-link" href="#main">Skip to story</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Last Lantern devlog home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span><b>LAST LANTERN</b><small>DIRECTOR’S CUT · DEVLOG</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#story">The story</a>
+      <a href="#mechanic">The mechanic</a>
+      <a href="#journal">Build journal</a>
+      <a href="#glass-box">Glass Box</a>
+    </nav>
+    <a class="nav-cta" href="https://bpgame.itch.io/last-lantern-directors-cut" target="_blank" rel="noreferrer">Play the cut <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+  </header>
 
-        <!-- Центральная панель: Логи -->
-        <main id="log-panel">
-            <h2>Журнал Событий Баронства</h2>
-            <div id="log-container">
-                <p class="log-entry log-system">Добро пожаловать в Баронство Тризнов. Землю, где надежда умирает последней, сразу после здравого смысла.</p>
-            </div>
-        </main>
-
-        <!-- Правая панель: Точки интереса и Действия -->
-        <aside id="action-panel">
-            <h2>Точки Интереса</h2>
-            <button class="action-btn" id="btn-rob">🗡️ Ограбить крестьянина</button>
-            <button class="action-btn" id="btn-work">⛏️ Отработать барщину</button>
-            <button class="action-btn" id="btn-duel-rat">🐀 Вызвать крысу на дуэль</button>
-            
-            <h2 style="margin-top: 15px;">Городские Услуги</h2>
-            <button class="action-btn" id="btn-feast">🍗 Пойти на Тризну (10 Грошей)</button>
-            <button class="action-btn" id="btn-tavern">🍺 Таверна "Хромой Пес" (5 Грошей)</button>
-            <button class="action-btn" id="btn-doctor">🪶 Чумной Доктор (20 Грошей)</button>
-            <button class="action-btn" id="btn-pray">☸️ Помолиться Колесу</button>
-        </aside>
-    </div>
-
-    <!-- Модальное окно смерти -->
-    <div id="death-modal" class="hidden">
-        <div class="modal-content">
-            <h2>Вы стали Крепостным!</h2>
-            <p id="death-reason">Ваше здоровье упало до нуля, и теперь вы собственность Барона Тризнова.</p>
-            <button id="btn-restart">Переродиться</button>
+  <main id="main">
+    <section class="hero" id="top">
+      <img class="hero-art" src="assets/devlog/cover.png" alt="Last Lantern: Director’s Cut cover art: a girl and her cat stand in a warmly lit, abandoned theatre.">
+      <div class="hero-vignette"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> A Glass Box development log</p>
+        <h1>Some stories<br>fight their way<br><em>back into frame.</em></h1>
+        <p class="hero-deck">A little cat in the wings. A girl trapped in the film. One lantern connecting two worlds that were never meant to touch.</p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#journal">Follow the cut <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#mechanic">See how it plays <span aria-hidden="true">↘</span></a>
         </div>
-    </div>
+        <div class="hero-meta"><span>UNREAL ENGINE 5.9</span><span class="meta-rule"></span><span>2.5D PUZZLE PLATFORMER</span></div>
+      </div>
+      <div class="frame-corner frame-corner-a" aria-hidden="true"></div>
+      <div class="frame-corner frame-corner-b" aria-hidden="true"></div>
+      <div class="film-edge film-edge-top" aria-hidden="true"></div>
+      <div class="hero-caption"><span>01 / THE FIRST FRAME</span><span>THEME: DIRECTOR’S CUT</span></div>
+    </section>
 
-    <script src="rpg-script.js"></script>
+    <div class="film-divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+    <section class="intro section-wrap" id="story">
+      <div class="section-kicker"><span>THE PITCH</span><span>01 — 04</span></div>
+      <div class="intro-grid">
+        <div>
+          <p class="eyebrow">A film with a missing ending</p>
+          <h2>Two realities.<br><em>One shared shadow.</em></h2>
+        </div>
+        <div class="intro-text">
+          <p>When a film tears, a girl is stranded inside its painted world and her cat is left behind in the theatre. They can only make it forward together: the cat moves real objects beyond the screen; the girl turns their shadows into paths, switches, and answers.</p>
+          <p>The jam theme was <strong>Director’s Cut</strong>. We took it literally: what if changing the frame changed the world—and the characters could help each other rewrite it?</p>
+        </div>
+      </div>
+      <div class="story-reel">
+        <figure class="story-frame"><img src="assets/devlog/story/01_WarmPast.png" alt="Warm-toned concept frame of the girl and cat together before the film is cut." loading="lazy"><figcaption><span>THE OLD PICTURE</span><b>Before the cut</b></figcaption></figure>
+        <figure class="story-frame story-frame-focus"><img src="assets/devlog/story/02_CensorCut.png" alt="Concept frame showing the moment the film is cut apart." loading="lazy"><figcaption><span>THE INTERRUPTION</span><b>The frame breaks</b></figcaption></figure>
+        <figure class="story-frame"><img src="assets/devlog/story/03_Separation.png" alt="Concept frame showing the girl and cat separated into different worlds." loading="lazy"><figcaption><span>THE NEW CUT</span><b>Two worlds, one bond</b></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="mechanic-section" id="mechanic">
+      <div class="section-wrap">
+        <div class="section-kicker"><span>THE CORE MECHANIC</span><span>02 — 04</span></div>
+        <div class="mechanic-heading">
+          <div><p class="eyebrow">Not a companion. A co-director.</p><h2>Neither one can<br>finish the scene <em>alone.</em></h2></div>
+          <p class="mechanic-lead">The puzzle lives in the gap between a solid object and the shape it casts onto celluloid.</p>
+        </div>
+        <div class="steps">
+          <article class="step-card"><span class="step-number">01</span><div class="step-icon step-icon-cat" aria-hidden="true">✦</div><p class="step-label">BACKSTAGE · 3D</p><h3>The cat moves the set.</h3><p>Push a crate or stage prop into the projector beam. In the real theatre, it is an ordinary object. On screen, it becomes a bridge.</p></article>
+          <div class="step-connector" aria-hidden="true">→</div>
+          <article class="step-card step-card-lit"><span class="step-number">02</span><div class="step-icon step-icon-beam" aria-hidden="true">◌</div><p class="step-label">THE PROJECTOR · BOTH</p><h3>The shadow changes the frame.</h3><p>Light carries the object across the boundary. The player reads the same puzzle from two sides of the screen.</p></article>
+          <div class="step-connector" aria-hidden="true">→</div>
+          <article class="step-card"><span class="step-number">03</span><div class="step-icon step-icon-girl" aria-hidden="true">⌁</div><p class="step-label">INSIDE THE FILM · 2D</p><h3>The girl changes the route.</h3><p>Use the new shadow to reach a lever, release a rail clamp, or open a way for the cat. Then the 3D space changes too.</p></article>
+        </div>
+        <div class="mechanic-note"><span class="note-star">✳</span><p><strong>The design test:</strong> every major beat should make the player understand something new about the connection between screen and stage.</p></div>
+      </div>
+    </section>
+
+    <section class="journal section-wrap" id="journal">
+      <div class="section-kicker"><span>THE BUILD JOURNAL</span><span>03 — 04</span></div>
+      <div class="journal-title">
+        <div><p class="eyebrow">From a blank screen to a connected route</p><h2>Every cut left<br><em>something to fix.</em></h2></div>
+        <p class="journal-intro">Four days, a playable slice, then the honest work: test what is there, find where the picture falls apart, and recut it.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-entry"><div class="timeline-date"><span>12 NOV</span><i></i></div><div class="timeline-content"><p class="timeline-tag">THE FIRST PLAYABLE</p><h3>Start with the relationship.</h3><p>The theme became a 2.5D puzzle platformer: a 3D cat in the theatre and a 2D girl inside the projected film. The first Unreal Engine 5.9 greybox focused on the hand-off between them before adding detail.</p><div class="mini-chips"><span>UE 5.9</span><span>Playable greybox</span><span>3D ↔ 2D</span></div></div></article>
+        <article class="timeline-entry"><div class="timeline-date"><span>13 NOV</span><i></i></div><div class="timeline-content"><p class="timeline-tag">THE FIRST PLAYTEST</p><h3>The light looked dramatic. The game did not read.</h3><p>Early lighting washed out silhouettes, while a few room transitions blocked the cat. We pulled back the exposure, separated the foreground from the projection, and checked the floor and portal clearances across the route.</p><div class="pull-quote"><span>“A beautiful beam is no good if you can’t see where to go.”</span><small>THE PLAYTEST NOTE THAT CHANGED THE PASS</small></div><p class="evidence-line"><b>What changed:</b> the documented validation pass reports 0 failed floor and portal clearance checks across the seven-zone route.</p></div></article>
+        <article class="timeline-entry"><div class="timeline-date"><span>13 NOV</span><i></i></div><div class="timeline-content"><p class="timeline-tag">THE DIRECTOR’S CUT</p><h3>Seven zones became one journey.</h3><p>The route connected a bridge, two cinemas, backstage, a service duct, a counterweight tower, and the rooftop beacon. The second cinema pushed the idea further: screen-side switches and film splice tape alter machinery in the theatre.</p><div class="mini-chips"><span>7 connected zones</span><span>Two-way puzzle links</span><span>MetaSounds pass</span></div></div></article>
+        <article class="timeline-entry"><div class="timeline-date"><span>14 NOV</span><i></i></div><div class="timeline-content"><p class="timeline-tag">ATMOSPHERE & READABILITY</p><h3>Cold theatre. Warm lantern.</h3><p>The lighting pass brought the spaces into one language: cool blue-grey rooms, warm accents around the windows and lantern, thinner fog, and enough fill to keep important shapes readable. The goal was mood that still served play.</p><div class="mini-chips"><span>Cool shadow</span><span>Amber focal light</span><span>Painterly finish</span></div></div></article>
+      </div>
+    </section>
+
+    <section class="evidence-section">
+      <div class="section-wrap">
+        <div class="section-kicker"><span>FRAMES FROM THE BUILD</span><span>05 SELECTED SHOTS</span></div>
+        <div class="evidence-heading"><div><p class="eyebrow">Evidence from the playable route</p><h2>Not just the poster.<br><em>The spaces we built.</em></h2></div><p>Real screenshots from the jam build: the route, the projection puzzles, and the scale of the theatre around them.</p></div>
+        <div class="screenshot-grid">
+          <figure class="shot shot-wide"><button class="shot-open" type="button" aria-label="Enlarge Bridge and opening portal screenshot"><img src="assets/devlog/screenshots/shot_01_bridge_p01.png" alt="Bridge approach and opening portal in the 3D theatre." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>01 · THE BRIDGE</span><b>The first doorway into the film</b></figcaption></figure>
+          <figure class="shot"><button class="shot-open" type="button" aria-label="Enlarge first cinema puzzle screenshot"><img src="assets/devlog/screenshots/shot_02_cinema1_film2d.png" alt="A projected 2D cinema puzzle with a movable wagon and rail clamp." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>02 · CINEMA ONE</span><b>A shadow becomes a platform</b></figcaption></figure>
+          <figure class="shot"><button class="shot-open" type="button" aria-label="Enlarge backstage dolly screenshot"><img src="assets/devlog/screenshots/shot_03_backstage_dolly.png" alt="Backstage dolly puzzle and elevated catwalk." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>03 · BACKSTAGE</span><b>Move the set, change the screen</b></figcaption></figure>
+          <figure class="shot"><button class="shot-open" type="button" aria-label="Enlarge second cinema puzzle screenshot"><img src="assets/devlog/screenshots/shot_04_cinema2_film2d.png" alt="The second cinema's industrial film world and machinery puzzle." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>04 · CINEMA TWO</span><b>Switches on both sides of the screen</b></figcaption></figure>
+          <figure class="shot shot-wide"><button class="shot-open" type="button" aria-label="Enlarge rooftop finale screenshot"><img src="assets/devlog/screenshots/shot_05_tower_roof_finale.png" alt="The roof and final beacon at the end of the seven-zone route." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>05 · THE LAST LANTERN</span><b>A final light above the theatre</b></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass-box section-wrap" id="glass-box">
+      <div class="section-kicker"><span>HOW THE CUT WAS MADE</span><span>04 — 04</span></div>
+      <div class="glass-heading"><p class="eyebrow">Human-directed. AI-assisted. Tested in-engine.</p><h2>The tools can make a frame.<br><em>Someone still has to direct it.</em></h2><p class="glass-lead">This is the part we want to keep visible. AI made iteration faster, but every useful result still had to fit the game, survive in Unreal, and make the next player action clearer.</p></div>
+      <div class="glass-grid">
+        <article class="glass-card"><span class="glass-index">01 / DIRECTION</span><h3>Set the intention.</h3><p>The human chose the theme interpretation, the two-world mechanic, the mood, and what a player should understand in each scene.</p><div class="glass-stamp">HUMAN DECISION</div></article>
+        <article class="glass-card"><span class="glass-index">02 / ITERATION</span><h3>Ask for options, then edit.</h3><p>AI assistance supported concept exploration, code and script drafts, and production notes. Generated material was a starting point, not an automatic approval.</p><div class="glass-stamp">AI-ASSISTED</div></article>
+        <article class="glass-card"><span class="glass-index">03 / INTEGRATION</span><h3>Bring it into the real scene.</h3><p>Unreal Engine 5.9 and Blender were used to assemble and shape the spaces. The result had to work with the existing camera, collision, and puzzle logic.</p><div class="glass-stamp">ENGINE + DCC</div></article>
+        <article class="glass-card"><span class="glass-index">04 / FEEDBACK</span><h3>Play it. Reject what fails.</h3><p>The build was checked in-engine. Overexposed lights and blocked passages were found in play, then corrected and checked again.</p><div class="glass-stamp">PLAYTEST → REVISION</div></article>
+      </div>
+      <div class="glass-footnote"><span class="footnote-mark">✳</span><p><b>What this log is:</b> a record of decisions, changes, and in-engine evidence. It does not claim that every generated concept or draft shipped in the game.</p></div>
+    </section>
+
+    <section class="closing">
+      <div class="closing-glow"></div>
+      <div class="closing-content">
+        <p class="eyebrow">THE SCREEN IS STILL OPEN</p><h2>One last light.<br><em>One more cut.</em></h2>
+        <p>Step into the theatre and see what the cat and the girl can change together.</p>
+        <a class="button button-gold" href="https://bpgame.itch.io/last-lantern-directors-cut" target="_blank" rel="noreferrer">Visit the game on itch.io <span aria-hidden="true">↗</span></a>
+        <a class="jam-link" href="https://itch.io/jam/2026-epic-ai-megajam" target="_blank" rel="noreferrer">Made for the 2026 Epic AI MegaJam <span aria-hidden="true">↗</span></a>
+      </div><div class="closing-film" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#top">LAST LANTERN <span>·</span> DIRECTOR’S CUT</a><span>MADE IN THE WINGS, UNDER ONE VERY SMALL LANTERN.</span><a href="#top" class="back-top">BACK TO THE FIRST FRAME ↑</a></footer>
+  <dialog class="lightbox" aria-label="Expanded game screenshot"><button class="lightbox-close" type="button" aria-label="Close image">×</button><img src="" alt=""><p></p></dialog>
+  <script src="script.js"></script>
 </body>
 </html>
+
