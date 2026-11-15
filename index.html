@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body><div class="reel-progress" aria-hidden="true"><span></span></div>
   <a class="skip-link" href="#main">Skip to story</a>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Last Lantern devlog home">
@@ -28,7 +28,7 @@
       <a href="#journal">Build journal</a>
       <a href="#glass-box">Glass Box</a>
     </nav>
-    <a class="nav-cta" href="https://bpgame.itch.io/last-lantern-directors-cut" target="_blank" rel="noreferrer">Play the cut <span aria-hidden="true">↗</span></a>
+<label class="language-picker"><span class="sr-only" data-i18n="languageLabel">Language</span><select id="languageSelect" aria-label="Select language"><option value="en">English</option><option value="ru">Русский</option><option value="es">Español</option><option value="fr">Français</option></select></label>    <a class="nav-cta" href="https://bpgame.itch.io/last-lantern-directors-cut" target="_blank" rel="noreferrer">Play the cut <span aria-hidden="true">↗</span></a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
   </header>
 
@@ -92,29 +92,44 @@
     </section>
 
     <section class="journal section-wrap" id="journal">
-      <div class="section-kicker"><span>THE BUILD JOURNAL</span><span>03 — 04</span></div>
+      <div class="section-kicker"><span>THE BUILD JOURNAL</span><span>00 — 04</span></div>
       <div class="journal-title">
-        <div><p class="eyebrow">From a blank screen to a connected route</p><h2>Every cut left<br><em>something to fix.</em></h2></div>
-        <p class="journal-intro">Four days, a playable slice, then the honest work: test what is there, find where the picture falls apart, and recut it.</p>
+        <div><p class="eyebrow">Day 0 → Day 4 · A solo production log</p><h2>From the first bridge<br><em>to the final cut.</em></h2></div>
+        <p class="journal-intro">A transparent record of the jam: engine setup, the two-world core, lighting fixes, a custom animated cat, three distinct film puzzles, and the final Shipping build.</p>
+        <div class="mini-chips journal-chips"><span>EPIC AI MEGAJAM 2026</span><span>SOLO DRIVER</span><span>GLASS BOX</span><span>RENDER ROYALTY</span><span>HYPER3D RODIN</span></div>
       </div>
       <div class="timeline">
-        <article class="timeline-entry"><div class="timeline-date"><span>12 NOV</span><i></i></div><div class="timeline-content"><p class="timeline-tag">THE FIRST PLAYABLE</p><h3>Start with the relationship.</h3><p>The theme became a 2.5D puzzle platformer: a 3D cat in the theatre and a 2D girl inside the projected film. The first Unreal Engine 5.9 greybox focused on the hand-off between them before adding detail.</p><div class="mini-chips"><span>UE 5.9</span><span>Playable greybox</span><span>3D ↔ 2D</span></div></div></article>
-        <article class="timeline-entry"><div class="timeline-date"><span>13 NOV</span><i></i></div><div class="timeline-content"><p class="timeline-tag">THE FIRST PLAYTEST</p><h3>The light looked dramatic. The game did not read.</h3><p>Early lighting washed out silhouettes, while a few room transitions blocked the cat. We pulled back the exposure, separated the foreground from the projection, and checked the floor and portal clearances across the route.</p><div class="pull-quote"><span>“A beautiful beam is no good if you can’t see where to go.”</span><small>THE PLAYTEST NOTE THAT CHANGED THE PASS</small></div><p class="evidence-line"><b>What changed:</b> the documented validation pass reports 0 failed floor and portal clearance checks across the seven-zone route.</p></div></article>
-        <article class="timeline-entry"><div class="timeline-date"><span>13 NOV</span><i></i></div><div class="timeline-content"><p class="timeline-tag">THE DIRECTOR’S CUT</p><h3>Seven zones became one journey.</h3><p>The route connected a bridge, two cinemas, backstage, a service duct, a counterweight tower, and the rooftop beacon. The second cinema pushed the idea further: screen-side switches and film splice tape alter machinery in the theatre.</p><div class="mini-chips"><span>7 connected zones</span><span>Two-way puzzle links</span><span>MetaSounds pass</span></div></div></article>
-        <article class="timeline-entry"><div class="timeline-date"><span>14 NOV</span><i></i></div><div class="timeline-content"><p class="timeline-tag">ATMOSPHERE & READABILITY</p><h3>Cold theatre. Warm lantern.</h3><p>The lighting pass brought the spaces into one language: cool blue-grey rooms, warm accents around the windows and lantern, thinner fog, and enough fill to keep important shapes readable. The goal was mood that still served play.</p><div class="mini-chips"><span>Cool shadow</span><span>Amber focal light</span><span>Painterly finish</span></div></div></article>
+        <article class="timeline-entry"><div class="timeline-date"><span data-i18n="d0Date">DAY 0 · NOV 11</span><i></i></div><div class="timeline-content"><p class="timeline-tag" data-i18n="d0Tag">FOUNDATION</p><h3 data-i18n="d0Title">Make the pipeline dependable.</h3><p data-i18n="d0Copy">Set up Unreal Engine 5.9 and the unreal-mcp bridge, then connected AI asset generation, headless Blender cleanup, and Unreal import into one repeatable workflow. Performance settings were tuned for a 6 GB graphics card.</p><div class="mini-chips"><span>UE 5.9</span><span>unreal-mcp</span><span>Blender 4.2</span></div></div></article>
+        <article class="timeline-entry"><div class="timeline-date"><span data-i18n="d1Date">DAY 1 · NOV 12</span><i></i></div><div class="timeline-content"><p class="timeline-tag" data-i18n="d1Tag">THE TWO-WORLD CORE</p><h3 data-i18n="d1Title">Turn a shadow into a path.</h3><p data-i18n="d1Copy">Built the C++ gameplay foundation for the 3D cat, the 2D girl, and the projector. A real prop in the spotlight casts a perspective silhouette onto the film plane, where it becomes a platform the girl can use.</p><div class="mini-chips"><span>3D → 2D shadows</span><span>Paper2D</span><span>C++20</span></div></div></article>
+        <article class="timeline-entry"><div class="timeline-date"><span data-i18n="d2Date">DAY 2 · NOV 13</span><i></i></div><div class="timeline-content"><p class="timeline-tag" data-i18n="d2Tag">THE FIRST PLAYTEST</p><h3 data-i18n="d2Title">Fix the flashbang before adding polish.</h3><p data-i18n="d2Copy">The first playtest exposed blown-out lighting and passages too narrow for the cat. A stencil-masked painterly post-process kept the 3D backstage moody while preserving crisp 2D screens; clearances and transitions were checked across the route.</p><div class="mini-chips"><span>Custom Stencil 7</span><span>Readable projection</span><span>Route checks</span></div></div></article>
+        <article class="timeline-entry"><div class="timeline-date"><span data-i18n="d3Date">DAY 3 · NOV 14</span><i></i></div><div class="timeline-content"><p class="timeline-tag" data-i18n="d3Tag">THE WORLD TAKES SHAPE</p><h3 data-i18n="d3Title">Give the cat a full performance.</h3><p data-i18n="d3Copy">Assembled the continuous InsideSpacesLevel and rigged the stylized cat in Blender. Retargeting produced 33 gameplay animation clips, while a four-layer MetaSounds score let backstage, film, lantern, and threat shape the soundscape.</p><div class="mini-chips"><span>33 cat animations</span><span>MetaSounds</span><span>One connected level</span></div></div></article>
+        <article class="timeline-entry"><div class="timeline-date"><span data-i18n="d4Date">DAY 4 · NOV 15</span><i></i></div><div class="timeline-content"><p class="timeline-tag" data-i18n="d4Tag">THREE REELS · THREE PUZZLES</p><h3 data-i18n="d4Title">Make every screen play differently.</h3><p data-i18n="d4Copy">The reels became three distinct challenges: arrange the “SET HER FREE” intertitle, match boiler pressure with valves, then ring wind bells to lower a drawbridge. Hyper3D Rodin props, a spinning fan, an interactive lever, clapperboard menus, and a sunset finale completed the cut. A Shipping-only crash and a cooker blocker were tracked down and fixed.</p><div class="mini-chips"><span>Hyper3D Rodin</span><span>ESC / P pause menu</span><span>Win64 Shipping</span></div></div></article>
       </div>
     </section>
 
+    <section class="process-compare section-wrap" id="first-cut">
+      <div class="section-kicker"><span data-i18n="compareKicker">THE SAME PUZZLE, TWO CUTS</span><span data-i18n="compareDrag">DRAG TO COMPARE</span></div>
+      <div class="compare-grid">
+        <div class="compare-copy"><p class="eyebrow" data-i18n="compareEyebrow">A real iteration from the build</p><h2 data-i18n-html="compareHeading">First pass.<br><em>Then the pieces click.</em></h2><p data-i18n="compareBody">The intertitle puzzle began with loose letters and overlapping tiles. After the playtest pass, the arrangement became readable and the girl could move through the scene.</p><p class="compare-hint"><span aria-hidden="true">↔</span> <span data-i18n="compareHint">Drag the handle to reveal the solved frame.</span></p></div>
+        <div class="compare-frame" style="--compare:50%">
+          <img class="compare-before" src="assets/devlog/screenshots/intertitle_before.png" alt="The intertitle puzzle before the layout fix." loading="lazy" data-i18n-alt="compareBeforeAlt">
+          <div class="compare-after"><img src="assets/devlog/screenshots/shot_02_cinema1_film2d.png" alt="The same intertitle puzzle after the layout fix." loading="lazy" data-i18n-alt="compareAfterAlt"></div>
+          <span class="compare-label compare-label-before" data-i18n="compareBefore">BEFORE</span><span class="compare-label compare-label-after" data-i18n="compareAfter">AFTER</span>
+          <div class="compare-handle" aria-hidden="true"><span></span></div>
+          <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Compare the first and solved puzzle frames" data-i18n-aria="compareRange">
+        </div>
+      </div>
+    </section>
     <section class="evidence-section">
       <div class="section-wrap">
-        <div class="section-kicker"><span>FRAMES FROM THE BUILD</span><span>05 SELECTED SHOTS</span></div>
-        <div class="evidence-heading"><div><p class="eyebrow">Evidence from the playable route</p><h2>Not just the poster.<br><em>The spaces we built.</em></h2></div><p>Real screenshots from the jam build: the route, the projection puzzles, and the scale of the theatre around them.</p></div>
+        <div class="section-kicker"><span>LATEST PIE FRAMES</span><span>05 SELECTED SHOTS</span></div>
+        <div class="evidence-heading"><div><p class="eyebrow">Evidence from the playable route</p><h2>Not just the poster.<br><em>The spaces we built.</em></h2></div><p>Recent playable captures: the opening sequence, a solved film puzzle, and the finished sunset finale.</p></div>
         <div class="screenshot-grid">
-          <figure class="shot shot-wide"><button class="shot-open" type="button" aria-label="Enlarge Bridge and opening portal screenshot"><img src="assets/devlog/screenshots/shot_01_bridge_p01.png" alt="Bridge approach and opening portal in the 3D theatre." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>01 · THE BRIDGE</span><b>The first doorway into the film</b></figcaption></figure>
-          <figure class="shot"><button class="shot-open" type="button" aria-label="Enlarge first cinema puzzle screenshot"><img src="assets/devlog/screenshots/shot_02_cinema1_film2d.png" alt="A projected 2D cinema puzzle with a movable wagon and rail clamp." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>02 · CINEMA ONE</span><b>A shadow becomes a platform</b></figcaption></figure>
-          <figure class="shot"><button class="shot-open" type="button" aria-label="Enlarge backstage dolly screenshot"><img src="assets/devlog/screenshots/shot_03_backstage_dolly.png" alt="Backstage dolly puzzle and elevated catwalk." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>03 · BACKSTAGE</span><b>Move the set, change the screen</b></figcaption></figure>
-          <figure class="shot"><button class="shot-open" type="button" aria-label="Enlarge second cinema puzzle screenshot"><img src="assets/devlog/screenshots/shot_04_cinema2_film2d.png" alt="The second cinema's industrial film world and machinery puzzle." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>04 · CINEMA TWO</span><b>Switches on both sides of the screen</b></figcaption></figure>
-          <figure class="shot shot-wide"><button class="shot-open" type="button" aria-label="Enlarge rooftop finale screenshot"><img src="assets/devlog/screenshots/shot_05_tower_roof_finale.png" alt="The roof and final beacon at the end of the seven-zone route." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>05 · THE LAST LANTERN</span><b>A final light above the theatre</b></figcaption></figure>
+          <figure class="shot shot-wide"><button class="shot-open" type="button" aria-label="Enlarge opening dance screenshot"><img src="assets/devlog/screenshots/shot_01_bridge_p01.png" alt="The girl and cat dance together inside the warm sepia opening film." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>01 · OPENING DANCE</span><b>The first scene in motion</b></figcaption></figure>
+          <figure class="shot"><button class="shot-open" type="button" aria-label="Enlarge solved intertitle screenshot"><img src="assets/devlog/screenshots/shot_02_cinema1_film2d.png" alt="A solved intertitle puzzle inside the ornate projected theatre." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>02 · REEL ONE — SOLVED</span><b>The word puzzle comes together</b></figcaption></figure>
+          <figure class="shot"><button class="shot-open" type="button" aria-label="Enlarge last reel screenshot"><img src="assets/devlog/screenshots/shot_03_backstage_dolly.png" alt="The girl and cat approach the arch in the final watercolor reel." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>03 · THE LAST REEL</span><b>The painted world opens up</b></figcaption></figure>
+          <figure class="shot"><button class="shot-open" type="button" aria-label="Enlarge sunset walk screenshot"><img src="assets/devlog/screenshots/shot_04_cinema2_film2d.png" alt="The girl and cat walk into the warm watercolor sunset." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>04 · SUNSET WALK</span><b>Walking toward the last light</b></figcaption></figure>
+          <figure class="shot shot-wide"><button class="shot-open" type="button" aria-label="Enlarge ending slate screenshot"><img src="assets/devlog/screenshots/shot_05_tower_roof_finale.png" alt="The final cut closes on the clapperboard wrap screen." loading="lazy"><span class="shot-zoom" aria-hidden="true">↗</span></button><figcaption><span>05 · THAT’S A WRAP</span><b>The end of this reel</b></figcaption></figure>
         </div>
       </div>
     </section>
@@ -144,7 +159,10 @@
 
   <footer class="site-footer"><a class="footer-brand" href="#top">LAST LANTERN <span>·</span> DIRECTOR’S CUT</a><span>MADE IN THE WINGS, UNDER ONE VERY SMALL LANTERN.</span><a href="#top" class="back-top">BACK TO THE FIRST FRAME ↑</a></footer>
   <dialog class="lightbox" aria-label="Expanded game screenshot"><button class="lightbox-close" type="button" aria-label="Close image">×</button><img src="" alt=""><p></p></dialog>
-  <script src="script.js"></script>
+  <script src="assets/devlog/locale-ru.js"></script><script src="assets/devlog/locale-es.js"></script><script src="assets/devlog/locale-fr.js"></script><script src="script.js"></script>
 </body>
 </html>
+
+
+
 
